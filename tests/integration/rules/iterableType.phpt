@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::iterableType()->check(3);
+    $input_0 = 3;
+    v::iterableType()->check($input_0);
 } catch (IterableTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::iterableType())->check([2, 3]);
+    $input_0 = [2, 3];
+    v::not(v::iterableType())->check($input_0);
 } catch (IterableTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::iterableType()->assert('String');
+    $input_0 = 'String';
+    v::iterableType()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::iterableType())->assert(new stdClass());
+    $input_0 = new stdClass();
+    v::not(v::iterableType())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

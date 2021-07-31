@@ -55,7 +55,7 @@ final class KeyValue extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         $rule = $this->getRule($input);
 
@@ -69,7 +69,7 @@ final class KeyValue extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         $rule = $this->getRule($input);
 
@@ -83,7 +83,7 @@ final class KeyValue extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         try {
             $rule = $this->getRule($input);
@@ -97,7 +97,7 @@ final class KeyValue extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function reportError($input, array $extraParams = []): ValidationException
+    public function reportError(&$input, array $extraParams = []): ValidationException
     {
         try {
             return $this->overwriteExceptionParams($this->getRule($input)->reportError($input));

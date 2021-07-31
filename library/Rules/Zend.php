@@ -58,7 +58,7 @@ final class Zend extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         $validator = clone $this->zendValidator;
         if ($validator->isValid($input)) {
@@ -85,7 +85,7 @@ final class Zend extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         $validator = clone $this->zendValidator;
         if ($validator->isValid($input)) {
@@ -102,7 +102,7 @@ final class Zend extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return (clone $this->zendValidator)->isValid($input);
     }

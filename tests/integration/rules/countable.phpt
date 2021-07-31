@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::countable()->check(1.0);
+    $input_0 = 1.0;
+    v::countable()->check($input_0);
 } catch (CountableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::countable())->check([]);
+    $input_0 = [];
+    v::not(v::countable())->check($input_0);
 } catch (CountableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::countable()->assert('Not countable!');
+    $input_0 = 'Not countable!';
+    v::countable()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::countable())->assert(new ArrayObject());
+    $input_0 = new ArrayObject();
+    v::not(v::countable())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

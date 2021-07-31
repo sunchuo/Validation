@@ -24,13 +24,15 @@ $validator = v::not(
 );
 
 try {
-    $validator->check(2);
+    $input_0 = 2;
+    $validator->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    $validator->assert(2);
+    $input_0 = 2;
+    $validator->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

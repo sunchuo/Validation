@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NullTypeException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::nullType()->check('');
+    $input_0 = '';
+    v::nullType()->check($input_0);
 } catch (NullTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::nullType())->check(null);
+    $input_0 = null;
+    v::not(v::nullType())->check($input_0);
 } catch (NullTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::nullType()->assert(false);
+    $input_0 = false;
+    v::nullType()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::nullType())->assert(null);
+    $input_0 = null;
+    v::not(v::nullType())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

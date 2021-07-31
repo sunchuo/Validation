@@ -56,7 +56,7 @@ final class KeySet extends AbstractWrapper
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         if (!$this->hasValidStructure($input)) {
             throw $this->reportError($input);
@@ -68,7 +68,7 @@ final class KeySet extends AbstractWrapper
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         if (!$this->hasValidStructure($input)) {
             throw $this->reportError($input);
@@ -80,7 +80,7 @@ final class KeySet extends AbstractWrapper
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (!$this->hasValidStructure($input)) {
             return false;

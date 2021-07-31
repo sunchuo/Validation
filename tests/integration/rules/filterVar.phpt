@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::filterVar(FILTER_VALIDATE_IP)->check(42);
+    $input_0 = 42;
+    v::filterVar(FILTER_VALIDATE_IP)->check($input_0);
 } catch (FilterVarException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::filterVar(FILTER_VALIDATE_BOOLEAN))->check('On');
+    $input_0 = 'On';
+    v::not(v::filterVar(FILTER_VALIDATE_BOOLEAN))->check($input_0);
 } catch (FilterVarException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::filterVar(FILTER_VALIDATE_EMAIL)->assert(1.5);
+    $input_0 = 1.5;
+    v::filterVar(FILTER_VALIDATE_EMAIL)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::filterVar(FILTER_VALIDATE_FLOAT))->assert(1.0);
+    $input_0 = 1.0;
+    v::not(v::filterVar(FILTER_VALIDATE_FLOAT))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

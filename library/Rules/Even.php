@@ -29,7 +29,7 @@ final class Even extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (filter_var($input, FILTER_VALIDATE_INT) === false) {
             return false;

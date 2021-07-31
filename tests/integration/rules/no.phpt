@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NoException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::not(v::no())->check('No');
+    $input_0 = 'No';
+    v::not(v::no())->check($input_0);
 } catch (NoException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::no()->check('Yes');
+    $input_0 = 'Yes';
+    v::no()->check($input_0);
 } catch (NoException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::no())->assert('No');
+    $input_0 = 'No';
+    v::not(v::no())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::no()->assert('Yes');
+    $input_0 = 'Yes';
+    v::no()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

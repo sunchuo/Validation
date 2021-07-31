@@ -29,7 +29,7 @@ final class Executable extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if ($input instanceof SplFileInfo) {
             return $input->isExecutable();

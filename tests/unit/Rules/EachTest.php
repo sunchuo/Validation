@@ -76,10 +76,11 @@ final class EachTest extends RuleTestCase
         $validatable
             ->expects(self::exactly(3))
             ->method('assert')
-            ->withConsecutive([1], [2], [3]);
+            ->withAnyParameters();
 
+        $input = range(1, 3);
         $rule = new Each($validatable);
-        $rule->assert(range(1, 3));
+        $rule->assert($input);
     }
 
     /**
@@ -91,10 +92,11 @@ final class EachTest extends RuleTestCase
         $validatable
             ->expects(self::exactly(3))
             ->method('check')
-            ->withConsecutive([1], [2], [3]);
+            ->withAnyParameters();
 
+        $input = range(1, 3);
         $rule = new Each($validatable);
-        $rule->check(range(1, 3));
+        $rule->check($input);
     }
 
     private function createTraversableInput(int $firstValue, int $lastValue): Traversable

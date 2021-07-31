@@ -12,37 +12,43 @@ use Respect\Validation\Exceptions\NotBlankException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::notBlank()->check(null);
+    $input_0 = null;
+    v::notBlank()->check($input_0);
 } catch (NotBlankException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::notBlank()->setName('Field')->check(null);
+    $input_0 = null;
+    v::notBlank()->setName('Field')->check($input_0);
 } catch (NotBlankException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notBlank())->check(1);
+    $input_0 = 1;
+    v::not(v::notBlank())->check($input_0);
 } catch (NotBlankException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::notBlank()->assert('');
+    $input_0 = '';
+    v::notBlank()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::notBlank()->setName('Field')->assert('');
+    $input_0 = '';
+    v::notBlank()->setName('Field')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notBlank())->assert([1]);
+    $input_0 = [1];
+    v::not(v::notBlank())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::max(10)->check(11);
+    $input_0 = 11;
+    v::max(10)->check($input_0);
 } catch (MaxException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::max(10))->check(5);
+    $input_0 = 5;
+    v::not(v::max(10))->check($input_0);
 } catch (MaxException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::max('today')->assert('tomorrow');
+    $input_0 = 'tomorrow';
+    v::max('today')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::max('b'))->assert('a');
+    $input_0 = 'a';
+    v::not(v::max('b'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

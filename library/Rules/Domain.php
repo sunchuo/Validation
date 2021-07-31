@@ -61,7 +61,7 @@ final class Domain extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         $exceptions = [];
 
@@ -83,7 +83,7 @@ final class Domain extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         try {
             $this->assert($input);
@@ -97,7 +97,7 @@ final class Domain extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         try {
             $this->assert($input);

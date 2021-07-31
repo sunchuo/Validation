@@ -34,12 +34,10 @@ final class ExecutableTest extends RuleTestCase
      */
     public function providerForValidInput(): array
     {
-        $rule = new Executable();
-
         return [
-            [$rule, 'tests/fixtures/executable'],
-            [$rule, new SplFileInfo('tests/fixtures/executable')],
-            [$rule, new SplFileObject('tests/fixtures/executable')],
+            [new Executable(), 'tests/fixtures/executable'],
+            [new Executable(), new SplFileInfo('tests/fixtures/executable')],
+            [new Executable(), new SplFileObject('tests/fixtures/executable')],
         ];
     }
 
@@ -48,12 +46,10 @@ final class ExecutableTest extends RuleTestCase
      */
     public function providerForInvalidInput(): array
     {
-        $rule = new Executable();
-
         return [
-            [$rule, 'tests/fixtures/valid-image.gif'],
-            [$rule, new SplFileInfo('tests/fixtures/valid-image.jpg')],
-            [$rule, new SplFileObject('tests/fixtures/valid-image.png')],
+            [new Executable(), 'tests/fixtures/valid-image.gif'],
+            [new Executable(), new SplFileInfo('tests/fixtures/valid-image.jpg')],
+            [new Executable(), new SplFileObject('tests/fixtures/valid-image.png')],
         ];
     }
 }

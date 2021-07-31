@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\VowelException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::vowel()->check('b');
+    $input_0 = 'b';
+    v::vowel()->check($input_0);
 } catch (VowelException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::vowel('c')->check('d');
+    $input_0 = 'd';
+    v::vowel('c')->check($input_0);
 } catch (VowelException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::vowel())->check('a');
+    $input_0 = 'a';
+    v::not(v::vowel())->check($input_0);
 } catch (VowelException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::vowel('f'))->check('e');
+    $input_0 = 'e';
+    v::not(v::vowel('f'))->check($input_0);
 } catch (VowelException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::vowel()->assert('g');
+    $input_0 = 'g';
+    v::vowel()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::vowel('h')->assert('j');
+    $input_0 = 'j';
+    v::vowel('h')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::vowel())->assert('i');
+    $input_0 = 'i';
+    v::not(v::vowel())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::vowel('k'))->assert('o');
+    $input_0 = 'o';
+    v::not(v::vowel('k'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

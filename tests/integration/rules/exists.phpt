@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::exists()->check('/path/of/a/non-existent/file');
+    $input_0 = '/path/of/a/non-existent/file';
+    v::exists()->check($input_0);
 } catch (ExistsException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::exists())->check('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::not(v::exists())->check($input_0);
 } catch (ExistsException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::exists()->assert('/path/of/a/non-existent/file');
+    $input_0 = '/path/of/a/non-existent/file';
+    v::exists()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::exists())->assert('tests/fixtures/valid-image.png');
+    $input_0 = 'tests/fixtures/valid-image.png';
+    v::not(v::exists())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

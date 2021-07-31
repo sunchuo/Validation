@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::image()->check('tests/fixtures/invalid-image.png');
+    $input_0 = 'tests/fixtures/invalid-image.png';
+    v::image()->check($input_0);
 } catch (ImageException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::image())->check('tests/fixtures/valid-image.png');
+    $input_0 = 'tests/fixtures/valid-image.png';
+    v::not(v::image())->check($input_0);
 } catch (ImageException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::image()->assert(new stdClass());
+    $input_0 = new stdClass();
+    v::image()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::image())->assert('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::not(v::image())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

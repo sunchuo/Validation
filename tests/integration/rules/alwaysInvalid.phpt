@@ -12,13 +12,15 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::alwaysInvalid()->check('whatever');
+    $input_0 = 'whatever';
+    v::alwaysInvalid()->check($input_0);
 } catch (AlwaysInvalidException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::alwaysInvalid()->assert('');
+    $input_0 = '';
+    v::alwaysInvalid()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

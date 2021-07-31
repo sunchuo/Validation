@@ -13,37 +13,43 @@ use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::call('trim', v::noWhitespace())->check(' two words ');
+    $input_0 = ' two words ';
+    v::call('trim', v::noWhitespace())->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::call('trim', v::stringType()))->check(' something ');
+    $input_0 = ' something ';
+    v::not(v::call('trim', v::stringType()))->check($input_0);
 } catch (CallException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::call('trim', v::alwaysValid())->check([]);
+    $input_0 = [];
+    v::call('trim', v::alwaysValid())->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::call('strval', v::intType())->assert(1234);
+    $input_0 = 1234;
+    v::call('strval', v::intType())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::call('is_float', v::boolType()))->assert(1.2);
+    $input_0 = 1.2;
+    v::not(v::call('is_float', v::boolType()))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::call('array_walk', v::alwaysValid())->assert(INF);
+    $input_0 = INF;
+    v::call('array_walk', v::alwaysValid())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

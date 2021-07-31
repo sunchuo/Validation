@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::instance(DateTime::class)->check('');
+    $input_0 = '';
+    v::instance(DateTime::class)->check($input_0);
 } catch (InstanceException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::instance(Traversable::class))->check(new ArrayObject());
+    $input_0 = new ArrayObject();
+    v::not(v::instance(Traversable::class))->check($input_0);
 } catch (InstanceException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::instance(ArrayIterator::class)->assert(new stdClass());
+    $input_0 = new stdClass();
+    v::instance(ArrayIterator::class)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::instance(stdClass::class))->assert(new stdClass());
+    $input_0 = new stdClass();
+    v::not(v::instance(stdClass::class))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -33,7 +33,7 @@ final class PolishIdCard extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (!preg_match('/^[A-Z0-9]{9}$/', $input)) {
             return false;

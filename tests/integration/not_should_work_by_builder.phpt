@@ -11,7 +11,8 @@ require 'vendor/autoload.php';
 
 use Respect\Validation\Validator;
 
-var_dump(Validator::not(Validator::intVal())->validate(10));
+$input_0 = 10;
+var_dump(Validator::not(Validator::intVal())->validate($input_0));
 ?>
 --EXPECT--
 bool(false)

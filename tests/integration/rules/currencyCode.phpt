@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::currencyCode()->check('batman');
+    $input_0 = 'batman';
+    v::currencyCode()->check($input_0);
 } catch (CurrencyCodeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::currencyCode())->check('BRL');
+    $input_0 = 'BRL';
+    v::not(v::currencyCode())->check($input_0);
 } catch (CurrencyCodeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::currencyCode()->assert('ppz');
+    $input_0 = 'ppz';
+    v::currencyCode()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::currencyCode())->assert('GBP');
+    $input_0 = 'GBP';
+    v::not(v::currencyCode())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

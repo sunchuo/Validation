@@ -52,12 +52,13 @@ final class Call extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         $this->setErrorHandler($input);
 
         try {
-            $this->rule->assert(call_user_func($this->callable, $input));
+            $params = call_user_func($this->callable, $input);
+            $this->rule->assert($params);
         } catch (ValidationException $exception) {
             throw $exception;
         } catch (Throwable $throwable) {
@@ -70,12 +71,13 @@ final class Call extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         $this->setErrorHandler($input);
 
         try {
-            $this->rule->check(call_user_func($this->callable, $input));
+            $params = call_user_func($this->callable, $input);
+            $this->rule->check($params);
         } catch (ValidationException $exception) {
             throw $exception;
         } catch (Throwable $throwable) {
@@ -88,7 +90,7 @@ final class Call extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         try {
             $this->check($input);

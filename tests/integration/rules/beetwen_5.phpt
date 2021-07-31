@@ -12,7 +12,8 @@ use Respect\Validation\Exceptions\AllOfException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::not(v::between('a', 'b'))->assert('a');
+    $input_0 = 'a';
+    v::not(v::between('a', 'b'))->assert($input_0);
 } catch (AllOfException $e) {
     echo $e->getFullMessage();
 }

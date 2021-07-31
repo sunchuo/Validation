@@ -13,25 +13,29 @@ use Respect\Validation\Exceptions\NifException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::nif()->check('06357771Q');
+    $input_0 = '06357771Q';
+    v::nif()->check($input_0);
 } catch (NifException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::nif())->check('71110316C');
+    $input_0 = '71110316C';
+    v::not(v::nif())->check($input_0);
 } catch (NifException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::nif()->assert('06357771Q');
+    $input_0 = '06357771Q';
+    v::nif()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::nif())->assert('R1332622H');
+    $input_0 = 'R1332622H';
+    v::not(v::nif())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

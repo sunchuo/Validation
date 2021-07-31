@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::extension('png')->check('filename.txt');
+    $input_0 = 'filename.txt';
+    v::extension('png')->check($input_0);
 } catch (ExtensionException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::extension('gif'))->check('filename.gif');
+    $input_0 = 'filename.gif';
+    v::not(v::extension('gif'))->check($input_0);
 } catch (ExtensionException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::extension('mp3')->assert('filename.wav');
+    $input_0 = 'filename.wav';
+    v::extension('mp3')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::extension('png'))->assert('tests/fixtures/invalid-image.png');
+    $input_0 = 'tests/fixtures/invalid-image.png';
+    v::not(v::extension('png'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

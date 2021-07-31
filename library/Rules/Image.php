@@ -47,10 +47,12 @@ final class Image extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if ($input instanceof SplFileInfo) {
-            return $this->validate($input->getPathname());
+            $params = $input->getPathname();
+
+            return $this->validate($params);
         }
 
         if (!is_string($input)) {

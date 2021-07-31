@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::executable()->check('bar');
+    $input_0 = 'bar';
+    v::executable()->check($input_0);
 } catch (ExecutableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::executable())->check('tests/fixtures/executable');
+    $input_0 = 'tests/fixtures/executable';
+    v::not(v::executable())->check($input_0);
 } catch (ExecutableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::executable()->assert('bar');
+    $input_0 = 'bar';
+    v::executable()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::executable())->assert('tests/fixtures/executable');
+    $input_0 = 'tests/fixtures/executable';
+    v::not(v::executable())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

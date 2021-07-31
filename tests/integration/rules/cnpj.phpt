@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::cnpj()->check('não cnpj');
+    $input_0 = 'não cnpj';
+    v::cnpj()->check($input_0);
 } catch (CnpjException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::cnpj())->check('65.150.175/0001-20');
+    $input_0 = '65.150.175/0001-20';
+    v::not(v::cnpj())->check($input_0);
 } catch (CnpjException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::cnpj()->assert('test');
+    $input_0 = 'test';
+    v::cnpj()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::cnpj())->assert('65.150.175/0001-20');
+    $input_0 = '65.150.175/0001-20';
+    v::not(v::cnpj())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

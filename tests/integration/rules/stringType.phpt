@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\StringTypeException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::stringType()->check(42);
+    $input_0 = 42;
+    v::stringType()->check($input_0);
 } catch (StringTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::stringType())->check('foo');
+    $input_0 = 'foo';
+    v::not(v::stringType())->check($input_0);
 } catch (StringTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::stringType()->assert(true);
+    $input_0 = true;
+    v::stringType()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::stringType())->assert('bar');
+    $input_0 = 'bar';
+    v::not(v::stringType())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

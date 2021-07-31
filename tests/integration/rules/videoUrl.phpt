@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\VideoUrlException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::videoUrl()->check('example.com');
+    $input_0 = 'example.com';
+    v::videoUrl()->check($input_0);
 } catch (VideoUrlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::videoUrl('YouTube')->check('example.com');
+    $input_0 = 'example.com';
+    v::videoUrl('YouTube')->check($input_0);
 } catch (VideoUrlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::videoUrl())->check('https://player.vimeo.com/video/7178746722');
+    $input_0 = 'https://player.vimeo.com/video/7178746722';
+    v::not(v::videoUrl())->check($input_0);
 } catch (VideoUrlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::videoUrl('YouTube'))->check('https://www.youtube.com/embed/netHLn9TScY');
+    $input_0 = 'https://www.youtube.com/embed/netHLn9TScY';
+    v::not(v::videoUrl('YouTube'))->check($input_0);
 } catch (VideoUrlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::videoUrl()->assert('example.com');
+    $input_0 = 'example.com';
+    v::videoUrl()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::videoUrl('Vimeo')->assert('example.com');
+    $input_0 = 'example.com';
+    v::videoUrl('Vimeo')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::videoUrl())->assert('https://youtu.be/netHLn9TScY');
+    $input_0 = 'https://youtu.be/netHLn9TScY';
+    v::not(v::videoUrl())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::videoUrl('Vimeo'))->assert('https://vimeo.com/71787467');
+    $input_0 = 'https://vimeo.com/71787467';
+    v::not(v::videoUrl('Vimeo'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

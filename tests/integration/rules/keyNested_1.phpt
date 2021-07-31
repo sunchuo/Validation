@@ -23,9 +23,11 @@ $object = new stdClass();
 $object->foo = new stdClass();
 $object->foo->bar = 42;
 
-var_dump(v::keyNested('foo.bar.baz')->validate(['foo.bar.baz' => false]));
+$input_0 = ['foo.bar.baz' => false];
+$input_1 = new ArrayObject($array);
+var_dump(v::keyNested('foo.bar.baz')->validate($input_0));
 var_dump(v::keyNested('foo.bar')->validate($array));
-var_dump(v::keyNested('foo.bar')->validate(new ArrayObject($array)));
+var_dump(v::keyNested('foo.bar')->validate($input_1));
 var_dump(v::keyNested('foo.bar', v::negative())->validate($array));
 var_dump(v::keyNested('foo.bar')->validate($object));
 var_dump(v::keyNested('foo.bar', v::stringType())->validate($object));

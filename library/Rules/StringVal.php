@@ -28,7 +28,7 @@ final class StringVal extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return is_scalar($input) || (is_object($input) && method_exists($input, '__toString'));
     }

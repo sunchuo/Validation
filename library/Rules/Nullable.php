@@ -23,7 +23,7 @@ final class Nullable extends AbstractWrapper
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         if ($input === null) {
             return;
@@ -35,7 +35,7 @@ final class Nullable extends AbstractWrapper
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         if ($input === null) {
             return;
@@ -47,7 +47,7 @@ final class Nullable extends AbstractWrapper
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if ($input === null) {
             return true;

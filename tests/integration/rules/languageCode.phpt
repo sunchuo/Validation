@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::languageCode()->check(null);
+    $input_0 = null;
+    v::languageCode()->check($input_0);
 } catch (LanguageCodeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::languageCode())->check('pt');
+    $input_0 = 'pt';
+    v::not(v::languageCode())->check($input_0);
 } catch (LanguageCodeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::languageCode()->assert('por');
+    $input_0 = 'por';
+    v::languageCode()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::languageCode())->assert('en');
+    $input_0 = 'en';
+    v::not(v::languageCode())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\StartsWithException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::startsWith('b')->check(['a', 'b']);
+    $input_0 = ['a', 'b'];
+    v::startsWith('b')->check($input_0);
 } catch (StartsWithException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::startsWith(1.1))->check([1.1, 2.2]);
+    $input_0 = [1.1, 2.2];
+    v::not(v::startsWith(1.1))->check($input_0);
 } catch (StartsWithException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::startsWith('3.3', true)->assert([3.3, 4.4]);
+    $input_0 = [3.3, 4.4];
+    v::startsWith('3.3', true)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::startsWith('c'))->assert(['c', 'd']);
+    $input_0 = ['c', 'd'];
+    v::not(v::startsWith('c'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

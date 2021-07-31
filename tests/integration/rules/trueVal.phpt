@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\TrueValException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::trueVal()->check(false);
+    $input_0 = false;
+    v::trueVal()->check($input_0);
 } catch (TrueValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::trueVal())->check(1);
+    $input_0 = 1;
+    v::not(v::trueVal())->check($input_0);
 } catch (TrueValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::trueVal()->assert(0);
+    $input_0 = 0;
+    v::trueVal()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::trueVal())->assert('true');
+    $input_0 = 'true';
+    v::not(v::trueVal())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

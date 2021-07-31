@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::infinite()->check(-9);
+    $input_0 = -9;
+    v::infinite()->check($input_0);
 } catch (InfiniteException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::infinite())->check(INF);
+    $input_0 = INF;
+    v::not(v::infinite())->check($input_0);
 } catch (InfiniteException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::infinite()->assert(new stdClass());
+    $input_0 = new stdClass();
+    v::infinite()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::infinite())->assert(INF * -1);
+    $input_0 = INF * -1;
+    v::not(v::infinite())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

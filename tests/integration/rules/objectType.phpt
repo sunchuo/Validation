@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\ObjectTypeException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::objectType()->check([]);
+    $input_0 = [];
+    v::objectType()->check($input_0);
 } catch (ObjectTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::objectType())->check(new stdClass());
+    $input_0 = new stdClass();
+    v::not(v::objectType())->check($input_0);
 } catch (ObjectTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::objectType()->assert('test');
+    $input_0 = 'test';
+    v::objectType()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::objectType())->assert(new ArrayObject());
+    $input_0 = new ArrayObject();
+    v::not(v::objectType())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

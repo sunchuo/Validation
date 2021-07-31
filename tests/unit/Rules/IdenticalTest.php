@@ -62,7 +62,8 @@ final class IdenticalTest extends RuleTestCase
     {
         $compareTo = new stdClass();
         $rule = new Identical($compareTo);
-        $exception = $rule->reportError('input');
+        $input_0 = 'input';
+        $exception = $rule->reportError($input_0);
 
         self::assertSame($compareTo, $exception->getParam('compareTo'));
     }

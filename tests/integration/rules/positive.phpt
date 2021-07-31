@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\PositiveException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::positive()->check(-10);
+    $input_0 = -10;
+    v::positive()->check($input_0);
 } catch (PositiveException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::positive())->check(16);
+    $input_0 = 16;
+    v::not(v::positive())->check($input_0);
 } catch (PositiveException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::positive()->assert('a');
+    $input_0 = 'a';
+    v::positive()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::positive())->assert('165');
+    $input_0 = '165';
+    v::not(v::positive())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::control()->check('16-50');
+    $input_0 = '16-50';
+    v::control()->check($input_0);
 } catch (ControlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::control('16')->check('16-50');
+    $input_0 = '16-50';
+    v::control('16')->check($input_0);
 } catch (ControlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::control())->check("\n");
+    $input_0 = "\n";
+    v::not(v::control())->check($input_0);
 } catch (ControlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::control('16'))->check("16\n");
+    $input_0 = "16\n";
+    v::not(v::control('16'))->check($input_0);
 } catch (ControlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::control()->assert('Foo');
+    $input_0 = 'Foo';
+    v::control()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::control('Bar')->assert('Foo');
+    $input_0 = 'Foo';
+    v::control('Bar')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::control())->assert("\n");
+    $input_0 = "\n";
+    v::not(v::control())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::control('Bar'))->assert("Bar\n");
+    $input_0 = "Bar\n";
+    v::not(v::control('Bar'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

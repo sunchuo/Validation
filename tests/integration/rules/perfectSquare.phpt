@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\PerfectSquareException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::perfectSquare()->check(250);
+    $input_0 = 250;
+    v::perfectSquare()->check($input_0);
 } catch (PerfectSquareException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::perfectSquare())->check(9);
+    $input_0 = 9;
+    v::not(v::perfectSquare())->check($input_0);
 } catch (PerfectSquareException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::perfectSquare()->assert(7);
+    $input_0 = 7;
+    v::perfectSquare()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::perfectSquare())->assert(400);
+    $input_0 = 400;
+    v::not(v::perfectSquare())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -13,25 +13,29 @@ use Respect\Validation\Exceptions\SymbolicLinkException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::symbolicLink()->check('tests/fixtures/fake-filename');
+    $input_0 = 'tests/fixtures/fake-filename';
+    v::symbolicLink()->check($input_0);
 } catch (SymbolicLinkException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::symbolicLink())->check('tests/fixtures/symbolic-link');
+    $input_0 = 'tests/fixtures/symbolic-link';
+    v::not(v::symbolicLink())->check($input_0);
 } catch (SymbolicLinkException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::symbolicLink()->assert('tests/fixtures/fake-filename');
+    $input_0 = 'tests/fixtures/fake-filename';
+    v::symbolicLink()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::symbolicLink())->assert('tests/fixtures/symbolic-link');
+    $input_0 = 'tests/fixtures/symbolic-link';
+    v::not(v::symbolicLink())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

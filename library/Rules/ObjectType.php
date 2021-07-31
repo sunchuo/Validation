@@ -26,7 +26,7 @@ final class ObjectType extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return is_object($input);
     }

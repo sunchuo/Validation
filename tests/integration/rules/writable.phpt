@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\WritableException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::writable()->check('/path/of/a/valid/writable/file.txt');
+    $input_0 = '/path/of/a/valid/writable/file.txt';
+    v::writable()->check($input_0);
 } catch (WritableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::writable())->check('tests/fixtures/valid-image.png');
+    $input_0 = 'tests/fixtures/valid-image.png';
+    v::not(v::writable())->check($input_0);
 } catch (WritableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::writable()->assert([]);
+    $input_0 = [];
+    v::writable()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::writable())->assert('tests/fixtures/invalid-image.png');
+    $input_0 = 'tests/fixtures/invalid-image.png';
+    v::not(v::writable())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

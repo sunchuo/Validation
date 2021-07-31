@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::alpha()->check('aaa%a');
+    $input_0 = 'aaa%a';
+    v::alpha()->check($input_0);
 } catch (AlphaException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::alpha(' ')->check('bbb%b');
+    $input_0 = 'bbb%b';
+    v::alpha(' ')->check($input_0);
 } catch (AlphaException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::alpha())->check('ccccc');
+    $input_0 = 'ccccc';
+    v::not(v::alpha())->check($input_0);
 } catch (AlphaException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::alpha('% '))->check('ddd%d');
+    $input_0 = 'ddd%d';
+    v::not(v::alpha('% '))->check($input_0);
 } catch (AlphaException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::alpha()->assert('eee^e');
+    $input_0 = 'eee^e';
+    v::alpha()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::alpha())->assert('fffff');
+    $input_0 = 'fffff';
+    v::not(v::alpha())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::alpha('* &%')->assert('ggg^g');
+    $input_0 = 'ggg^g';
+    v::alpha('* &%')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::alpha('^'))->assert('hhh^h');
+    $input_0 = 'hhh^h';
+    v::not(v::alpha('^'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

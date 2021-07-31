@@ -12,7 +12,8 @@ use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Rules\Instance;
 
 try {
-    (new Instance('stdClass'))->setTemplate('invalid object')->assert('test');
+    $input_0 = 'test';
+    (new Instance('stdClass'))->setTemplate('invalid object')->assert($input_0);
 } catch (ValidationException $exception) {
     print_r($exception->getMessage());
 }

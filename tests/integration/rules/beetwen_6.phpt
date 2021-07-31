@@ -12,7 +12,8 @@ use Respect\Validation\Exceptions\AllOfException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::not(v::intType()->between(1, 42))->assert(41);
+    $input_0 = 41;
+    v::not(v::intType()->between(1, 42))->assert($input_0);
 } catch (AllOfException $e) {
     echo $e->getFullMessage();
 }

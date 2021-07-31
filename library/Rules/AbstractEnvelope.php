@@ -50,7 +50,7 @@ abstract class AbstractEnvelope extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return $this->validatable->validate($input);
     }
@@ -58,7 +58,7 @@ abstract class AbstractEnvelope extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function reportError($input, array $extraParameters = []): ValidationException
+    public function reportError(&$input, array $extraParameters = []): ValidationException
     {
         return parent::reportError($input, $extraParameters + $this->parameters);
     }

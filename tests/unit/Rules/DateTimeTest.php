@@ -87,7 +87,8 @@ final class DateTimeTest extends RuleTestCase
     {
         $format = 'F jS, Y';
         $equals = new DateTime($format);
-        $exception = $equals->reportError('input');
+        $input = 'input';
+        $exception = $equals->reportError($input);
 
         self::assertSame($format, $exception->getParam('format'));
     }

@@ -34,7 +34,7 @@ abstract class AbstractSearcher extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         $dataSource = $this->getDataSource();
         if ($this->isUndefined($input) && empty($dataSource)) {

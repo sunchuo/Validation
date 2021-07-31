@@ -89,7 +89,8 @@ final class TimeTest extends RuleTestCase
     {
         $format = 'g:i A';
         $equals = new Time($format);
-        $exception = $equals->reportError('input');
+        $input_0 = 'input';
+        $exception = $equals->reportError($input_0);
 
         self::assertSame($format, $exception->getParam('format'));
     }

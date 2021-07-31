@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::floatVal()->check('a');
+    $input_0 = 'a';
+    v::floatVal()->check($input_0);
 } catch (FloatValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::floatVal())->check(165.0);
+    $input_0 = 165.0;
+    v::not(v::floatVal())->check($input_0);
 } catch (FloatValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::floatVal()->assert('a');
+    $input_0 = 'a';
+    v::floatVal()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::floatVal())->assert('165.7');
+    $input_0 = '165.7';
+    v::not(v::floatVal())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

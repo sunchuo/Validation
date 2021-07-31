@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NumberException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::number()->check(acos(1.01));
+    $input_0 = acos(1.01);
+    v::number()->check($input_0);
 } catch (NumberException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::number())->check(42);
+    $input_0 = 42;
+    v::not(v::number())->check($input_0);
 } catch (NumberException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::number()->assert(NAN);
+    $input_0 = NAN;
+    v::number()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::number())->assert(42);
+    $input_0 = 42;
+    v::not(v::number())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

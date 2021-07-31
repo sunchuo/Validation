@@ -51,7 +51,7 @@ final class In extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if ($this->compareIdentical) {
             return $this->validateIdentical($input);

@@ -15,61 +15,71 @@ use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::keyValue('foo', 'equals', 'bar')->check(['bar' => 42]);
+    $input_0 = ['bar' => 42];
+    v::keyValue('foo', 'equals', 'bar')->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::keyValue('foo', 'equals', 'bar')->check(['foo' => 42]);
+    $input_0 = ['foo' => 42];
+    v::keyValue('foo', 'equals', 'bar')->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::keyValue('foo', 'json', 'bar')->check(['foo' => 42, 'bar' => 43]);
+    $input_0 = ['foo' => 42, 'bar' => 43];
+    v::keyValue('foo', 'json', 'bar')->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::keyValue('foo', 'equals', 'bar')->check(['foo' => 1, 'bar' => 2]);
+    $input_0 = ['foo' => 1, 'bar' => 2];
+    v::keyValue('foo', 'equals', 'bar')->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::keyValue('foo', 'equals', 'bar'))->check(['foo' => 1, 'bar' => 1]);
+    $input_0 = ['foo' => 1, 'bar' => 1];
+    v::not(v::keyValue('foo', 'equals', 'bar'))->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::keyValue('foo', 'equals', 'bar')->assert(['bar' => 42]);
+    $input_0 = ['bar' => 42];
+    v::keyValue('foo', 'equals', 'bar')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::keyValue('foo', 'equals', 'bar')->assert(['foo' => 42]);
+    $input_0 = ['foo' => 42];
+    v::keyValue('foo', 'equals', 'bar')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::keyValue('foo', 'json', 'bar')->assert(['foo' => 42, 'bar' => 43]);
+    $input_0 = ['foo' => 42, 'bar' => 43];
+    v::keyValue('foo', 'json', 'bar')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::keyValue('foo', 'equals', 'bar')->assert(['foo' => 1, 'bar' => 2]);
+    $input_0 = ['foo' => 1, 'bar' => 2];
+    v::keyValue('foo', 'equals', 'bar')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::keyValue('foo', 'equals', 'bar'))->assert(['foo' => 1, 'bar' => 1]);
+    $input_0 = ['foo' => 1, 'bar' => 1];
+    v::not(v::keyValue('foo', 'equals', 'bar'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

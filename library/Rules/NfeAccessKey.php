@@ -35,7 +35,7 @@ final class NfeAccessKey extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (mb_strlen($input) !== 44) {
             return false;

@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::alnum()->check('abc%1');
+    $input_0 = 'abc%1';
+    v::alnum()->check($input_0);
 } catch (AlnumException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::alnum(' ')->check('abc%2');
+    $input_0 = 'abc%2';
+    v::alnum(' ')->check($input_0);
 } catch (AlnumException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::alnum())->check('abcd3');
+    $input_0 = 'abcd3';
+    v::not(v::alnum())->check($input_0);
 } catch (AlnumException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::alnum('% '))->check('abc%4');
+    $input_0 = 'abc%4';
+    v::not(v::alnum('% '))->check($input_0);
 } catch (AlnumException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::alnum()->assert('abc^1');
+    $input_0 = 'abc^1';
+    v::alnum()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::alnum())->assert('abcd2');
+    $input_0 = 'abcd2';
+    v::not(v::alnum())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::alnum('* &%')->assert('abc^3');
+    $input_0 = 'abc^3';
+    v::alnum('* &%')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::alnum('^'))->assert('abc^4');
+    $input_0 = 'abc^4';
+    v::not(v::alnum('^'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

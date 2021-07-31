@@ -13,25 +13,29 @@ use Respect\Validation\Exceptions\SlugException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::slug()->check('my-Slug');
+    $input_0 = 'my-Slug';
+    v::slug()->check($input_0);
 } catch (SlugException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::slug())->check('my-slug');
+    $input_0 = 'my-slug';
+    v::not(v::slug())->check($input_0);
 } catch (SlugException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::slug()->assert('my-Slug');
+    $input_0 = 'my-Slug';
+    v::slug()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::slug())->assert('my-slug');
+    $input_0 = 'my-slug';
+    v::not(v::slug())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

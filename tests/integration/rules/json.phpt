@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::json()->check(false);
+    $input_0 = false;
+    v::json()->check($input_0);
 } catch (JsonException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::json())->check('{"foo": "bar", "number":1}');
+    $input_0 = '{"foo": "bar", "number":1}';
+    v::not(v::json())->check($input_0);
 } catch (JsonException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::json()->assert(new stdClass());
+    $input_0 = new stdClass();
+    v::json()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::json())->assert('{}');
+    $input_0 = '{}';
+    v::not(v::json())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

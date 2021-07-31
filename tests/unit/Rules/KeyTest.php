@@ -72,7 +72,8 @@ final class KeyTest extends TestCase
 
         $this->expectException(KeyException::class);
 
-        $validator->assert('');
+        $input_0 = '';
+        $validator->assert($input_0);
     }
 
     /**
@@ -84,7 +85,8 @@ final class KeyTest extends TestCase
 
         $this->expectException(KeyException::class);
 
-        $validator->check('');
+        $input_0 = '';
+        $validator->check($input_0);
     }
 
     /**

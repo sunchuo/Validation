@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\PunctException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::punct()->check('a');
+    $input_0 = 'a';
+    v::punct()->check($input_0);
 } catch (PunctException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::punct('c')->check('b');
+    $input_0 = 'b';
+    v::punct('c')->check($input_0);
 } catch (PunctException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::punct())->check('.');
+    $input_0 = '.';
+    v::not(v::punct())->check($input_0);
 } catch (PunctException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::punct('d'))->check('?');
+    $input_0 = '?';
+    v::not(v::punct('d'))->check($input_0);
 } catch (PunctException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::punct()->assert('e');
+    $input_0 = 'e';
+    v::punct()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::punct('f')->assert('g');
+    $input_0 = 'g';
+    v::punct('f')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::punct())->assert('!');
+    $input_0 = '!';
+    v::not(v::punct())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::punct('h'))->assert(';');
+    $input_0 = ';';
+    v::not(v::punct('h'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

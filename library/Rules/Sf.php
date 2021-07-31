@@ -56,7 +56,7 @@ final class Sf extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         /** @var ConstraintViolationList $violations */
         $violations = $this->validator->validate($input, $this->constraint);
@@ -74,7 +74,7 @@ final class Sf extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function reportError($input, array $extraParams = []): ValidationException
+    public function reportError(&$input, array $extraParams = []): ValidationException
     {
         $exception = parent::reportError($input, $extraParams);
         if (isset($extraParams['violations'])) {
@@ -87,7 +87,7 @@ final class Sf extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         try {
             $this->assert($input);

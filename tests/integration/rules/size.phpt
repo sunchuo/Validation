@@ -12,73 +12,85 @@ use Respect\Validation\Exceptions\SizeException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::size('1kb', '2kb')->check('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::size('1kb', '2kb')->check($input_0);
 } catch (SizeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::size('700kb', null)->check('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::size('700kb', null)->check($input_0);
 } catch (SizeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::size(null, '1kb')->check('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::size(null, '1kb')->check($input_0);
 } catch (SizeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::size('500kb', '600kb'))->check('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::not(v::size('500kb', '600kb'))->check($input_0);
 } catch (SizeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::size('500kb', null))->check('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::not(v::size('500kb', null))->check($input_0);
 } catch (SizeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::size(null, '600kb'))->check('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::not(v::size(null, '600kb'))->check($input_0);
 } catch (SizeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::size('1kb', '2kb')->assert('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::size('1kb', '2kb')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::size('700kb', null)->assert('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::size('700kb', null)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::size(null, '1kb')->assert('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::size(null, '1kb')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::size('500kb', '600kb'))->assert('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::not(v::size('500kb', '600kb'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::size('500kb', null))->assert('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::not(v::size('500kb', null))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::size(null, '600kb'))->assert('tests/fixtures/valid-image.gif');
+    $input_0 = 'tests/fixtures/valid-image.gif';
+    v::not(v::size(null, '600kb'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

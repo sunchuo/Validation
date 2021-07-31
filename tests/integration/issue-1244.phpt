@@ -9,7 +9,8 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::key('firstname', v::notBlank()->setName('First Name'))->assert([]);
+    $input_0 = [];
+    v::key('firstname', v::notBlank()->setName('First Name'))->assert($input_0);
 } catch (NestedValidationException $e) {
     print_r($e->getMessages());
 }

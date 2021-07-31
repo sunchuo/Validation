@@ -13,25 +13,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::arrayType()->check('teste');
+    $input_0 = 'teste';
+    v::arrayType()->check($input_0);
 } catch (ArrayTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::arrayType())->check([]);
+    $input_0 = [];
+    v::not(v::arrayType())->check($input_0);
 } catch (ArrayTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::arrayType()->assert(new ArrayObject());
+    $input_0 = new ArrayObject();
+    v::arrayType()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::arrayType())->assert([1, 2, 3]);
+    $input_0 = [1, 2, 3];
+    v::not(v::arrayType())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

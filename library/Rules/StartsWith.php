@@ -49,7 +49,7 @@ final class StartsWith extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if ($this->identical) {
             return $this->validateIdentical($input);

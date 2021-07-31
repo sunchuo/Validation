@@ -79,7 +79,7 @@ final class Type extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if ($this->type === 'callable') {
             return is_callable($input);

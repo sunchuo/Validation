@@ -65,7 +65,7 @@ abstract class AbstractAge extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (!is_scalar($input)) {
             return false;

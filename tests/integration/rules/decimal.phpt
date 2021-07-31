@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::decimal(3)->check(0.1234);
+    $input_0 = 0.1234;
+    v::decimal(3)->check($input_0);
 } catch (DecimalException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::decimal(2)->assert(0.123);
+    $input_0 = 0.123;
+    v::decimal(2)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::decimal(5))->check(0.12345);
+    $input_0 = 0.12345;
+    v::not(v::decimal(5))->check($input_0);
 } catch (DecimalException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::decimal(2))->assert(0.34);
+    $input_0 = 0.34;
+    v::not(v::decimal(2))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

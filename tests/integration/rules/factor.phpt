@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::factor(3)->check(2);
+    $input_0 = 2;
+    v::factor(3)->check($input_0);
 } catch (FactorException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::factor(0))->check(300);
+    $input_0 = 300;
+    v::not(v::factor(0))->check($input_0);
 } catch (FactorException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::factor(5)->assert(3);
+    $input_0 = 3;
+    v::factor(5)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::factor(6))->assert(1);
+    $input_0 = 1;
+    v::not(v::factor(6))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

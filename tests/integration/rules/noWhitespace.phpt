@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NoWhitespaceException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::noWhitespace()->check('w poiur');
+    $input_0 = 'w poiur';
+    v::noWhitespace()->check($input_0);
 } catch (NoWhitespaceException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::noWhitespace())->check('wpoiur');
+    $input_0 = 'wpoiur';
+    v::not(v::noWhitespace())->check($input_0);
 } catch (NoWhitespaceException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::noWhitespace()->assert('w poiur');
+    $input_0 = 'w poiur';
+    v::noWhitespace()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::noWhitespace())->assert('wpoiur');
+    $input_0 = 'wpoiur';
+    v::not(v::noWhitespace())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\OddException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::odd()->check(2);
+    $input_0 = 2;
+    v::odd()->check($input_0);
 } catch (OddException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::odd())->check(7);
+    $input_0 = 7;
+    v::not(v::odd())->check($input_0);
 } catch (OddException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::odd()->assert(2);
+    $input_0 = 2;
+    v::odd()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::odd())->assert(9);
+    $input_0 = 9;
+    v::not(v::odd())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

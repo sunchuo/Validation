@@ -82,7 +82,7 @@ final class Ip extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (!is_string($input)) {
             return false;
@@ -105,7 +105,7 @@ final class Ip extends AbstractRule
 
     private function createRange(): ?string
     {
-        if ($this->endAddress && $this->endAddress) {
+        if ($this->startAddress && $this->endAddress) {
             return $this->startAddress . '-' . $this->endAddress;
         }
 

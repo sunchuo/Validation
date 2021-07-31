@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::graph()->check("foo\nbar");
+    $input_0 = "foo\nbar";
+    v::graph()->check($input_0);
 } catch (GraphException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::graph('foo')->check("foo\nbar");
+    $input_0 = "foo\nbar";
+    v::graph('foo')->check($input_0);
 } catch (GraphException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::graph())->check('foobar');
+    $input_0 = 'foobar';
+    v::not(v::graph())->check($input_0);
 } catch (GraphException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::graph("\n"))->check("foo\nbar");
+    $input_0 = "foo\nbar";
+    v::not(v::graph("\n"))->check($input_0);
 } catch (GraphException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::graph()->assert("foo\nbar");
+    $input_0 = "foo\nbar";
+    v::graph()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::graph('foo')->assert("foo\nbar");
+    $input_0 = "foo\nbar";
+    v::graph('foo')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::graph())->assert('foobar');
+    $input_0 = 'foobar';
+    v::not(v::graph())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::graph("\n"))->assert("foo\nbar");
+    $input_0 = "foo\nbar";
+    v::not(v::graph("\n"))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

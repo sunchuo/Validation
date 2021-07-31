@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\PhoneException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::phone()->check('123');
+    $input_0 = '123';
+    v::phone()->check($input_0);
 } catch (PhoneException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::phone())->check('11977777777');
+    $input_0 = '11977777777';
+    v::not(v::phone())->check($input_0);
 } catch (PhoneException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::phone()->assert('(555)5555 555');
+    $input_0 = '(555)5555 555';
+    v::phone()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::phone())->assert('+5 555 555 5555');
+    $input_0 = '+5 555 555 5555';
+    v::not(v::phone())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

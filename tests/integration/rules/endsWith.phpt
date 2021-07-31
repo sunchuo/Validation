@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::endsWith('foo')->check('bar');
+    $input_0 = 'bar';
+    v::endsWith('foo')->check($input_0);
 } catch (EndsWithException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::endsWith('foo'))->check(['bar', 'foo']);
+    $input_0 = ['bar', 'foo'];
+    v::not(v::endsWith('foo'))->check($input_0);
 } catch (EndsWithException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::endsWith('foo')->assert('');
+    $input_0 = '';
+    v::endsWith('foo')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::endsWith('foo'))->assert(['bar', 'foo']);
+    $input_0 = ['bar', 'foo'];
+    v::not(v::endsWith('foo'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

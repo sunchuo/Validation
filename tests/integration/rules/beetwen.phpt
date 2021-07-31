@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::between(1, 2)->check(0);
+    $input_0 = 0;
+    v::between(1, 2)->check($input_0);
 } catch (BetweenException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::between('yesterday', 'tomorrow'))->check('today');
+    $input_0 = 'today';
+    v::not(v::between('yesterday', 'tomorrow'))->check($input_0);
 } catch (BetweenException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::between('a', 'c')->assert('d');
+    $input_0 = 'd';
+    v::between('a', 'c')->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::between(-INF, INF))->assert(0);
+    $input_0 = 0;
+    v::not(v::between(-INF, INF))->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage() . PHP_EOL;
 }

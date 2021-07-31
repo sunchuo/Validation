@@ -21,7 +21,8 @@ Factory::setDefaultInstance(
 );
 
 try {
-    Validator::stringType()->length(2, 15)->check(0);
+    $input_0 = 0;
+    Validator::stringType()->length(2, 15)->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage();
 }

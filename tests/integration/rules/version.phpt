@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\VersionException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::version()->check('1.3.7--');
+    $input_0 = '1.3.7--';
+    v::version()->check($input_0);
 } catch (VersionException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::version())->check('1.0.0-alpha');
+    $input_0 = '1.0.0-alpha';
+    v::not(v::version())->check($input_0);
 } catch (VersionException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::version()->assert('1.2.3.4-beta');
+    $input_0 = '1.2.3.4-beta';
+    v::version()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::version())->assert('1.3.7-rc.1');
+    $input_0 = '1.3.7-rc.1';
+    v::not(v::version())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

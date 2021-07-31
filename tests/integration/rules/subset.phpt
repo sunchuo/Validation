@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\SubsetException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::subset([1, 2])->check([1, 2, 3]);
+    $input_0 = [1, 2, 3];
+    v::subset([1, 2])->check($input_0);
 } catch (SubsetException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::subset([1, 2, 3]))->check([1, 2]);
+    $input_0 = [1, 2];
+    v::not(v::subset([1, 2, 3]))->check($input_0);
 } catch (SubsetException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::subset(['A', 'B'])->assert(['B', 'C']);
+    $input_0 = ['B', 'C'];
+    v::subset(['A', 'B'])->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::subset(['A']))->assert(['A']);
+    $input_0 = ['A'];
+    v::not(v::subset(['A']))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

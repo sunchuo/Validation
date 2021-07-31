@@ -43,9 +43,12 @@ final class AnyOfTest extends TestCase
             return false;
         });
         $o = new AnyOf($valid1, $valid2, $valid3);
-        self::assertTrue($o->validate('any'));
-        $o->assert('any');
-        $o->check('any');
+        $input_0 = 'any';
+        self::assertTrue($o->validate($input_0));
+        $input_0 = 'any';
+        $o->assert($input_0);
+        $input_0 = 'any';
+        $o->check($input_0);
     }
 
     /**
@@ -63,10 +66,12 @@ final class AnyOfTest extends TestCase
             return false;
         });
         $o = new AnyOf($valid1, $valid2, $valid3);
-        self::assertFalse($o->validate('any'));
+        $input_0 = 'any';
+        self::assertFalse($o->validate($input_0));
 
         $this->expectException(AnyOfException::class);
-        $o->assert('any');
+        $input_0 = 'any';
+        $o->assert($input_0);
     }
 
     /**
@@ -75,9 +80,11 @@ final class AnyOfTest extends TestCase
     public function invalidCheck(): void
     {
         $o = new AnyOf(new Xdigit(), new Alnum());
-        self::assertFalse($o->validate(-10));
+        $input_0 = -10;
+        self::assertFalse($o->validate($input_0));
 
         $this->expectException(XdigitException::class);
-        $o->check(-10);
+        $input_0 = -10;
+        $o->check($input_0);
     }
 }

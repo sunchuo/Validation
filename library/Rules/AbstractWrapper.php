@@ -39,7 +39,7 @@ abstract class AbstractWrapper extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         $this->validatable->assert($input);
     }
@@ -47,7 +47,7 @@ abstract class AbstractWrapper extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         $this->validatable->check($input);
     }
@@ -55,7 +55,7 @@ abstract class AbstractWrapper extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return $this->validatable->validate($input);
     }

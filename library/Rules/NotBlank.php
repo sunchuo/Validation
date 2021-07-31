@@ -32,7 +32,7 @@ final class NotBlank extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (is_numeric($input)) {
             return $input != 0;
@@ -47,7 +47,9 @@ final class NotBlank extends AbstractRule
         }
 
         if (is_array($input)) {
-            $input = array_filter($input, __METHOD__);
+            $input = array_filter($input, function ($input) {
+                return $this->validate($input);
+            });
         }
 
         return !empty($input);

@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::optional(v::alpha())->check(1234);
+    $input_0 = 1234;
+    v::optional(v::alpha())->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::optional(v::alpha())->setName('Name')->check(1234);
+    $input_0 = 1234;
+    v::optional(v::alpha())->setName('Name')->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::optional(v::alpha()))->check('abcd');
+    $input_0 = 'abcd';
+    v::not(v::optional(v::alpha()))->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::optional(v::alpha()))->setName('Name')->check('abcd');
+    $input_0 = 'abcd';
+    v::not(v::optional(v::alpha()))->setName('Name')->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::optional(v::alpha())->assert(1234);
+    $input_0 = 1234;
+    v::optional(v::alpha())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::optional(v::alpha())->setName('Name')->assert(1234);
+    $input_0 = 1234;
+    v::optional(v::alpha())->setName('Name')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::optional(v::alpha()))->assert('abcd');
+    $input_0 = 'abcd';
+    v::not(v::optional(v::alpha()))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::optional(v::alpha()))->setName('Name')->assert('abcd');
+    $input_0 = 'abcd';
+    v::not(v::optional(v::alpha()))->setName('Name')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

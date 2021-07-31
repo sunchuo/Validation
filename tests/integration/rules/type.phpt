@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\TypeException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::type('integer')->check('42');
+    $input_0 = '42';
+    v::type('integer')->check($input_0);
 } catch (TypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::type('string'))->check('foo');
+    $input_0 = 'foo';
+    v::not(v::type('string'))->check($input_0);
 } catch (TypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::type('double')->assert(20);
+    $input_0 = 20;
+    v::type('double')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::type('bool'))->assert(true);
+    $input_0 = true;
+    v::not(v::type('bool'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

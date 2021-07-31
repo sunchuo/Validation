@@ -38,7 +38,7 @@ final class Identical extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return $input === $this->compareTo;
     }

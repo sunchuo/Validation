@@ -43,14 +43,16 @@ final class LeapDate extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if ($input instanceof DateTimeInterface) {
             return $input->format('m-d') === '02-29';
         }
 
         if (is_scalar($input)) {
-            return $this->validate(DateTimeImmutable::createFromFormat($this->format, (string) $input));
+            $params = DateTimeImmutable::createFromFormat($this->format, (string) $input);
+
+            return $this->validate($params);
         }
 
         return false;

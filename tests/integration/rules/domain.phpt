@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::domain()->check('batman');
+    $input_0 = 'batman';
+    v::domain()->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::domain())->check('r--w.com');
+    $input_0 = 'r--w.com';
+    v::not(v::domain())->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::domain()->assert('p-éz-.kk');
+    $input_0 = 'p-éz-.kk';
+    v::domain()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::domain())->assert('github.com');
+    $input_0 = 'github.com';
+    v::not(v::domain())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

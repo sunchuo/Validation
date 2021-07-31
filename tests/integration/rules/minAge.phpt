@@ -15,25 +15,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::minAge(18)->check('17 years ago');
+    $input_0 = '17 years ago';
+    v::minAge(18)->check($input_0);
 } catch (MinAgeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::minAge(18))->check('-30 years');
+    $input_0 = '-30 years';
+    v::not(v::minAge(18))->check($input_0);
 } catch (MinAgeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::minAge(18)->assert('yesterday');
+    $input_0 = 'yesterday';
+    v::minAge(18)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::minAge(18, 'd/m/Y')->assert('12/10/2010');
+    $input_0 = '12/10/2010';
+    v::minAge(18, 'd/m/Y')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

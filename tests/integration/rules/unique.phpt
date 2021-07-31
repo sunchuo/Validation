@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\UniqueException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::unique()->check([1, 2, 2, 3]);
+    $input_0 = [1, 2, 2, 3];
+    v::unique()->check($input_0);
 } catch (UniqueException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::unique())->check([1, 2, 3, 4]);
+    $input_0 = [1, 2, 3, 4];
+    v::not(v::unique())->check($input_0);
 } catch (UniqueException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::unique()->assert('test');
+    $input_0 = 'test';
+    v::unique()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::unique())->assert(['a', 'b', 'c']);
+    $input_0 = ['a', 'b', 'c'];
+    v::not(v::unique())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -30,10 +30,12 @@ final class Uploaded extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if ($input instanceof SplFileInfo) {
-            return $this->validate($input->getPathname());
+            $params = $input->getPathname();
+
+            return $this->validate($params);
         }
 
         if ($input instanceof UploadedFileInterface) {

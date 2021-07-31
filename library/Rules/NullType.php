@@ -26,7 +26,7 @@ final class NullType extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return is_null($input);
     }

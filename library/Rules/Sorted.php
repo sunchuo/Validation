@@ -52,7 +52,7 @@ final class Sorted extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (!is_array($input) && !is_string($input)) {
             return false;

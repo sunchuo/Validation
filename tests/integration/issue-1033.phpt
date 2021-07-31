@@ -19,7 +19,8 @@ use Respect\Validation\Exceptions\AllOfException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::each(v::equals(1))->assert(['A', 'B', 'B']);
+    $input_0 = ['A', 'B', 'B'];
+    v::each(v::equals(1))->assert($input_0);
 } catch (AllOfException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

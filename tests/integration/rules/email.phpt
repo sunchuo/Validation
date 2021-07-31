@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::email()->check('batman');
+    $input_0 = 'batman';
+    v::email()->check($input_0);
 } catch (EmailException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::email())->check('bruce.wayne@gothancity.com');
+    $input_0 = 'bruce.wayne@gothancity.com';
+    v::not(v::email())->check($input_0);
 } catch (EmailException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::email()->assert('bruce wayne');
+    $input_0 = 'bruce wayne';
+    v::email()->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::email())->assert('iambatman@gothancity.com');
+    $input_0 = 'iambatman@gothancity.com';
+    v::not(v::email())->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage() . PHP_EOL;
 }

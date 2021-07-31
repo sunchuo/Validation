@@ -27,7 +27,7 @@ final class AnyOf extends AbstractComposite
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         $validators = $this->getRules();
         $exceptions = $this->getAllThrownExceptions($input);
@@ -45,7 +45,7 @@ final class AnyOf extends AbstractComposite
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         foreach ($this->getRules() as $v) {
             if ($v->validate($input)) {
@@ -59,7 +59,7 @@ final class AnyOf extends AbstractComposite
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         foreach ($this->getRules() as $v) {
             try {

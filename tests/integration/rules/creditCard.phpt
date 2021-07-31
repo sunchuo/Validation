@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::creditCard('Discover')->check(3566002020360505);
+    $input_0 = 3566002020360505;
+    v::creditCard('Discover')->check($input_0);
 } catch (CreditCardException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::creditCard('Visa'))->check(4024007153361885);
+    $input_0 = 4024007153361885;
+    v::not(v::creditCard('Visa'))->check($input_0);
 } catch (CreditCardException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::creditCard('MasterCard')->assert(3566002020360505);
+    $input_0 = 3566002020360505;
+    v::creditCard('MasterCard')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::creditCard())->assert(5555444433331111);
+    $input_0 = 5555444433331111;
+    v::not(v::creditCard())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

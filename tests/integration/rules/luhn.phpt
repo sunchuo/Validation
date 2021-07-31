@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::luhn()->check('2222400041240021');
+    $input_0 = '2222400041240021';
+    v::luhn()->check($input_0);
 } catch (LuhnException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::luhn())->check('2223000048400011');
+    $input_0 = '2223000048400011';
+    v::not(v::luhn())->check($input_0);
 } catch (LuhnException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::luhn()->assert('340316193809334');
+    $input_0 = '340316193809334';
+    v::luhn()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::luhn())->assert('6011000990139424');
+    $input_0 = '6011000990139424';
+    v::not(v::luhn())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

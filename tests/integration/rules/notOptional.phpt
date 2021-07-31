@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\NotOptionalException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::notOptional()->check(null);
+    $input_0 = null;
+    v::notOptional()->check($input_0);
 } catch (NotOptionalException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notOptional())->check(0);
+    $input_0 = 0;
+    v::not(v::notOptional())->check($input_0);
 } catch (NotOptionalException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::notOptional()->setName('Field')->check(null);
+    $input_0 = null;
+    v::notOptional()->setName('Field')->check($input_0);
 } catch (NotOptionalException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notOptional()->setName('Field'))->check([]);
+    $input_0 = [];
+    v::not(v::notOptional()->setName('Field'))->check($input_0);
 } catch (NotOptionalException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::notOptional()->assert('');
+    $input_0 = '';
+    v::notOptional()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notOptional())->assert([]);
+    $input_0 = [];
+    v::not(v::notOptional())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::notOptional()->setName('Field')->assert('');
+    $input_0 = '';
+    v::notOptional()->setName('Field')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notOptional()->setName('Field'))->assert([]);
+    $input_0 = [];
+    v::not(v::notOptional()->setName('Field'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

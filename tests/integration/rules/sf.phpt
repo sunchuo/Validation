@@ -15,36 +15,41 @@ use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\IsNull;
 
 try {
-    v::sf(new IsNull())->check('something');
+    $input_0 = 'something';
+    v::sf(new IsNull())->check($input_0);
 } catch (SfException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::sf(new IsNull()))->check(null);
+    $input_0 = null;
+    v::not(v::sf(new IsNull()))->check($input_0);
 } catch (SfException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::sf(new Email())->assert('not-null');
+    $input_0 = 'not-null';
+    v::sf(new Email())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::sf(new Email()))->assert('example@example.com');
+    $input_0 = 'example@example.com';
+    v::not(v::sf(new Email()))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
+    $input_0 = ['second' => 'not-email'];
     v::sf(
         new Collection([
             'first' => new IsNull(),
             'second' => new Email(),
         ])
-    )->check(['second' => 'not-email']);
+    )->check($input_0);
 } catch (SfException $exception) {
     echo $exception->getMessage();
 }

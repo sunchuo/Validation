@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\PostalCodeException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::postalCode('BR')->check('1057BV');
+    $input_0 = '1057BV';
+    v::postalCode('BR')->check($input_0);
 } catch (PostalCodeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::postalCode('NL'))->check('1057BV');
+    $input_0 = '1057BV';
+    v::not(v::postalCode('NL'))->check($input_0);
 } catch (PostalCodeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::postalCode('BR')->assert('1057BV');
+    $input_0 = '1057BV';
+    v::postalCode('BR')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::postalCode('NL'))->assert('1057BV');
+    $input_0 = '1057BV';
+    v::not(v::postalCode('NL'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

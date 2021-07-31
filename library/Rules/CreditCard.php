@@ -86,17 +86,18 @@ final class CreditCard extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (!is_scalar($input)) {
             return false;
         }
 
-        $input = (string) preg_replace('/[ .-]/', '', (string) $input);
-        if (!(new Luhn())->validate($input)) {
+        $param = (string) $input;
+        $param = (string) preg_replace('/[ .-]/', '', $param);
+        if (!(new Luhn())->validate($param)) {
             return false;
         }
 
-        return preg_match(self::BRAND_REGEX_LIST[$this->brand], $input) > 0;
+        return preg_match(self::BRAND_REGEX_LIST[$this->brand], $param) > 0;
     }
 }

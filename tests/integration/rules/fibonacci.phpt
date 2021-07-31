@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::fibonacci()->check(4);
+    $input_0 = 4;
+    v::fibonacci()->check($input_0);
 } catch (FibonacciException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::fibonacci())->check(5);
+    $input_0 = 5;
+    v::not(v::fibonacci())->check($input_0);
 } catch (FibonacciException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::fibonacci()->assert(16);
+    $input_0 = 16;
+    v::fibonacci()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::fibonacci())->assert(21);
+    $input_0 = 21;
+    v::not(v::fibonacci())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -66,7 +66,8 @@ final class NullableTest extends TestCase
 
         $rule = new Nullable($validatable);
 
-        self::assertTrue($rule->validate(null));
+        $input_0 = null;
+        self::assertTrue($rule->validate($input_0));
     }
 
     /**
@@ -101,7 +102,8 @@ final class NullableTest extends TestCase
             ->method('assert');
 
         $rule = new Nullable($validatable);
-        $rule->assert(null);
+        $input_0 = null;
+        $rule->assert($input_0);
     }
 
     /**
@@ -135,7 +137,8 @@ final class NullableTest extends TestCase
             ->method('check');
 
         $rule = new Nullable($validatable);
-        $rule->check(null);
+        $input_0 = null;
+        $rule->check($input_0);
     }
 
     /**

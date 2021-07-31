@@ -100,7 +100,7 @@ abstract class AbstractRelated extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         $hasReference = $this->hasReference($input);
         if ($this->mandatory && !$hasReference) {
@@ -112,7 +112,8 @@ abstract class AbstractRelated extends AbstractRule
         }
 
         try {
-            $this->rule->assert($this->getReferenceValue($input));
+            $params = $this->getReferenceValue($input);
+            $this->rule->assert($params);
         } catch (ValidationException $validationException) {
             /** @var NestedValidationException $nestedValidationException */
             $nestedValidationException = $this->reportError($this->reference, ['hasReference' => true]);
@@ -125,7 +126,7 @@ abstract class AbstractRelated extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         $hasReference = $this->hasReference($input);
         if ($this->mandatory && !$hasReference) {
@@ -136,13 +137,14 @@ abstract class AbstractRelated extends AbstractRule
             return;
         }
 
-        $this->rule->check($this->getReferenceValue($input));
+        $params = $this->getReferenceValue($input);
+        $this->rule->check($params);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         $hasReference = $this->hasReference($input);
         if ($this->mandatory && !$hasReference) {
@@ -153,6 +155,8 @@ abstract class AbstractRelated extends AbstractRule
             return true;
         }
 
-        return $this->rule->validate($this->getReferenceValue($input));
+        $params = $this->getReferenceValue($input);
+
+        return $this->rule->validate($params);
     }
 }

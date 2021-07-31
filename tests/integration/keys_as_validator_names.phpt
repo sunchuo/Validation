@@ -15,11 +15,12 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator;
 
 try {
+    $input_0 = ['username' => '0', 'birthdate' => 'Whatever'];
     Validator::create()
         ->key('username', Validator::length(2, 32))
         ->key('birthdate', Validator::dateTime())
         ->setName('User Subscription Form')
-        ->assert(['username' => '0', 'birthdate' => 'Whatever']);
+        ->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage();
 }

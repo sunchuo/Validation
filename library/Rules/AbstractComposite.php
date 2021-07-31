@@ -93,11 +93,11 @@ abstract class AbstractComposite extends AbstractRule
      *
      * @return ValidationException[]
      */
-    protected function getAllThrownExceptions($input): array
+    protected function getAllThrownExceptions(&$input): array
     {
         return array_filter(
             array_map(
-                function (Validatable $rule) use ($input): ?ValidationException {
+                function (Validatable $rule) use (&$input): ?ValidationException {
                     try {
                         $rule->assert($input);
                     } catch (ValidationException $exception) {

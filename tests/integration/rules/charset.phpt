@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::charset('ASCII')->check('açaí');
+    $input_0 = 'açaí';
+    v::charset('ASCII')->check($input_0);
 } catch (CharsetException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::charset('UTF-8'))->check('açaí');
+    $input_0 = 'açaí';
+    v::not(v::charset('UTF-8'))->check($input_0);
 } catch (CharsetException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::charset('ASCII')->assert('açaí');
+    $input_0 = 'açaí';
+    v::charset('ASCII')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::charset('UTF-8'))->assert('açaí');
+    $input_0 = 'açaí';
+    v::not(v::charset('UTF-8'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

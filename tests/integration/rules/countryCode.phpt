@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::countryCode()->check('1');
+    $input_0 = '1';
+    v::countryCode()->check($input_0);
 } catch (CountryCodeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::countryCode())->check('BR');
+    $input_0 = 'BR';
+    v::not(v::countryCode())->check($input_0);
 } catch (CountryCodeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::countryCode()->assert('1');
+    $input_0 = '1';
+    v::countryCode()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::countryCode())->assert('BR');
+    $input_0 = 'BR';
+    v::not(v::countryCode())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

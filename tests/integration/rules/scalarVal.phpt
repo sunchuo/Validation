@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\ScalarValException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::scalarVal()->check([]);
+    $input_0 = [];
+    v::scalarVal()->check($input_0);
 } catch (ScalarValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::scalarVal())->check(true);
+    $input_0 = true;
+    v::not(v::scalarVal())->check($input_0);
 } catch (ScalarValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::scalarVal()->assert(new stdClass());
+    $input_0 = new stdClass();
+    v::scalarVal()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::scalarVal())->assert(42);
+    $input_0 = 42;
+    v::not(v::scalarVal())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

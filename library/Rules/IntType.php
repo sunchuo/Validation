@@ -25,7 +25,7 @@ final class IntType extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return is_int($input);
     }

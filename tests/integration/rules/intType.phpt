@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::intType()->check(new stdClass());
+    $input_0 = new stdClass();
+    v::intType()->check($input_0);
 } catch (IntTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::intType())->check(42);
+    $input_0 = 42;
+    v::not(v::intType())->check($input_0);
 } catch (IntTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::intType()->assert(INF);
+    $input_0 = INF;
+    v::intType()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::intType())->assert(1234567890);
+    $input_0 = 1234567890;
+    v::not(v::intType())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\XdigitException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::xdigit()->check('aaa%a');
+    $input_0 = 'aaa%a';
+    v::xdigit()->check($input_0);
 } catch (XdigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::xdigit(' ')->check('bbb%b');
+    $input_0 = 'bbb%b';
+    v::xdigit(' ')->check($input_0);
 } catch (XdigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::xdigit())->check('ccccc');
+    $input_0 = 'ccccc';
+    v::not(v::xdigit())->check($input_0);
 } catch (XdigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::xdigit('% '))->check('ddd%d');
+    $input_0 = 'ddd%d';
+    v::not(v::xdigit('% '))->check($input_0);
 } catch (XdigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::xdigit()->assert('eee^e');
+    $input_0 = 'eee^e';
+    v::xdigit()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::xdigit())->assert('fffff');
+    $input_0 = 'fffff';
+    v::not(v::xdigit())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::xdigit('* &%')->assert('000^0');
+    $input_0 = '000^0';
+    v::xdigit('* &%')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::xdigit('^'))->assert('111^1');
+    $input_0 = '111^1';
+    v::not(v::xdigit('^'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

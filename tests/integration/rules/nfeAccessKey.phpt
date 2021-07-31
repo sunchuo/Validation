@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NfeAccessKeyException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::nfeAccessKey()->check('31841136830118868211870485416765268625116906');
+    $input_0 = '31841136830118868211870485416765268625116906';
+    v::nfeAccessKey()->check($input_0);
 } catch (NfeAccessKeyException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::nfeAccessKey())->check('52060433009911002506550120000007800267301615');
+    $input_0 = '52060433009911002506550120000007800267301615';
+    v::not(v::nfeAccessKey())->check($input_0);
 } catch (NfeAccessKeyException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::nfeAccessKey()->assert('31841136830118868211870485416765268625116906');
+    $input_0 = '31841136830118868211870485416765268625116906';
+    v::nfeAccessKey()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::nfeAccessKey())->assert('52060433009911002506550120000007800267301615');
+    $input_0 = '52060433009911002506550120000007800267301615';
+    v::not(v::nfeAccessKey())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\YesException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::not(v::yes())->check('Yes');
+    $input_0 = 'Yes';
+    v::not(v::yes())->check($input_0);
 } catch (YesException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::yes()->check('si');
+    $input_0 = 'si';
+    v::yes()->check($input_0);
 } catch (YesException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::yes())->assert('Yes');
+    $input_0 = 'Yes';
+    v::not(v::yes())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::yes()->assert('si');
+    $input_0 = 'si';
+    v::yes()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::cpf()->check('this thing');
+    $input_0 = 'this thing';
+    v::cpf()->check($input_0);
 } catch (CpfException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::cpf())->check('276.865.775-11');
+    $input_0 = '276.865.775-11';
+    v::not(v::cpf())->check($input_0);
 } catch (CpfException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::cpf()->assert('your mother');
+    $input_0 = 'your mother';
+    v::cpf()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::cpf())->assert('61836182848');
+    $input_0 = '61836182848';
+    v::not(v::cpf())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

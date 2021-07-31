@@ -10,25 +10,29 @@ use Respect\Validation\Exceptions\RegexException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::regex('/^w+$/')->check('w poiur');
+    $input_0 = 'w poiur';
+    v::regex('/^w+$/')->check($input_0);
 } catch (RegexException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::regex('/^[a-z]+$/'))->check('wpoiur');
+    $input_0 = 'wpoiur';
+    v::not(v::regex('/^[a-z]+$/'))->check($input_0);
 } catch (RegexException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::regex('/^w+$/')->assert(new stdClass());
+    $input_0 = new stdClass();
+    v::regex('/^w+$/')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::regex('/^[a-z]+$/i'))->assert('wPoiur');
+    $input_0 = 'wPoiur';
+    v::not(v::regex('/^[a-z]+$/i'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

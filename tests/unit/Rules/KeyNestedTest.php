@@ -121,7 +121,8 @@ final class KeyNestedTest extends TestCase
     {
         $rule = new KeyNested('bar.foo.baz');
 
-        self::assertFalse($rule->validate(''));
+        $input_0 = '';
+        self::assertFalse($rule->validate($input_0));
     }
 
     /**
@@ -131,7 +132,8 @@ final class KeyNestedTest extends TestCase
     {
         $rule = new KeyNested('bar.foo.baz');
         $this->expectException(KeyNestedException::class);
-        $rule->assert('');
+        $input_0 = '';
+        $rule->assert($input_0);
     }
 
     /**
@@ -141,7 +143,8 @@ final class KeyNestedTest extends TestCase
     {
         $rule = new KeyNested('bar.foo.baz');
         $this->expectException(KeyNestedException::class);
-        $rule->check('');
+        $input_0 = '';
+        $rule->check($input_0);
     }
 
     /**

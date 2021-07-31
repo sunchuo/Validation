@@ -54,7 +54,7 @@ final class Contains extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (is_array($input)) {
             return in_array($this->containsValue, $input, $this->identical);

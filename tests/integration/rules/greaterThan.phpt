@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::greaterThan(21)->check(12);
+    $input_0 = 12;
+    v::greaterThan(21)->check($input_0);
 } catch (GreaterThanException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::greaterThan('yesterday'))->check('today');
+    $input_0 = 'today';
+    v::not(v::greaterThan('yesterday'))->check($input_0);
 } catch (GreaterThanException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::greaterThan('2018-09-09')->assert('1988-09-09');
+    $input_0 = '1988-09-09';
+    v::greaterThan('2018-09-09')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::greaterThan('a'))->assert('ba');
+    $input_0 = 'ba';
+    v::not(v::greaterThan('a'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

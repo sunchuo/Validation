@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\UrlException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::url()->check('example.com');
+    $input_0 = 'example.com';
+    v::url()->check($input_0);
 } catch (UrlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::url())->check('http://example.com');
+    $input_0 = 'http://example.com';
+    v::not(v::url())->check($input_0);
 } catch (UrlException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::url()->assert('example.com');
+    $input_0 = 'example.com';
+    v::url()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::url())->assert('http://example.com');
+    $input_0 = 'http://example.com';
+    v::not(v::url())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

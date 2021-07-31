@@ -16,7 +16,8 @@ try {
     $validator = Validator::not(
         Validator::intVal()->positive()
     );
-    $validator->check(2);
+    $input_0 = 2;
+    $validator->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }

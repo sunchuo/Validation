@@ -46,14 +46,15 @@ final class Each extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
-        if (!$this->isIterable($input)) {
-            throw $this->reportError($input);
+        $params = $input;
+        if (!$this->isIterable($params)) {
+            throw $this->reportError($params);
         }
 
         $exceptions = [];
-        foreach ($input as $value) {
+        foreach ($params as $value) {
             try {
                 $this->rule->assert($value);
             } catch (ValidationException $exception) {
@@ -63,7 +64,7 @@ final class Each extends AbstractRule
 
         if (!empty($exceptions)) {
             /** @var EachException $eachException */
-            $eachException = $this->reportError($input);
+            $eachException = $this->reportError($params);
             $eachException->addChildren($exceptions);
 
             throw $eachException;
@@ -73,13 +74,14 @@ final class Each extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
-        if (!$this->isIterable($input)) {
-            throw $this->reportError($input);
+        $params = $input;
+        if (!$this->isIterable($params)) {
+            throw $this->reportError($params);
         }
 
-        foreach ($input as $value) {
+        foreach ($params as $value) {
             $this->rule->check($value);
         }
     }
@@ -87,10 +89,11 @@ final class Each extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
+        $params = $input;
         try {
-            $this->check($input);
+            $this->check($params);
         } catch (ValidationException $exception) {
             return false;
         }

@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\PisException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::pis()->check('this thing');
+    $input_0 = 'this thing';
+    v::pis()->check($input_0);
 } catch (PisException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::pis())->check('120.6671.406-4');
+    $input_0 = '120.6671.406-4';
+    v::not(v::pis())->check($input_0);
 } catch (PisException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::pis()->assert('your mother');
+    $input_0 = 'your mother';
+    v::pis()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::pis())->assert('120.9378.174-5');
+    $input_0 = '120.9378.174-5';
+    v::not(v::pis())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

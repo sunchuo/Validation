@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NotEmojiException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::notEmoji()->check('🍕');
+    $input_0 = '🍕';
+    v::notEmoji()->check($input_0);
 } catch (NotEmojiException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notEmoji())->check('AB');
+    $input_0 = 'AB';
+    v::not(v::notEmoji())->check($input_0);
 } catch (NotEmojiException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::notEmoji()->assert('🏄');
+    $input_0 = '🏄';
+    v::notEmoji()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notEmoji())->assert('YZ');
+    $input_0 = 'YZ';
+    v::not(v::notEmoji())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

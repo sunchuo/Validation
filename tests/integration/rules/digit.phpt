@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::digit()->check('abc');
+    $input_0 = 'abc';
+    v::digit()->check($input_0);
 } catch (DigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::digit('-')->check('a-b');
+    $input_0 = 'a-b';
+    v::digit('-')->check($input_0);
 } catch (DigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::digit())->check('123');
+    $input_0 = '123';
+    v::not(v::digit())->check($input_0);
 } catch (DigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::digit('-'))->check('1-3');
+    $input_0 = '1-3';
+    v::not(v::digit('-'))->check($input_0);
 } catch (DigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::digit()->assert('abc');
+    $input_0 = 'abc';
+    v::digit()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::digit('-')->assert('a-b');
+    $input_0 = 'a-b';
+    v::digit('-')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::digit())->assert('123');
+    $input_0 = '123';
+    v::not(v::digit())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::digit('-'))->assert('1-3');
+    $input_0 = '1-3';
+    v::not(v::digit('-'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

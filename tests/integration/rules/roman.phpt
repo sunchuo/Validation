@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\RomanException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::roman()->check(1234);
+    $input_0 = 1234;
+    v::roman()->check($input_0);
 } catch (RomanException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::roman())->check('XL');
+    $input_0 = 'XL';
+    v::not(v::roman())->check($input_0);
 } catch (RomanException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::roman()->assert('e2');
+    $input_0 = 'e2';
+    v::roman()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::roman())->assert('IV');
+    $input_0 = 'IV';
+    v::not(v::roman())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

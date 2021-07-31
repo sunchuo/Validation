@@ -26,7 +26,7 @@ class AllOf extends AbstractComposite
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         $exceptions = $this->getAllThrownExceptions($input);
         $numRules = count($this->getRules());
@@ -48,7 +48,7 @@ class AllOf extends AbstractComposite
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         foreach ($this->getRules() as $rule) {
             $rule->check($input);
@@ -58,7 +58,7 @@ class AllOf extends AbstractComposite
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         foreach ($this->getRules() as $rule) {
             if (!$rule->validate($input)) {

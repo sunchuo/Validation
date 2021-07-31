@@ -114,7 +114,8 @@ final class OptionalTest extends TestCase
 
         $rule = new Optional($validatable);
 
-        $rule->assert('');
+        $input_0 = '';
+        $rule->assert($input_0);
     }
 
     /**
@@ -148,7 +149,8 @@ final class OptionalTest extends TestCase
 
         $rule = new Optional($validatable);
 
-        $rule->check('');
+        $input_0 = '';
+        $rule->check($input_0);
     }
 
     /**

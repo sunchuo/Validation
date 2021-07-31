@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\PrintableException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::printable()->check('');
+    $input_0 = '';
+    v::printable()->check($input_0);
 } catch (PrintableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::printable())->check('abc');
+    $input_0 = 'abc';
+    v::not(v::printable())->check($input_0);
 } catch (PrintableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::printable()->assert('foo' . chr(10) . 'bar');
+    $input_0 = 'foo' . chr(10) . 'bar';
+    v::printable()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::printable())->assert('$%asd');
+    $input_0 = '$%asd';
+    v::not(v::printable())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

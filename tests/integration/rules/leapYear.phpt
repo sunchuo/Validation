@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::leapYear()->check('2009');
+    $input_0 = '2009';
+    v::leapYear()->check($input_0);
 } catch (LeapYearException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::leapYear())->check('2008');
+    $input_0 = '2008';
+    v::not(v::leapYear())->check($input_0);
 } catch (LeapYearException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::leapYear()->assert('2009-02-29');
+    $input_0 = '2009-02-29';
+    v::leapYear()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::leapYear())->assert('2008');
+    $input_0 = '2008';
+    v::not(v::leapYear())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

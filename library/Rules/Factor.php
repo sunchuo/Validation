@@ -42,7 +42,7 @@ final class Factor extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         // Every integer is a factor of zero, and zero is the only integer that
         // has zero for a factor.

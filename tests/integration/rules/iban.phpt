@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::iban()->check('SE35 5000 5880 7742');
+    $input_0 = 'SE35 5000 5880 7742';
+    v::iban()->check($input_0);
 } catch (IbanException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::iban())->check('GB82 WEST 1234 5698 7654 32');
+    $input_0 = 'GB82 WEST 1234 5698 7654 32';
+    v::not(v::iban())->check($input_0);
 } catch (IbanException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::iban()->assert('NOT AN IBAN');
+    $input_0 = 'NOT AN IBAN';
+    v::iban()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::iban())->assert('HU93 1160 0006 0000 0000 1234 5676');
+    $input_0 = 'HU93 1160 0006 0000 0000 1234 5676';
+    v::not(v::iban())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

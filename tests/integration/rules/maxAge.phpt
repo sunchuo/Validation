@@ -13,25 +13,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::maxAge(12)->check('50 years ago');
+    $input_0 = '50 years ago';
+    v::maxAge(12)->check($input_0);
 } catch (MaxAgeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::maxAge(12))->check('11 years ago');
+    $input_0 = '11 years ago';
+    v::not(v::maxAge(12))->check($input_0);
 } catch (MaxAgeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::maxAge(12, 'Y-m-d')->assert('1988-09-09');
+    $input_0 = '1988-09-09';
+    v::maxAge(12, 'Y-m-d')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::maxAge(12, 'Y-m-d'))->assert('2018-01-01');
+    $input_0 = '2018-01-01';
+    v::not(v::maxAge(12, 'Y-m-d'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

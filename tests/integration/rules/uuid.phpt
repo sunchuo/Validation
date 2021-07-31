@@ -12,49 +12,57 @@ use Respect\Validation\Exceptions\UuidException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::uuid()->check('g71a18f4-3a13-11e7-a919-92ebcb67fe33');
+    $input_0 = 'g71a18f4-3a13-11e7-a919-92ebcb67fe33';
+    v::uuid()->check($input_0);
 } catch (UuidException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::uuid(1)->check('e0b5ffb9-9caf-2a34-9673-8fc91db78be6');
+    $input_0 = 'e0b5ffb9-9caf-2a34-9673-8fc91db78be6';
+    v::uuid(1)->check($input_0);
 } catch (UuidException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::uuid())->check('fb3a7909-8034-59f5-8f38-21adbc168db7');
+    $input_0 = 'fb3a7909-8034-59f5-8f38-21adbc168db7';
+    v::not(v::uuid())->check($input_0);
 } catch (UuidException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::uuid(3))->check('11a38b9a-b3da-360f-9353-a5a725514269');
+    $input_0 = '11a38b9a-b3da-360f-9353-a5a725514269';
+    v::not(v::uuid(3))->check($input_0);
 } catch (UuidException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::uuid()->assert('g71a18f4-3a13-11e7-a919-92ebcb67fe33');
+    $input_0 = 'g71a18f4-3a13-11e7-a919-92ebcb67fe33';
+    v::uuid()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::uuid(4)->assert('a71a18f4-3a13-11e7-a919-92ebcb67fe33');
+    $input_0 = 'a71a18f4-3a13-11e7-a919-92ebcb67fe33';
+    v::uuid(4)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::uuid())->assert('e0b5ffb9-9caf-4a34-9673-8fc91db78be6');
+    $input_0 = 'e0b5ffb9-9caf-4a34-9673-8fc91db78be6';
+    v::not(v::uuid())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::uuid(5))->assert('c4a760a8-dbcf-5254-a0d9-6a4474bd1b62');
+    $input_0 = 'c4a760a8-dbcf-5254-a0d9-6a4474bd1b62';
+    v::not(v::uuid(5))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

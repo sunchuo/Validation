@@ -12,7 +12,8 @@ use Respect\Validation\Validator as v;
 
 $usernameValidator = v::alnum()->noWhitespace()->length(1, 15);
 try {
-    $usernameValidator->assert('really messed up screen#name');
+    $input_0 = 'really messed up screen#name';
+    $usernameValidator->assert($input_0);
 } catch (NestedValidationException $exception) {
     print_r(
         $exception->getMessages([

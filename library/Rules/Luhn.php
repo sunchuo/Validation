@@ -31,7 +31,7 @@ final class Luhn extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (!(new Digit())->validate($input)) {
             return false;

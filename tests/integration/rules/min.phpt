@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::min(INF)->check(10);
+    $input_0 = 10;
+    v::min(INF)->check($input_0);
 } catch (MinException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::min(5))->check(INF);
+    $input_0 = INF;
+    v::not(v::min(5))->check($input_0);
 } catch (MinException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::min('today')->assert('yesterday');
+    $input_0 = 'yesterday';
+    v::min('today')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::min('a'))->assert('z');
+    $input_0 = 'z';
+    v::not(v::min('a'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

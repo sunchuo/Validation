@@ -26,7 +26,7 @@ final class NoneOf extends AbstractComposite
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         $exceptions = $this->getAllThrownExceptions($input);
         $numRules = count($this->getRules());
@@ -43,7 +43,7 @@ final class NoneOf extends AbstractComposite
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         foreach ($this->getRules() as $rule) {
             if ($rule->validate($input)) {

@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\ReadableException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::readable()->check('tests/fixtures/invalid-image.jpg');
+    $input_0 = 'tests/fixtures/invalid-image.jpg';
+    v::readable()->check($input_0);
 } catch (ReadableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::readable())->check('tests/fixtures/valid-image.png');
+    $input_0 = 'tests/fixtures/valid-image.png';
+    v::not(v::readable())->check($input_0);
 } catch (ReadableException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::readable()->assert(new stdClass());
+    $input_0 = new stdClass();
+    v::readable()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::readable())->assert('tests/fixtures/valid-image.png');
+    $input_0 = 'tests/fixtures/valid-image.png';
+    v::not(v::readable())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -46,12 +46,18 @@ final class AllOfTest extends TestCase
             return true;
         });
         $o = new AllOf($valid1, $valid2, $valid3);
-        self::assertTrue($o->__invoke('any'));
-        $o->check('any');
-        $o->assert('any');
-        self::assertTrue($o->__invoke(''));
-        $o->check('');
-        $o->assert('');
+        $input_0 = 'any';
+        self::assertTrue($o->__invoke($input_0));
+        $input_0 = 'any';
+        $o->check($input_0);
+        $input_0 = 'any';
+        $o->assert($input_0);
+        $input_0 = '';
+        self::assertTrue($o->__invoke($input_0));
+        $input_0 = '';
+        $o->check($input_0);
+        $input_0 = '';
+        $o->assert($input_0);
     }
 
     /**
@@ -65,10 +71,12 @@ final class AllOfTest extends TestCase
         Validatable $rule3
     ): void {
         $o = new AllOf($rule1, $rule2, $rule3);
-        self::assertFalse($o->__invoke('any'));
+        $input_0 = 'any';
+        self::assertFalse($o->__invoke($input_0));
 
         $this->expectException(AllOfException::class);
-        $o->assert('any');
+        $input_0 = 'any';
+        $o->assert($input_0);
     }
 
     /**
@@ -82,10 +90,12 @@ final class AllOfTest extends TestCase
         Validatable $rule3
     ): void {
         $o = new AllOf($rule1, $rule2, $rule3);
-        self::assertFalse($o->__invoke('any'));
+        $input_0 = 'any';
+        self::assertFalse($o->__invoke($input_0));
 
         $this->expectException(CallbackException::class);
-        $o->check('any');
+        $input_0 = 'any';
+        $o->check($input_0);
     }
 
     /**
@@ -102,7 +112,8 @@ final class AllOfTest extends TestCase
         $o = new AllOf($rule1, $rule2, $rule3);
 
         $this->expectException(ValidationException::class);
-        $o->check('');
+        $input_0 = '';
+        $o->check($input_0);
     }
 
     /**
@@ -116,7 +127,8 @@ final class AllOfTest extends TestCase
         Validatable $rule3
     ): void {
         $o = new AllOf($rule1, $rule2, $rule3);
-        self::assertFalse($o->__invoke('any'));
+        $input_0 = 'any';
+        self::assertFalse($o->__invoke($input_0));
     }
 
     /**

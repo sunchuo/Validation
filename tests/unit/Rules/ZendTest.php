@@ -109,7 +109,6 @@ final class ZendTest extends RuleTestCase
     {
         return [
             ['ConfigProvider'],
-            [ConfigProvider::class],
             ['Zend\\Nonexistent\\Class'],
             [ValidatorInterface::class],
         ];

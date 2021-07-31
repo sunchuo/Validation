@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::base(61)->check('Z01xSsg5675hic20dj');
+    $input_0 = 'Z01xSsg5675hic20dj';
+    v::base(61)->check($input_0);
 } catch (BaseException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::base(2)->assert('');
+    $input_0 = '';
+    v::base(2)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::base(2))->check('011010001');
+    $input_0 = '011010001';
+    v::not(v::base(2))->check($input_0);
 } catch (BaseException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::base(2))->assert('011010001');
+    $input_0 = '011010001';
+    v::not(v::base(2))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

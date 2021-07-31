@@ -12,7 +12,8 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::key('email', v::email()->setTemplate('WRONG EMAIL!!!!!!'))->assert(['email' => 'qwe']);
+    $input_0 = ['email' => 'qwe'];
+    v::key('email', v::email()->setTemplate('WRONG EMAIL!!!!!!'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     print_r($exception->getMessages());
 }

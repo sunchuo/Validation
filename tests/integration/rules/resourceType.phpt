@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\ResourceTypeException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::resourceType()->check('test');
+    $input_0 = 'test';
+    v::resourceType()->check($input_0);
 } catch (ResourceTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::resourceType())->check(tmpfile());
+    $file = tmpfile();
+    v::not(v::resourceType())->check($file);
 } catch (ResourceTypeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::resourceType()->assert([]);
+    $input_0 = [];
+    v::resourceType()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::resourceType())->assert(tmpfile());
+    $file = tmpfile();
+    v::not(v::resourceType())->assert($file);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

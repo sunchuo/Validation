@@ -14,25 +14,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::base64()->check('=c3VyZS4');
+    $input_0 = '=c3VyZS4';
+    v::base64()->check($input_0);
 } catch (Base64Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::base64())->check('c3VyZS4=');
+    $input_0 = 'c3VyZS4=';
+    v::not(v::base64())->check($input_0);
 } catch (Base64Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::base64()->assert('=c3VyZS4');
+    $input_0 = '=c3VyZS4';
+    v::base64()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::base64())->assert('c3VyZS4=');
+    $input_0 = 'c3VyZS4=';
+    v::not(v::base64())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

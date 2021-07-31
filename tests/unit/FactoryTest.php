@@ -237,7 +237,8 @@ final class FactoryTest extends TestCase
         $this->expectException(StubException::class);
 
         $rule = new Stub();
-        $rule->assert('test');
+        $input_0 = 'test';
+        $rule->assert($input_0);
     }
 
     /**
@@ -248,6 +249,7 @@ final class FactoryTest extends TestCase
         $this->expectException(ValidationException::class);
 
         $rule = new CustomRule();
-        $rule->assert('test');
+        $input_0 = 'test';
+        $rule->assert($input_0);
     }
 }

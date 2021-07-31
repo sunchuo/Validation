@@ -58,7 +58,8 @@ final class EqualsTest extends RuleTestCase
     {
         $compareTo = new stdClass();
         $equals = new Equals($compareTo);
-        $exception = $equals->reportError('input');
+        $input_0 = 'input';
+        $exception = $equals->reportError($input_0);
 
         self::assertSame($compareTo, $exception->getParam('compareTo'));
     }

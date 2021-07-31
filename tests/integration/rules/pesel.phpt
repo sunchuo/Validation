@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\PeselException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::pesel()->check('21120209251');
+    $input_0 = '21120209251';
+    v::pesel()->check($input_0);
 } catch (PeselException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::pesel())->check('21120209256');
+    $input_0 = '21120209256';
+    v::not(v::pesel())->check($input_0);
 } catch (PeselException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::pesel()->assert('21120209251');
+    $input_0 = '21120209251';
+    v::pesel()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::pesel())->assert('21120209256');
+    $input_0 = '21120209256';
+    v::not(v::pesel())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

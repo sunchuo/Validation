@@ -15,7 +15,8 @@ use Respect\Validation\Validator;
 
 $usernameValidator = Validator::alnum('_')->length(1, 15)->noWhitespace();
 try {
-    $usernameValidator->check('really messed up screen#name');
+    $input_0 = 'really messed up screen#name';
+    $usernameValidator->check($input_0);
 } catch (NestedValidationException $e) {
     echo 'Check used NestedValidationException';
 } catch (ValidationException $e) {

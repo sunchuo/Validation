@@ -13,49 +13,57 @@ use Respect\Validation\Exceptions\WhenException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::when(v::alwaysValid(), v::intVal())->check('abc');
+    $input_0 = 'abc';
+    v::when(v::alwaysValid(), v::intVal())->check($input_0);
 } catch (IntValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::when(v::alwaysInvalid(), v::alwaysValid(), v::intVal())->check('def');
+    $input_0 = 'def';
+    v::when(v::alwaysInvalid(), v::alwaysValid(), v::intVal())->check($input_0);
 } catch (IntValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::when(v::alwaysValid(), v::stringVal()))->check('ghi');
+    $input_0 = 'ghi';
+    v::not(v::when(v::alwaysValid(), v::stringVal()))->check($input_0);
 } catch (WhenException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::when(v::alwaysInvalid(), v::alwaysValid(), v::stringVal()))->check('jkl');
+    $input_0 = 'jkl';
+    v::not(v::when(v::alwaysInvalid(), v::alwaysValid(), v::stringVal()))->check($input_0);
 } catch (WhenException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::when(v::alwaysValid(), v::intVal())->assert('mno');
+    $input_0 = 'mno';
+    v::when(v::alwaysValid(), v::intVal())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::when(v::alwaysInvalid(), v::alwaysValid(), v::intVal())->assert('pqr');
+    $input_0 = 'pqr';
+    v::when(v::alwaysInvalid(), v::alwaysValid(), v::intVal())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::when(v::alwaysValid(), v::stringVal()))->assert('stu');
+    $input_0 = 'stu';
+    v::not(v::when(v::alwaysValid(), v::stringVal()))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::when(v::alwaysInvalid(), v::alwaysValid(), v::stringVal()))->assert('vwx');
+    $input_0 = 'vwx';
+    v::not(v::when(v::alwaysInvalid(), v::alwaysValid(), v::stringVal()))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

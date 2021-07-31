@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NumericValException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::numericVal()->check('a');
+    $input_0 = 'a';
+    v::numericVal()->check($input_0);
 } catch (NumericValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::numericVal())->check('1');
+    $input_0 = '1';
+    v::not(v::numericVal())->check($input_0);
 } catch (NumericValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::numericVal()->assert('a');
+    $input_0 = 'a';
+    v::numericVal()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::numericVal())->assert('1');
+    $input_0 = '1';
+    v::not(v::numericVal())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

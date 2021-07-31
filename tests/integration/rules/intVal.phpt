@@ -13,25 +13,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::intVal()->check('42.33');
+    $input_0 = '42.33';
+    v::intVal()->check($input_0);
 } catch (IntValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::intVal())->check(2);
+    $input_0 = 2;
+    v::not(v::intVal())->check($input_0);
 } catch (IntValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::intVal()->assert('Foo');
+    $input_0 = 'Foo';
+    v::intVal()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::intVal())->assert(3);
+    $input_0 = 3;
+    v::not(v::intVal())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

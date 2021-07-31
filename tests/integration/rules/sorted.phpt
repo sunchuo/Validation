@@ -13,49 +13,57 @@ use Respect\Validation\Exceptions\SortedException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::sorted('ASC')->check([1, 3, 2]);
+    $input_0 = [1, 3, 2];
+    v::sorted('ASC')->check($input_0);
 } catch (SortedException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::sorted('DESC')->check([1, 2, 3]);
+    $input_0 = [1, 2, 3];
+    v::sorted('DESC')->check($input_0);
 } catch (SortedException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::sorted('ASC'))->check([1, 2, 3]);
+    $input_0 = [1, 2, 3];
+    v::not(v::sorted('ASC'))->check($input_0);
 } catch (SortedException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::sorted('DESC'))->check([3, 2, 1]);
+    $input_0 = [3, 2, 1];
+    v::not(v::sorted('DESC'))->check($input_0);
 } catch (SortedException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::sorted('ASC')->assert([3, 2, 1]);
+    $input_0 = [3, 2, 1];
+    v::sorted('ASC')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::sorted('DESC')->assert([1, 2, 3]);
+    $input_0 = [1, 2, 3];
+    v::sorted('DESC')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::sorted('ASC'))->assert([1, 2, 3]);
+    $input_0 = [1, 2, 3];
+    v::not(v::sorted('ASC'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::sorted('DESC'))->assert([3, 2, 1]);
+    $input_0 = [3, 2, 1];
+    v::not(v::sorted('DESC'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

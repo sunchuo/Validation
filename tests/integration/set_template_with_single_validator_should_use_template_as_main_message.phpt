@@ -14,7 +14,8 @@ use Respect\Validation\Validator;
 
 $rule = Validator::callback('is_int')->setTemplate('{{name}} is not tasty');
 try {
-    $rule->assert('something');
+    $input_0 = 'something';
+    $rule->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getMessage();
 }
@@ -22,7 +23,8 @@ try {
 echo PHP_EOL;
 
 try {
-    $rule->check('something');
+    $input_0 = 'something';
+    $rule->check($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getMessage();
 }

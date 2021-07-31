@@ -33,7 +33,7 @@ final class LeapYear extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if (is_numeric($input)) {
             $date = strtotime(sprintf('%d-02-29', (int) $input));
@@ -42,11 +42,15 @@ final class LeapYear extends AbstractRule
         }
 
         if (is_scalar($input)) {
-            return $this->validate((int) date('Y', (int) strtotime((string) $input)));
+            $params = (int) date('Y', (int) strtotime((string) $input));
+
+            return $this->validate($params);
         }
 
         if ($input instanceof DateTimeInterface) {
-            return $this->validate($input->format('Y'));
+            $params = $input->format('Y');
+
+            return $this->validate($params);
         }
 
         return false;

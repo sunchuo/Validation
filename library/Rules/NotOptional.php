@@ -30,7 +30,7 @@ final class NotOptional extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return $this->isUndefined($input) === false;
     }

@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::directory()->check('batman');
+    $input_0 = 'batman';
+    v::directory()->check($input_0);
 } catch (DirectoryException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::directory())->check(dirname('/etc/'));
+    $input_0 = dirname('/etc/');
+    v::not(v::directory())->check($input_0);
 } catch (DirectoryException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::directory()->assert('ppz');
+    $input_0 = 'ppz';
+    v::directory()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::directory())->assert(dirname('/etc/'));
+    $input_0 = dirname('/etc/');
+    v::not(v::directory())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

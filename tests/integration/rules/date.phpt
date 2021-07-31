@@ -14,25 +14,29 @@ use Respect\Validation\Validator as v;
 date_default_timezone_set('UTC');
 
 try {
-    v::date()->check('2018-01-29T08:32:54+00:00');
+    $input_0 = '2018-01-29T08:32:54+00:00';
+    v::date()->check($input_0);
 } catch (DateException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::date())->check('2018-01-29');
+    $input_0 = '2018-01-29';
+    v::not(v::date())->check($input_0);
 } catch (DateException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::date()->assert('2018-01-29T08:32:54+00:00');
+    $input_0 = '2018-01-29T08:32:54+00:00';
+    v::date()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::date('d/m/Y'))->assert('29/01/2018');
+    $input_0 = '29/01/2018';
+    v::not(v::date('d/m/Y'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

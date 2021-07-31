@@ -91,7 +91,8 @@ final class CallTest extends TestCase
             ->method('assert');
 
         $sut = new Call($callable, $rule);
-        $sut->assert('');
+        $input_0 = '';
+        $sut->assert($input_0);
 
         self::expectExceptionObject($this->errorException);
 
@@ -185,7 +186,8 @@ final class CallTest extends TestCase
             ->method('check');
 
         $sut = new Call($callable, $rule);
-        $sut->check('');
+        $input_0 = '';
+        $sut->check($input_0);
 
         self::expectExceptionObject($this->errorException);
 
@@ -223,7 +225,8 @@ final class CallTest extends TestCase
         $this->expectException(AlwaysInvalidException::class);
 
         $sut = new Call('trim', $rule);
-        $sut->check('something');
+        $input_0 = 'something';
+        $sut->check($input_0);
     }
 
     /**
@@ -270,7 +273,8 @@ final class CallTest extends TestCase
     {
         $sut = new Call('trim', new AlwaysInvalid());
 
-        self::assertFalse($sut->validate('something'));
+        $input_0 = 'something';
+        self::assertFalse($sut->validate($input_0));
     }
 
     /**
@@ -286,7 +290,8 @@ final class CallTest extends TestCase
             ->method('check');
 
         $sut = new Call($callable, $rule);
-        $sut->validate('');
+        $input_0 = '';
+        $sut->validate($input_0);
 
         self::expectExceptionObject($this->errorException);
 

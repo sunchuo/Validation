@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\ZendException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::zend('Hostname')->check('googlecombr');
+    $input_0 = 'googlecombr';
+    v::zend('Hostname')->check($input_0);
 } catch (ZendException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::zend('Hostname'))->check('google.com.br');
+    $input_0 = 'google.com.br';
+    v::not(v::zend('Hostname'))->check($input_0);
 } catch (ZendException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::zend('Hostname')->assert('googlecombr');
+    $input_0 = 'googlecombr';
+    v::zend('Hostname')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::zend('Hostname'))->assert('google.com.br');
+    $input_0 = 'google.com.br';
+    v::not(v::zend('Hostname'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

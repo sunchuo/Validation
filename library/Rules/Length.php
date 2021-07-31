@@ -72,7 +72,7 @@ final class Length extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         $length = $this->extractLength($input);
         if ($length === null) {

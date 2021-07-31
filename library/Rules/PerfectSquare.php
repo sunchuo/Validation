@@ -30,7 +30,7 @@ final class PerfectSquare extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return is_numeric($input) && floor(sqrt((float) $input)) == sqrt((float) $input);
     }

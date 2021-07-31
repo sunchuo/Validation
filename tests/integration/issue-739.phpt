@@ -11,7 +11,8 @@ use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::when(v::alwaysInvalid(), v::alwaysValid())->check('foo');
+    $input_0 = 'foo';
+    v::when(v::alwaysInvalid(), v::alwaysValid())->check($input_0);
 } catch (ValidationException $exception) {
     echo $exception->getMessage();
 }

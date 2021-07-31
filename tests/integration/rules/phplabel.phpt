@@ -15,25 +15,29 @@ use Respect\Validation\Exceptions\PhpLabelException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::phpLabel()->check('f o o');
+    $input_0 = 'f o o';
+    v::phpLabel()->check($input_0);
 } catch (PhpLabelException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::phpLabel())->check('correctOne');
+    $input_0 = 'correctOne';
+    v::not(v::phpLabel())->check($input_0);
 } catch (PhpLabelException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::phpLabel()->assert('0wner');
+    $input_0 = '0wner';
+    v::phpLabel()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::phpLabel())->assert('Respect');
+    $input_0 = 'Respect';
+    v::not(v::phpLabel())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

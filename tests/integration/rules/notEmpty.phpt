@@ -13,37 +13,43 @@ use Respect\Validation\Exceptions\NotEmptyException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::notEmpty()->check(null);
+    $input_0 = null;
+    v::notEmpty()->check($input_0);
 } catch (NotEmptyException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::notEmpty()->setName('Field')->check(null);
+    $input_0 = null;
+    v::notEmpty()->setName('Field')->check($input_0);
 } catch (NotEmptyException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notEmpty())->check(1);
+    $input_0 = 1;
+    v::not(v::notEmpty())->check($input_0);
 } catch (NotEmptyException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::notEmpty()->assert('');
+    $input_0 = '';
+    v::notEmpty()->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::notEmpty()->setName('Field')->assert('');
+    $input_0 = '';
+    v::notEmpty()->setName('Field')->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::notEmpty())->assert([1]);
+    $input_0 = [1];
+    v::not(v::notEmpty())->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage() . PHP_EOL;
 }

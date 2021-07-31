@@ -12,6 +12,16 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
+    $array1 = [
+        'mysql' => [
+            'host' => 42,
+            'schema' => 42,
+        ],
+        'postgresql' => [
+            'user' => 42,
+            'password' => 42,
+        ],
+    ];
     v::create()
         ->key(
             'mysql',
@@ -31,16 +41,7 @@ try {
                 ->key('schema', v::stringType(), true),
             true
         )
-        ->assert([
-            'mysql' => [
-                'host' => 42,
-                'schema' => 42,
-            ],
-            'postgresql' => [
-                'user' => 42,
-                'password' => 42,
-            ],
-        ]);
+        ->assert($array1);
 } catch (NestedValidationException $exception) {
     print_r($exception->getMessages([
         'mysql' => [

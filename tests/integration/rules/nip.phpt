@@ -13,25 +13,29 @@ use Respect\Validation\Exceptions\NipException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::nip()->check('1645865778');
+    $input_0 = '1645865778';
+    v::nip()->check($input_0);
 } catch (NipException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::nip())->check('1645865777');
+    $input_0 = '1645865777';
+    v::not(v::nip())->check($input_0);
 } catch (NipException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::nip()->assert('1645865778');
+    $input_0 = '1645865778';
+    v::nip()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::nip())->assert('1645865777');
+    $input_0 = '1645865777';
+    v::not(v::nip())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

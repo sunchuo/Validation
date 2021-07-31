@@ -56,7 +56,7 @@ final class When extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         if ($this->when->validate($input)) {
             return $this->then->validate($input);
@@ -68,7 +68,7 @@ final class When extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         if ($this->when->validate($input)) {
             $this->then->assert($input);
@@ -82,7 +82,7 @@ final class When extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         if ($this->when->validate($input)) {
             $this->then->check($input);

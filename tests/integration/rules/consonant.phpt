@@ -14,49 +14,57 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::consonant()->check('aeiou');
+    $input_0 = 'aeiou';
+    v::consonant()->check($input_0);
 } catch (ConsonantException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::consonant('d')->check('daeiou');
+    $input_0 = 'daeiou';
+    v::consonant('d')->check($input_0);
 } catch (ConsonantException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::consonant())->check('bcd');
+    $input_0 = 'bcd';
+    v::not(v::consonant())->check($input_0);
 } catch (ConsonantException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::consonant('a'))->check('abcd');
+    $input_0 = 'abcd';
+    v::not(v::consonant('a'))->check($input_0);
 } catch (ConsonantException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::consonant()->assert('aeiou');
+    $input_0 = 'aeiou';
+    v::consonant()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::consonant('d')->assert('daeiou');
+    $input_0 = 'daeiou';
+    v::consonant('d')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::consonant())->assert('bcd');
+    $input_0 = 'bcd';
+    v::not(v::consonant())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::consonant('a'))->assert('abcd');
+    $input_0 = 'abcd';
+    v::not(v::consonant('a'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

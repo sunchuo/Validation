@@ -38,7 +38,7 @@ abstract class AbstractRule implements Validatable
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         if ($this->validate($input)) {
             return;
@@ -50,7 +50,7 @@ abstract class AbstractRule implements Validatable
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         $this->assert($input);
     }
@@ -66,7 +66,7 @@ abstract class AbstractRule implements Validatable
     /**
      * {@inheritDoc}
      */
-    public function reportError($input, array $extraParams = []): ValidationException
+    public function reportError(&$input, array $extraParams = []): ValidationException
     {
         return Factory::getDefaultInstance()->exception($this, $input, $extraParams);
     }
@@ -94,7 +94,7 @@ abstract class AbstractRule implements Validatable
     /**
      * @param mixed$input
      */
-    public function __invoke($input): bool
+    public function __invoke(&$input): bool
     {
         return $this->validate($input);
     }

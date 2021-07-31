@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\PrimeNumberException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::primeNumber()->check(10);
+    $input_0 = 10;
+    v::primeNumber()->check($input_0);
 } catch (PrimeNumberException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::primeNumber())->check(3);
+    $input_0 = 3;
+    v::not(v::primeNumber())->check($input_0);
 } catch (PrimeNumberException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::primeNumber()->assert('Foo');
+    $input_0 = 'Foo';
+    v::primeNumber()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::primeNumber())->assert('+7');
+    $input_0 = '+7';
+    v::not(v::primeNumber())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

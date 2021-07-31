@@ -14,25 +14,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::boolVal()->check('ok');
+    $input_0 = 'ok';
+    v::boolVal()->check($input_0);
 } catch (BoolValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::boolVal())->check('yes');
+    $input_0 = 'yes';
+    v::not(v::boolVal())->check($input_0);
 } catch (BoolValException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::boolVal()->assert('yep');
+    $input_0 = 'yep';
+    v::boolVal()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::boolVal())->assert('on');
+    $input_0 = 'on';
+    v::not(v::boolVal())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

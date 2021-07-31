@@ -14,49 +14,57 @@ use Respect\Validation\Validator as v;
 date_default_timezone_set('UTC');
 
 try {
-    v::dateTime()->check('FooBarBazz');
+    $input_0 = 'FooBarBazz';
+    v::dateTime()->check($input_0);
 } catch (DateTimeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::dateTime('c')->check('06-12-1995');
+    $input_0 = '06-12-1995';
+    v::dateTime('c')->check($input_0);
 } catch (DateTimeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::dateTime()->assert('QuxQuuxx');
+    $input_0 = 'QuxQuuxx';
+    v::dateTime()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::dateTime('r')->assert(2018013030);
+    $input_0 = 2018013030;
+    v::dateTime('r')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::dateTime())->check('4 days ago');
+    $input_0 = '4 days ago';
+    v::not(v::dateTime())->check($input_0);
 } catch (DateTimeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::dateTime('Y-m-d'))->check('1988-09-09');
+    $input_0 = '1988-09-09';
+    v::not(v::dateTime('Y-m-d'))->check($input_0);
 } catch (DateTimeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::dateTime())->assert('+3 weeks');
+    $input_0 = '+3 weeks';
+    v::not(v::dateTime())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::dateTime('d/m/y'))->assert('23/07/99');
+    $input_0 = '23/07/99';
+    v::not(v::dateTime('d/m/y'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

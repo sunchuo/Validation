@@ -26,7 +26,8 @@ Factory::setDefaultInstance(
 );
 
 try {
-    Validator::stringType()->length(2, 15)->assert(0);
+    $input_0 = 0;
+    Validator::stringType()->length(2, 15)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage();
 }

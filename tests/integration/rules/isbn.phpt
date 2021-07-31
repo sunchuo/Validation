@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::isbn()->check('ISBN-12: 978-0-596-52068-7');
+    $input_0 = 'ISBN-12: 978-0-596-52068-7';
+    v::isbn()->check($input_0);
 } catch (IsbnException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::isbn())->check('ISBN-13: 978-0-596-52068-7');
+    $input_0 = 'ISBN-13: 978-0-596-52068-7';
+    v::not(v::isbn())->check($input_0);
 } catch (IsbnException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::isbn()->assert('978 10 596 52068 7');
+    $input_0 = '978 10 596 52068 7';
+    v::isbn()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::isbn())->assert('978 0 596 52068 7');
+    $input_0 = '978 0 596 52068 7';
+    v::not(v::isbn())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

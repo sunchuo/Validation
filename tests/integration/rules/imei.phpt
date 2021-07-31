@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::imei()->check('490154203237512');
+    $input_0 = '490154203237512';
+    v::imei()->check($input_0);
 } catch (ImeiException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::imei())->check('350077523237513');
+    $input_0 = '350077523237513';
+    v::not(v::imei())->check($input_0);
 } catch (ImeiException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::imei()->assert(null);
+    $input_0 = null;
+    v::imei()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::imei())->assert('356938035643809');
+    $input_0 = '356938035643809';
+    v::not(v::imei())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

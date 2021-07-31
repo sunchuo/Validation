@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\PolishIdCardException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::polishIdCard()->check('AYE205411');
+    $input_0 = 'AYE205411';
+    v::polishIdCard()->check($input_0);
 } catch (PolishIdCardException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::polishIdCard())->check('AYE205410');
+    $input_0 = 'AYE205410';
+    v::not(v::polishIdCard())->check($input_0);
 } catch (PolishIdCardException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::polishIdCard()->assert('AYE205411');
+    $input_0 = 'AYE205411';
+    v::polishIdCard()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::polishIdCard())->assert('AYE205410');
+    $input_0 = 'AYE205410';
+    v::not(v::polishIdCard())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

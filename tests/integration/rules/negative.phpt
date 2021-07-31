@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::negative()->check(16);
+    $input_0 = 16;
+    v::negative()->check($input_0);
 } catch (NegativeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::negative())->check(-10);
+    $input_0 = -10;
+    v::not(v::negative())->check($input_0);
 } catch (NegativeException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::negative()->assert('a');
+    $input_0 = 'a';
+    v::negative()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::negative())->assert('-144');
+    $input_0 = '-144';
+    v::not(v::negative())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

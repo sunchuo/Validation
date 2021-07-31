@@ -40,7 +40,8 @@ final class SfTest extends TestCase
     {
         $sut = new Sf(new IsNull());
 
-        self::assertTrue($sut->validate(null));
+        $input_0 = null;
+        self::assertTrue($sut->validate($input_0));
     }
 
     /**
@@ -50,7 +51,8 @@ final class SfTest extends TestCase
     {
         $sut = new Sf(new IsFalse());
 
-        self::assertFalse($sut->validate(true));
+        $input_0 = true;
+        self::assertFalse($sut->validate($input_0));
     }
 
     /**

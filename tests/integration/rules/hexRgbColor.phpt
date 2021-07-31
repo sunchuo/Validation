@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::hexRgbColor()->check('invalid');
+    $input_0 = 'invalid';
+    v::hexRgbColor()->check($input_0);
 } catch (HexRgbColorException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::hexRgbColor())->check('#808080');
+    $input_0 = '#808080';
+    v::not(v::hexRgbColor())->check($input_0);
 } catch (HexRgbColorException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::hexRgbColor()->assert('invalid');
+    $input_0 = 'invalid';
+    v::hexRgbColor()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::hexRgbColor())->assert('#808080');
+    $input_0 = '#808080';
+    v::not(v::hexRgbColor())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

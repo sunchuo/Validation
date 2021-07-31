@@ -42,9 +42,12 @@ final class NoneOfTest extends TestCase
             return false;
         });
         $o = new NoneOf($valid1, $valid2, $valid3);
-        self::assertTrue($o->validate('any'));
-        $o->assert('any');
-        $o->check('any');
+        $input_0 = 'any';
+        self::assertTrue($o->validate($input_0));
+        $input_0 = 'any';
+        $o->assert($input_0);
+        $input_0 = 'any';
+        $o->check($input_0);
     }
 
     /**
@@ -62,9 +65,11 @@ final class NoneOfTest extends TestCase
             return true;
         });
         $o = new NoneOf($valid1, $valid2, $valid3);
-        self::assertFalse($o->validate('any'));
+        $input_0 = 'any';
+        self::assertFalse($o->validate($input_0));
 
         $this->expectException(NoneOfException::class);
-        $o->assert('any');
+        $input_0 = 'any';
+        $o->assert($input_0);
     }
 }

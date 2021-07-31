@@ -23,7 +23,7 @@ final class Valid extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return true;
     }

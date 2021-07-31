@@ -46,9 +46,12 @@ final class OneOfTest extends TestCase
 
         $rule = new OneOf($valid1, $valid2, $valid3);
 
-        self::assertTrue($rule->validate('any'));
-        $rule->assert('any');
-        $rule->check('any');
+        $input_0 = 'any';
+        self::assertTrue($rule->validate($input_0));
+        $input_0 = 'any';
+        $rule->assert($input_0);
+        $input_0 = 'any';
+        $rule->check($input_0);
     }
 
     /**
@@ -58,11 +61,13 @@ final class OneOfTest extends TestCase
     {
         $rule = new OneOf();
 
-        self::assertFalse($rule->validate('any'));
+        $input_0 = 'any';
+        self::assertFalse($rule->validate($input_0));
 
         $this->expectException(OneOfException::class);
 
-        $rule->check('any');
+        $input_0 = 'any';
+        $rule->check($input_0);
     }
 
     /**
@@ -80,10 +85,12 @@ final class OneOfTest extends TestCase
             return false;
         });
         $rule = new OneOf($valid1, $valid2, $valid3);
-        self::assertFalse($rule->validate('any'));
+        $input_0 = 'any';
+        self::assertFalse($rule->validate($input_0));
 
         $this->expectException(OneOfException::class);
-        $rule->assert('any');
+        $input_0 = 'any';
+        $rule->assert($input_0);
     }
 
     /**
@@ -101,10 +108,12 @@ final class OneOfTest extends TestCase
             return false;
         });
         $rule = new OneOf($valid1, $valid2, $valid3);
-        self::assertFalse($rule->validate('any'));
+        $input_0 = 'any';
+        self::assertFalse($rule->validate($input_0));
 
         $this->expectException(OneOfException::class);
-        $rule->assert('any');
+        $input_0 = 'any';
+        $rule->assert($input_0);
     }
 
     /**
@@ -123,10 +132,12 @@ final class OneOfTest extends TestCase
         });
 
         $rule = new OneOf($valid1, $valid2, $valid3);
-        self::assertFalse($rule->validate('any'));
+        $input_0 = 'any';
+        self::assertFalse($rule->validate($input_0));
 
         $this->expectException(CallbackException::class);
-        $rule->check('any');
+        $input_0 = 'any';
+        $rule->check($input_0);
     }
 
     /**
@@ -145,10 +156,12 @@ final class OneOfTest extends TestCase
         });
 
         $rule = new OneOf($valid1, $valid2, $valid3);
-        self::assertFalse($rule->validate('any'));
+        $input_0 = 'any';
+        self::assertFalse($rule->validate($input_0));
 
         $this->expectException(OneOfException::class);
-        $rule->check('any');
+        $input_0 = 'any';
+        $rule->check($input_0);
     }
 
     /**
@@ -157,9 +170,11 @@ final class OneOfTest extends TestCase
     public function invalidCheck(): void
     {
         $rule = new OneOf(new Xdigit(), new Alnum());
-        self::assertFalse($rule->validate(-10));
+        $input_0 = -10;
+        self::assertFalse($rule->validate($input_0));
 
         $this->expectException(XdigitException::class);
-        $rule->check(-10);
+        $input_0 = -10;
+        $rule->check($input_0);
     }
 }

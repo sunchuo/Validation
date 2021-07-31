@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::cnh()->check('batman');
+    $input_0 = 'batman';
+    v::cnh()->check($input_0);
 } catch (CnhException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::cnh())->check('02650306461');
+    $input_0 = '02650306461';
+    v::not(v::cnh())->check($input_0);
 } catch (CnhException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
-    v::cnh()->assert('bruce wayne');
+    $input_0 = 'bruce wayne';
+    v::cnh()->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::cnh())->assert('02650306461');
+    $input_0 = '02650306461';
+    v::not(v::cnh())->assert($input_0);
 } catch (NestedValidationException $e) {
     echo $e->getFullMessage() . PHP_EOL;
 }

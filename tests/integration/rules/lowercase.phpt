@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::lowercase()->check('UPPERCASE');
+    $input_0 = 'UPPERCASE';
+    v::lowercase()->check($input_0);
 } catch (LowercaseException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::lowercase())->check('lowercase');
+    $input_0 = 'lowercase';
+    v::not(v::lowercase())->check($input_0);
 } catch (LowercaseException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::lowercase()->assert('UPPERCASE');
+    $input_0 = 'UPPERCASE';
+    v::lowercase()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::lowercase())->assert('lowercase');
+    $input_0 = 'lowercase';
+    v::not(v::lowercase())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

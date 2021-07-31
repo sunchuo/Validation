@@ -52,7 +52,7 @@ final class Not extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate($input): bool
+    public function validate(&$input): bool
     {
         return $this->rule->validate($input) === false;
     }
@@ -60,7 +60,7 @@ final class Not extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function assert($input): void
+    public function assert(&$input): void
     {
         if ($this->validate($input)) {
             return;

@@ -12,25 +12,29 @@ use Respect\Validation\Exceptions\TldException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::tld()->check('42');
+    $input_0 = '42';
+    v::tld()->check($input_0);
 } catch (TldException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::tld())->check('com');
+    $input_0 = 'com';
+    v::not(v::tld())->check($input_0);
 } catch (TldException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::tld()->assert('1984');
+    $input_0 = '1984';
+    v::tld()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::tld())->assert('com');
+    $input_0 = 'com';
+    v::not(v::tld())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

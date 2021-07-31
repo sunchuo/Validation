@@ -38,7 +38,7 @@ final class Validator extends AllOf
     /**
      * {@inheritDoc}
      */
-    public function check($input): void
+    public function check(&$input): void
     {
         try {
             parent::check($input);

@@ -13,28 +13,32 @@ use Respect\Validation\Validator as v;
 
 uopz_set_return('is_uploaded_file', false);
 try {
-    v::uploaded()->check('filename');
+    $input_0 = 'filename';
+    v::uploaded()->check($input_0);
 } catch (UploadedException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 uopz_set_return('is_uploaded_file', true);
 try {
-    v::not(v::uploaded())->check('filename');
+    $input_0 = 'filename';
+    v::not(v::uploaded())->check($input_0);
 } catch (UploadedException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 uopz_set_return('is_uploaded_file', false);
 try {
-    v::uploaded()->assert('filename');
+    $input_0 = 'filename';
+    v::uploaded()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 uopz_set_return('is_uploaded_file', true);
 try {
-    v::not(v::uploaded())->assert('filename');
+    $input_0 = 'filename';
+    v::not(v::uploaded())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

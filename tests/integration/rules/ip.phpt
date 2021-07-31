@@ -13,49 +13,57 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 try {
-    v::ip()->check('257.0.0.1');
+    $input_0 = '257.0.0.1';
+    v::ip()->check($input_0);
 } catch (IpException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::ip())->check('127.0.0.1');
+    $input_0 = '127.0.0.1';
+    v::not(v::ip())->check($input_0);
 } catch (IpException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::ip('127.0.1.*')->check('127.0.0.1');
+    $input_0 = '127.0.0.1';
+    v::ip('127.0.1.*')->check($input_0);
 } catch (IpException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::ip('127.0.1.*'))->check('127.0.1.1');
+    $input_0 = '127.0.1.1';
+    v::not(v::ip('127.0.1.*'))->check($input_0);
 } catch (IpException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
 
 try {
-    v::ip()->assert('257.0.0.1');
+    $input_0 = '257.0.0.1';
+    v::ip()->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::ip())->assert('127.0.0.1');
+    $input_0 = '127.0.0.1';
+    v::not(v::ip())->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::ip('127.0.1.*')->assert('127.0.0.1');
+    $input_0 = '127.0.0.1';
+    v::ip('127.0.1.*')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
-    v::not(v::ip('127.0.1.*'))->assert('127.0.1.1');
+    $input_0 = '127.0.1.1';
+    v::not(v::ip('127.0.1.*'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
