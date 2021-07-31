@@ -51,11 +51,14 @@ final class Domain extends AbstractRule
      */
     private $partsRule;
 
-    public function __construct(bool $tldCheck = true)
+    private $default;
+
+    public function __construct($default = null, bool $tldCheck = true)
     {
         $this->genericRule = $this->createGenericRule();
         $this->tldRule = $this->createTldRule($tldCheck);
         $this->partsRule = $this->createPartsRule();
+        $this->default = $default;
     }
 
     /**
@@ -63,6 +66,10 @@ final class Domain extends AbstractRule
      */
     public function assert(&$input): void
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         $exceptions = [];
 
         $this->collectAssertException($exceptions, $this->genericRule, $input);
@@ -155,7 +162,7 @@ final class Domain extends AbstractRule
     private function createPartsRule(): Validatable
     {
         return new AllOf(
-            new Alnum('-'),
+            new Alnum(null, '-'),
             new Not(new StartsWith('-')),
             new AnyOf(
                 new Not(new Contains('--')),

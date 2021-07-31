@@ -39,13 +39,16 @@ final class DateTime extends AbstractRule
      */
     private $sample;
 
+    private $default;
+
     /**
      * Initializes the rule.
      */
-    public function __construct(?string $format = null)
+    public function __construct(?string $format = null, $default = null)
     {
         $this->format = $format;
         $this->sample = date($format ?: 'c', strtotime('2005-12-30 01:02:03'));
+        $this->default = $default;
     }
 
     /**
@@ -53,6 +56,10 @@ final class DateTime extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if ($input instanceof DateTimeInterface) {
             return $this->format === null;
         }

@@ -50,7 +50,7 @@ final class EmailTest extends RuleTestCase
             ->with($input, self::isInstanceOf(RFCValidation::class))
             ->will(self::returnValue(true));
 
-        $sut = new Email($emailValidator);
+        $sut = new Email(null, $emailValidator);
 
         self::assertTrue($sut->validate($input));
     }

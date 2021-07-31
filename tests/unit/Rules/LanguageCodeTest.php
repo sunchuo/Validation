@@ -33,8 +33,8 @@ final class LanguageCodeTest extends RuleTestCase
      */
     public function providerForValidInput(): array
     {
-        $sutAlpha2 = new LanguageCode(LanguageCode::ALPHA2);
-        $sutAlpha3 = new LanguageCode(LanguageCode::ALPHA3);
+        $sutAlpha2 = new LanguageCode(null, LanguageCode::ALPHA2);
+        $sutAlpha3 = new LanguageCode(null, LanguageCode::ALPHA3);
 
         return [
             'alpha-2: en' => [$sutAlpha2, 'en'],
@@ -53,8 +53,8 @@ final class LanguageCodeTest extends RuleTestCase
      */
     public function providerForInvalidInput(): array
     {
-        $sutAlpha2 = new LanguageCode(LanguageCode::ALPHA2);
-        $sutAlpha3 = new LanguageCode(LanguageCode::ALPHA3);
+        $sutAlpha2 = new LanguageCode(null, LanguageCode::ALPHA2);
+        $sutAlpha3 = new LanguageCode(null, LanguageCode::ALPHA3);
 
         return [
             'alpha-2: alpha-3 code' => [$sutAlpha2, 'por'],
@@ -77,6 +77,6 @@ final class LanguageCodeTest extends RuleTestCase
     {
         $this->expectExceptionObject(new ComponentException('"foo" is not a valid language set for ISO 639'));
 
-        new LanguageCode('foo');
+        new LanguageCode(null, 'foo');
     }
 }

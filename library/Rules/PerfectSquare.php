@@ -27,11 +27,22 @@ use function sqrt;
  */
 final class PerfectSquare extends AbstractRule
 {
+    private $default;
+
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         return is_numeric($input) && floor(sqrt((float) $input)) == sqrt((float) $input);
     }
 }

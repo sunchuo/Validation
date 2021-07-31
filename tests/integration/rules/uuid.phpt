@@ -20,7 +20,7 @@ try {
 
 try {
     $input_0 = 'e0b5ffb9-9caf-2a34-9673-8fc91db78be6';
-    v::uuid(1)->check($input_0);
+    v::uuid(null, 1)->check($input_0);
 } catch (UuidException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -34,7 +34,7 @@ try {
 
 try {
     $input_0 = '11a38b9a-b3da-360f-9353-a5a725514269';
-    v::not(v::uuid(3))->check($input_0);
+    v::not(v::uuid(null, 3))->check($input_0);
 } catch (UuidException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -48,7 +48,7 @@ try {
 
 try {
     $input_0 = 'a71a18f4-3a13-11e7-a919-92ebcb67fe33';
-    v::uuid(4)->assert($input_0);
+    v::uuid(null, 4)->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
@@ -62,7 +62,7 @@ try {
 
 try {
     $input_0 = 'c4a760a8-dbcf-5254-a0d9-6a4474bd1b62';
-    v::not(v::uuid(5))->assert($input_0);
+    v::not(v::uuid(null, 5))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

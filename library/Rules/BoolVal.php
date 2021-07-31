@@ -28,11 +28,22 @@ use const FILTER_VALIDATE_BOOLEAN;
  */
 final class BoolVal extends AbstractRule
 {
+    private $default;
+
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         return is_bool(filter_var($input, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE));
     }
 }

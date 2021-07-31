@@ -29,11 +29,23 @@ use function preg_replace;
  */
 final class Cpf extends AbstractRule
 {
+    private $default;
+
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
+
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         // Code ported from jsfromhell.com
         $c = preg_replace('/\D/', '', $input);
 

@@ -13,7 +13,7 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validator;
 
-$usernameValidator = Validator::alnum('_')->length(1, 15)->noWhitespace();
+$usernameValidator = Validator::alnum(null, '_')->length(1, 15)->noWhitespace();
 try {
     $input_0 = 'really messed up screen#name';
     $usernameValidator->check($input_0);

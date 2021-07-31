@@ -50,10 +50,10 @@ final class UuidTest extends RuleTestCase
             'any version with version 3' => [$sut, self::UUID_VERSION_3],
             'any version with version 4' => [$sut, self::UUID_VERSION_4],
             'any version with version 5' => [$sut, self::UUID_VERSION_5],
-            'version 1 with version 1' => [new Uuid(1), self::UUID_VERSION_1],
-            'version 3 with version 3' => [new Uuid(3), self::UUID_VERSION_3],
-            'version 4 with version 4' => [new Uuid(4), self::UUID_VERSION_4],
-            'version 5 with version 5' => [new Uuid(5), self::UUID_VERSION_5],
+            'version 1 with version 1' => [new Uuid(null, 1), self::UUID_VERSION_1],
+            'version 3 with version 3' => [new Uuid(null, 3), self::UUID_VERSION_3],
+            'version 4 with version 4' => [new Uuid(null, 4), self::UUID_VERSION_4],
+            'version 5 with version 5' => [new Uuid(null, 5), self::UUID_VERSION_5],
         ];
     }
 
@@ -63,10 +63,10 @@ final class UuidTest extends RuleTestCase
     public function providerForInvalidInput(): array
     {
         $sut = new Uuid();
-        $sutVersion1 = new Uuid(1);
-        $sutVersion3 = new Uuid(3);
-        $sutVersion4 = new Uuid(4);
-        $sutVersion5 = new Uuid(5);
+        $sutVersion1 = new Uuid(null, 1);
+        $sutVersion3 = new Uuid(null, 3);
+        $sutVersion4 = new Uuid(null, 4);
+        $sutVersion5 = new Uuid(null, 5);
 
         return [
             'empty' => [$sut, ''],
@@ -101,7 +101,7 @@ final class UuidTest extends RuleTestCase
         self::expectException(ComponentException::class);
         self::expectExceptionMessage('Only versions 1, 3, 4, and 5 are supported: 2 given');
 
-        new Uuid(2);
+        new Uuid(null, 2);
     }
 
     /**
@@ -114,7 +114,7 @@ final class UuidTest extends RuleTestCase
         self::expectException(ComponentException::class);
         self::expectExceptionMessage('Only versions 1, 3, 4, and 5 are supported: ' . $version . ' given');
 
-        new Uuid($version);
+        new Uuid(null, $version);
     }
 
     /**
@@ -127,6 +127,6 @@ final class UuidTest extends RuleTestCase
         self::expectException(ComponentException::class);
         self::expectExceptionMessage('Only versions 1, 3, 4, and 5 are supported: ' . $version . ' given');
 
-        new Uuid($version);
+        new Uuid(null, $version);
     }
 }

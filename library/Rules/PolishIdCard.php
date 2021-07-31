@@ -30,11 +30,22 @@ final class PolishIdCard extends AbstractRule
     private const ASCII_CODE_9 = 57;
     private const ASCII_CODE_A = 65;
 
+    private $default;
+
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if (!preg_match('/^[A-Z0-9]{9}$/', $input)) {
             return false;
         }

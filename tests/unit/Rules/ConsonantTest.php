@@ -48,9 +48,9 @@ final class ConsonantTest extends RuleTestCase
             'String "qrst"' => [$consonant, 'qrst'],
             'String with cntrl "\nz\t"' => [$consonant, "\nz\t"],
             'String "zbcxwyrspq"' => [$consonant, 'zbcxwyrspq'],
-            'Ignoring characters "!@#$%^&*(){}"' => [new Consonant('!@#$%^&*(){}'), '!@#$%^&*(){} bc dfg'],
+            'Ignoring characters "!@#$%^&*(){}"' => [new Consonant(null, '!@#$%^&*(){}'), '!@#$%^&*(){} bc dfg'],
             'Ignoring characters "[]?+=/\\-_|"\',<>."' => [
-                new Consonant('[]?+=/\\-_|"\',<>.'), "[]?+=/\\-_|\"',<>. \t \n bc dfg",
+                new Consonant(null, '[]?+=/\\-_|"\',<>.'), "[]?+=/\\-_|\"',<>. \t \n bc dfg",
             ],
         ];
     }

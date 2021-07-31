@@ -20,7 +20,7 @@ try {
 
 try {
     $input_0 = 'bbb%b';
-    v::xdigit(' ')->check($input_0);
+    v::xdigit(null, ' ')->check($input_0);
 } catch (XdigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -34,7 +34,7 @@ try {
 
 try {
     $input_0 = 'ddd%d';
-    v::not(v::xdigit('% '))->check($input_0);
+    v::not(v::xdigit(null, '% '))->check($input_0);
 } catch (XdigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -55,14 +55,14 @@ try {
 
 try {
     $input_0 = '000^0';
-    v::xdigit('* &%')->assert($input_0);
+    v::xdigit(null, '* &%')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
     $input_0 = '111^1';
-    v::not(v::xdigit('^'))->assert($input_0);
+    v::not(v::xdigit(null, '^'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

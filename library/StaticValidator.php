@@ -23,9 +23,9 @@ interface StaticValidator
 {
     public static function allOf(Validatable ...$rule): ChainedValidator;
 
-    public static function alnum(string ...$additionalChars): ChainedValidator;
+    public static function alnum($default = null, string ...$additionalChars): ChainedValidator;
 
-    public static function alpha(string ...$additionalChars): ChainedValidator;
+    public static function alpha($default = null, string ...$additionalChars): ChainedValidator;
 
     public static function alwaysInvalid(): ChainedValidator;
 
@@ -73,7 +73,7 @@ interface StaticValidator
 
     public static function cnpj(): ChainedValidator;
 
-    public static function control(string ...$additionalChars): ChainedValidator;
+    public static function control($default = null, string ...$additionalChars): ChainedValidator;
 
     public static function consonant(string ...$additionalChars): ChainedValidator;
 

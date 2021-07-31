@@ -41,8 +41,8 @@ final class XdigitTest extends RuleTestCase
             [new Xdigit(), '1234567890abcdef'],
             [new Xdigit(), 443],
             [new Xdigit(), 0x123],
-            [new Xdigit('!@#$%^&*(){} '), '!@#$%^&*(){} abc 123'],
-            [new Xdigit("[]?+=/\\-_|\"',<>. \t\n"), "[]?+=/\\-_|\"',<>. \t \n abc 123"],
+            [new Xdigit(null, '!@#$%^&*(){} '), '!@#$%^&*(){} abc 123'],
+            [new Xdigit(null, "[]?+=/\\-_|\"',<>. \t\n"), "[]?+=/\\-_|\"',<>. \t \n abc 123"],
         ];
     }
 

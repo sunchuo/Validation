@@ -25,11 +25,22 @@ use function preg_match;
  */
 final class Pesel extends AbstractRule
 {
+    private $default;
+
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if (!is_scalar($input)) {
             return false;
         }

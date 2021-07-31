@@ -44,8 +44,8 @@ final class VowelTest extends RuleTestCase
             [$sut, 'u'],
             [$sut, 'aeiou'],
             [$sut, 'uoiea'],
-            [new Vowel('!@#$%^&*(){}'), '!@#$%^&*(){}aeoiu'],
-            [new Vowel('[]?+=/\\-_|"\',<>.'), '[]?+=/\\-_|"\',<>.aeoiu'],
+            [new Vowel(null, '!@#$%^&*(){}'), '!@#$%^&*(){}aeoiu'],
+            [new Vowel(null, '[]?+=/\\-_|"\',<>.'), '[]?+=/\\-_|"\',<>.aeoiu'],
         ];
     }
 

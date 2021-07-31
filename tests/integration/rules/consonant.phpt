@@ -22,7 +22,7 @@ try {
 
 try {
     $input_0 = 'daeiou';
-    v::consonant('d')->check($input_0);
+    v::consonant(null, 'd')->check($input_0);
 } catch (ConsonantException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -36,7 +36,7 @@ try {
 
 try {
     $input_0 = 'abcd';
-    v::not(v::consonant('a'))->check($input_0);
+    v::not(v::consonant(null, 'a'))->check($input_0);
 } catch (ConsonantException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -50,7 +50,7 @@ try {
 
 try {
     $input_0 = 'daeiou';
-    v::consonant('d')->assert($input_0);
+    v::consonant(null, 'd')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
@@ -64,7 +64,7 @@ try {
 
 try {
     $input_0 = 'abcd';
-    v::not(v::consonant('a'))->assert($input_0);
+    v::not(v::consonant(null, 'a'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

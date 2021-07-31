@@ -20,7 +20,7 @@ try {
 
 try {
     $input_0 = 'cd';
-    v::space('c')->check($input_0);
+    v::space(null, 'c')->check($input_0);
 } catch (SpaceException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -34,7 +34,7 @@ try {
 
 try {
     $input_0 = "\r";
-    v::not(v::space('def'))->check($input_0);
+    v::not(v::space(null, 'def'))->check($input_0);
 } catch (SpaceException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -48,7 +48,7 @@ try {
 
 try {
     $input_0 = 'gh';
-    v::space('e')->assert($input_0);
+    v::space(null, 'e')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
@@ -62,7 +62,7 @@ try {
 
 try {
     $input_0 = ' k';
-    v::not(v::space('yk'))->assert($input_0);
+    v::not(v::space(null, 'yk'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

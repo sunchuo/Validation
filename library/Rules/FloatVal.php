@@ -28,11 +28,22 @@ use const FILTER_VALIDATE_FLOAT;
  */
 final class FloatVal extends AbstractRule
 {
+    private $default;
+
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         return is_float(filter_var($input, FILTER_VALIDATE_FLOAT));
     }
 }

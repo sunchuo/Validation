@@ -252,11 +252,22 @@ final class Tld extends AbstractRule
         'ZERO', 'ZIP', 'ZM', 'ZONE', 'ZUERICH', 'ZW',
     ];
 
+    private $default;
+
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if (!is_scalar($input)) {
             return false;
         }

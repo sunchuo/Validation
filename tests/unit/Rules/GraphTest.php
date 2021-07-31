@@ -42,12 +42,12 @@ final class GraphTest extends RuleTestCase
             'String 16-50' => [$graph, '16-50'],
             'String 123' => [$graph, '123'],
             'String with special characters "#$%&*_"' => [$graph, '#$%&*_'],
-            'Ignoring control characters "\n"' => [new Graph("\n"), "#$%&*_\n~"],
-            'Ignoring control characters "\n#\t&\r"' => [new Graph("\n#\t&\r"), "#$%&*_\n~\t**\r"],
-            'Ignoring character "_"' => [new Graph('_'), 'abc\#$%&*_'],
-            'Ignoring characters "# $"' => [new Graph('# $'), '#$%&*_'],
-            'Ignoring character with space' => [new Graph(' '), '!@#$%^&*(){} abc 123'],
-            'Ignoring control characters " \t\n"' => [new Graph(" \t\n"), "[]?+=/\\-_|\"',<>. \t \n abc 123"],
+            'Ignoring control characters "\n"' => [new Graph(null, "\n"), "#$%&*_\n~"],
+            'Ignoring control characters "\n#\t&\r"' => [new Graph(null, "\n#\t&\r"), "#$%&*_\n~\t**\r"],
+            'Ignoring character "_"' => [new Graph(null, '_'), 'abc\#$%&*_'],
+            'Ignoring characters "# $"' => [new Graph(null, '# $'), '#$%&*_'],
+            'Ignoring character with space' => [new Graph(null, ' '), '!@#$%^&*(){} abc 123'],
+            'Ignoring control characters " \t\n"' => [new Graph(null, " \t\n"), "[]?+=/\\-_|\"',<>. \t \n abc 123"],
         ];
     }
 
@@ -65,8 +65,8 @@ final class GraphTest extends RuleTestCase
             'String with "\t"' => [$graph, "foo\tbar"],
             'String with "foo bar"' => [$graph, 'foo bar'],
             'String with space' => [$graph, ' '],
-            'Igonring space' => [new Graph(' '), "@__§¬¬¬\n"],
-            'Ignoring control characters "foo\nbar"' => [new Graph("foo\nbar"), "foo\nbar\ree"],
+            'Igonring space' => [new Graph(null, ' '), "@__§¬¬¬\n"],
+            'Ignoring control characters "foo\nbar"' => [new Graph(null, "foo\nbar"), "foo\nbar\ree"],
         ];
     }
 }

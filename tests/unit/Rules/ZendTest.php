@@ -17,7 +17,6 @@ use Respect\Validation\Exceptions\ComponentException;
 use Respect\Validation\Test\Rules\Stub;
 use Respect\Validation\Test\RuleTestCase;
 use Respect\Validation\Test\Stubs\ZendValidator;
-use Zend\Validator\ConfigProvider;
 use Zend\Validator\Date as ZendDate;
 use Zend\Validator\ValidatorInterface;
 

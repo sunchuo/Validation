@@ -24,13 +24,25 @@ use const FILTER_VALIDATE_URL;
  */
 final class Url extends AbstractEnvelope
 {
+    private $default;
+
     /**
      * Initializes the rule.
      *
      * @throws ComponentException
      */
-    public function __construct()
+    public function __construct($default = null)
     {
+        $this->default = $default;
         parent::__construct(new FilterVar(FILTER_VALIDATE_URL));
+    }
+
+    public function validate(&$input): bool
+    {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
+        return parent::validate($input);
     }
 }

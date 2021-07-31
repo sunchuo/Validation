@@ -38,12 +38,13 @@ final class SubdivisionCode extends AbstractSearcher
      */
     private $subdivisions;
 
-    public function __construct(string $countryCode)
+    public function __construct(string $countryCode, $default = null)
     {
         $subdivisions = new Subdivisions($countryCode);
 
         $this->countryName = $subdivisions->getCountry();
         $this->subdivisions = array_keys($subdivisions->getSubdivisions());
+        $this->default = $default;
     }
 
     /**

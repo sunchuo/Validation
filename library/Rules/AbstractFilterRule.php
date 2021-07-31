@@ -29,14 +29,17 @@ abstract class AbstractFilterRule extends AbstractRule
      */
     private $additionalChars;
 
+    private $default;
+
     abstract protected function validateFilteredInput(string $input): bool;
 
     /**
      * Initializes the rule with a list of characters to be ignored by the validation.
      */
-    public function __construct(string ...$additionalChars)
+    public function __construct($default = null, string ...$additionalChars)
     {
         $this->additionalChars = implode($additionalChars);
+        $this->default = $default;
     }
 
     /**
@@ -44,6 +47,10 @@ abstract class AbstractFilterRule extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if (!is_scalar($input)) {
             return false;
         }

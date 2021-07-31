@@ -528,19 +528,30 @@ final class LanguageCode extends AbstractEnvelope
         // phpcs:enable Squiz.PHP.CommentedOutCode.Found
     ];
 
+    private $default;
+
     /**
      * Initializes the rule defining the ISO 639 set.
      *
      * @throws ComponentException
      */
-    public function __construct(string $set = self::ALPHA2)
+    public function __construct($default = null, string $set = self::ALPHA2)
     {
         $index = array_search($set, self::AVAILABLE_SETS, true);
         if ($index === false) {
             throw new ComponentException(sprintf('"%s" is not a valid language set for ISO 639', $set));
         }
-
+        $this->default = $default;
         parent::__construct(new In($this->getHaystack($index), true), ['set' => $set]);
+    }
+
+    public function validate(&$input): bool
+    {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
+        return parent::validate($input);
     }
 
     /**

@@ -32,12 +32,15 @@ final class LeapDate extends AbstractRule
      */
     private $format;
 
+    private $default;
+
     /**
      * Initializes the rule with the expected format.
      */
-    public function __construct(string $format)
+    public function __construct(string $format, $default = null)
     {
         $this->format = $format;
+        $this->default = $default;
     }
 
     /**
@@ -45,6 +48,10 @@ final class LeapDate extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if ($input instanceof DateTimeInterface) {
             return $input->format('m-d') === '02-29';
         }

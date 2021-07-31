@@ -22,8 +22,20 @@ namespace Respect\Validation\Rules;
  */
 final class Roman extends AbstractEnvelope
 {
-    public function __construct()
+    private $default;
+
+    public function __construct($default = null)
     {
+        $this->default = $default;
         parent::__construct(new Regex('/^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/'));
+    }
+
+    public function validate(&$input): bool
+    {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
+        return parent::validate($input);
     }
 }

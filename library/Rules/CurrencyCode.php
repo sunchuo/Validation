@@ -23,6 +23,11 @@ namespace Respect\Validation\Rules;
  */
 final class CurrencyCode extends AbstractSearcher
 {
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * @see http://www.currency-iso.org/en/home/tables/table-a1.html
      *

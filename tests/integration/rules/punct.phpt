@@ -20,7 +20,7 @@ try {
 
 try {
     $input_0 = 'b';
-    v::punct('c')->check($input_0);
+    v::punct(null, 'c')->check($input_0);
 } catch (PunctException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -34,7 +34,7 @@ try {
 
 try {
     $input_0 = '?';
-    v::not(v::punct('d'))->check($input_0);
+    v::not(v::punct(null, 'd'))->check($input_0);
 } catch (PunctException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -48,7 +48,7 @@ try {
 
 try {
     $input_0 = 'g';
-    v::punct('f')->assert($input_0);
+    v::punct(null, 'f')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
@@ -62,7 +62,7 @@ try {
 
 try {
     $input_0 = ';';
-    v::not(v::punct('h'))->assert($input_0);
+    v::not(v::punct(null, 'h'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

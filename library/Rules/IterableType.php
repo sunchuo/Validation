@@ -24,11 +24,22 @@ final class IterableType extends AbstractRule
 {
     use CanValidateIterable;
 
+    private $default;
+
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         return $this->isIterable($input);
     }
 }

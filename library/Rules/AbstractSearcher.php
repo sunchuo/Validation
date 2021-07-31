@@ -26,6 +26,8 @@ abstract class AbstractSearcher extends AbstractRule
 {
     use CanValidateUndefined;
 
+    protected $default;
+
     /**
      * @return mixed[]
      */
@@ -36,6 +38,10 @@ abstract class AbstractSearcher extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         $dataSource = $this->getDataSource();
         if ($this->isUndefined($input) && empty($dataSource)) {
             return true;

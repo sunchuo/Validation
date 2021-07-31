@@ -43,8 +43,8 @@ final class SpaceTest extends RuleTestCase
             '4 spaces' => [$sut, '    '],
             'tab' => [$sut, "\t"],
             '2 spaces' => [$sut, '  '],
-            'characters "!@#$%^&*(){} "' => [new Space('!@#$%^&*(){}'), '!@#$%^&*(){} '],
-            'characters "[]?+=/\\-_|\"\',<>. \t \n "' => [new Space('[]?+=/\\-_|"\',<>.'), "[]?+=/\\-_|\"',<>. \t \n "],
+            'characters "!@#$%^&*(){} "' => [new Space(null, '!@#$%^&*(){}'), '!@#$%^&*(){} '],
+            'characters "[]?+=/\\-_|\"\',<>. \t \n "' => [new Space(null, '[]?+=/\\-_|"\',<>.'), "[]?+=/\\-_|\"',<>. \t \n "],
         ];
     }
 

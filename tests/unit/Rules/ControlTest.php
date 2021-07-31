@@ -42,8 +42,8 @@ final class ControlTest extends RuleTestCase
             '\r' => [$sut, "\r"],
             '\t' => [$sut, "\t"],
             '\n\r\t' => [$sut, "\n\r\t"],
-            'Ignoring all characters' => [new Control('!@#$%^&*(){} '), '!@#$%^&*(){} '],
-            'Ignoring some characters' => [new Control('[]?+=/\\-_|"\',<>. '), "[]?+=/\\-_|\"',<>. \t \n"],
+            'Ignoring all characters' => [new Control(null, '!@#$%^&*(){} '), '!@#$%^&*(){} '],
+            'Ignoring some characters' => [new Control(null, '[]?+=/\\-_|"\',<>. '), "[]?+=/\\-_|\"',<>. \t \n"],
         ];
     }
 

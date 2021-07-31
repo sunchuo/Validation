@@ -20,7 +20,7 @@ try {
 
 try {
     $input_0 = 'a-b';
-    v::digit('-')->check($input_0);
+    v::digit(null, '-')->check($input_0);
 } catch (DigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -34,7 +34,7 @@ try {
 
 try {
     $input_0 = '1-3';
-    v::not(v::digit('-'))->check($input_0);
+    v::not(v::digit(null, '-'))->check($input_0);
 } catch (DigitException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -48,7 +48,7 @@ try {
 
 try {
     $input_0 = 'a-b';
-    v::digit('-')->assert($input_0);
+    v::digit(null, '-')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
@@ -62,7 +62,7 @@ try {
 
 try {
     $input_0 = '1-3';
-    v::not(v::digit('-'))->assert($input_0);
+    v::not(v::digit(null, '-'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

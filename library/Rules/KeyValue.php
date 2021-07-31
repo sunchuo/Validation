@@ -119,6 +119,10 @@ final class KeyValue extends AbstractRule
             throw parent::reportError($this->baseKey);
         }
 
+        if (!in_array($this->ruleName, ['equals', 'in'])) {
+            throw parent::reportError($this->baseKey);
+        }
+
         try {
             $rule = Factory::getDefaultInstance()->rule($this->ruleName, [$input[$this->baseKey]]);
             $rule->setName((string) $this->comparedKey);

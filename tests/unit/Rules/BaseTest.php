@@ -40,8 +40,8 @@ final class BaseTest extends RuleTestCase
             [new Base(20), '012ah34f5675hic20dj'],
             [new Base(50), '012ah34f56A75FGhic20dj'],
             [new Base(62), 'Z01xSsg5675hic20dj'],
-            [new Base(2, 'xy'), 'xyyxyxxy'],
-            [new Base(3, 'pfg'), 'gfpffp'],
+            [new Base(2, null, 'xy'), 'xyyxyxxy'],
+            [new Base(3, null, 'pfg'), 'gfpffp'],
         ];
     }
 

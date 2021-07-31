@@ -42,18 +42,21 @@ final class Uuid extends AbstractRule
      */
     private $version;
 
+    private $default;
+
     /**
      * Initializes the rule with the desired version.
      *
      * @throws ComponentException when the version is not valid
      */
-    public function __construct(?int $version = null)
+    public function __construct($default = null, ?int $version = null)
     {
         if ($version !== null && !$this->isSupportedVersion($version)) {
             throw new ComponentException(sprintf('Only versions 1, 3, 4, and 5 are supported: %d given', $version));
         }
 
         $this->version = $version;
+        $this->default = $default;
     }
 
     /**
@@ -61,6 +64,10 @@ final class Uuid extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if (!is_string($input)) {
             return false;
         }

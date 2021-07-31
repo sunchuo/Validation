@@ -39,7 +39,7 @@ final class CreditCardTest extends RuleTestCase
         $this->expectException(ComponentException::class);
         $this->expectExceptionMessage($message);
 
-        new CreditCard('RespectCard');
+        new CreditCard(null, 'RespectCard');
     }
 
     /**
@@ -48,12 +48,12 @@ final class CreditCardTest extends RuleTestCase
     public function providerForValidInput(): array
     {
         $general = new CreditCard();
-        $amex = new CreditCard(CreditCard::AMERICAN_EXPRESS);
-        $diners = new CreditCard(CreditCard::DINERS_CLUB);
-        $discover = new CreditCard(CreditCard::DISCOVER);
-        $jcb = new CreditCard(CreditCard::JCB);
-        $master = new CreditCard(CreditCard::MASTERCARD);
-        $visa = new CreditCard(CreditCard::VISA);
+        $amex = new CreditCard(null, CreditCard::AMERICAN_EXPRESS);
+        $diners = new CreditCard(null, CreditCard::DINERS_CLUB);
+        $discover = new CreditCard(null, CreditCard::DISCOVER);
+        $jcb = new CreditCard(null, CreditCard::JCB);
+        $master = new CreditCard(null, CreditCard::MASTERCARD);
+        $visa = new CreditCard(null, CreditCard::VISA);
 
         return [
             [$general, 5555444433331111], // MasterCard 5 BIN Range
@@ -82,12 +82,12 @@ final class CreditCardTest extends RuleTestCase
     public function providerForInvalidInput(): array
     {
         $general = new CreditCard();
-        $amex = new CreditCard(CreditCard::AMERICAN_EXPRESS);
-        $diners = new CreditCard(CreditCard::DINERS_CLUB);
-        $discover = new CreditCard(CreditCard::DISCOVER);
-        $jcb = new CreditCard(CreditCard::JCB);
-        $master = new CreditCard(CreditCard::MASTERCARD);
-        $visa = new CreditCard(CreditCard::VISA);
+        $amex = new CreditCard(null, CreditCard::AMERICAN_EXPRESS);
+        $diners = new CreditCard(null, CreditCard::DINERS_CLUB);
+        $discover = new CreditCard(null, CreditCard::DISCOVER);
+        $jcb = new CreditCard(null, CreditCard::JCB);
+        $master = new CreditCard(null, CreditCard::MASTERCARD);
+        $visa = new CreditCard(null, CreditCard::VISA);
 
         return [
             [$general, ''],

@@ -35,8 +35,8 @@ final class DomainTest extends RuleTestCase
     public function providerForValidInput(): array
     {
         return [
-            [new Domain(false), '111111111111domain.local'],
-            [new Domain(false), '111111111111.domain.local'],
+            [new Domain(null, false), '111111111111domain.local'],
+            [new Domain(null, false), '111111111111.domain.local'],
             [new Domain(), 'example.com'],
             [new Domain(), 'xn--bcher-kva.ch'],
             [new Domain(), 'mail.xn--bcher-kva.ch'],

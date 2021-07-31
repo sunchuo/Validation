@@ -67,16 +67,19 @@ final class Ip extends AbstractRule
      */
     private $mask;
 
+    private $default;
+
     /**
      * Initializes the rule defining the range and some options for filter_var().
      *
      * @throws ComponentException In case the range is invalid
      */
-    public function __construct(string $range = '*', ?int $options = null)
+    public function __construct(string $range = '*', $default = null, ?int $options = null)
     {
         $this->parseRange($range);
         $this->range = $this->createRange();
         $this->options = $options;
+        $this->default = $default;
     }
 
     /**
@@ -84,6 +87,11 @@ final class Ip extends AbstractRule
      */
     public function validate(&$input): bool
     {
+
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if (!is_string($input)) {
             return false;
         }

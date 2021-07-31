@@ -20,7 +20,7 @@ try {
 
 try {
     $input_0 = "foo\nbar";
-    v::graph('foo')->check($input_0);
+    v::graph(null, 'foo')->check($input_0);
 } catch (GraphException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -34,7 +34,7 @@ try {
 
 try {
     $input_0 = "foo\nbar";
-    v::not(v::graph("\n"))->check($input_0);
+    v::not(v::graph(null, "\n"))->check($input_0);
 } catch (GraphException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -48,7 +48,7 @@ try {
 
 try {
     $input_0 = "foo\nbar";
-    v::graph('foo')->assert($input_0);
+    v::graph(null, 'foo')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
@@ -62,7 +62,7 @@ try {
 
 try {
     $input_0 = "foo\nbar";
-    v::not(v::graph("\n"))->assert($input_0);
+    v::not(v::graph(null, "\n"))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

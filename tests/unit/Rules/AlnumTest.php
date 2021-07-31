@@ -38,19 +38,19 @@ final class AlnumTest extends RuleTestCase
     {
         return [
             [new Alnum(), 'alganet'],
-            [new Alnum('- ! :'), 'foo :- 123 !'],
-            [new Alnum('0-9'), '0alg-anet0'],
+            [new Alnum(null, '- ! :'), 'foo :- 123 !'],
+            [new Alnum(null, '0-9'), '0alg-anet0'],
             [new Alnum(), '1'],
             [new Alnum(), 'a'],
             [new Alnum(), 'foobar'],
-            [new Alnum('_'), 'rubinho_'],
-            [new Alnum('.'), 'google.com'],
-            [new Alnum(' '), 'alganet alganet'],
+            [new Alnum(null, '_'), 'rubinho_'],
+            [new Alnum(null, '.'), 'google.com'],
+            [new Alnum(null, ' '), 'alganet alganet'],
             [new Alnum(), 0],
-            [new Alnum('!@#$%^&*(){}'), '!@#$%^&*(){}abc123'],
-            [new Alnum('[]?+=/\\-_|"\',<>.'), '[]?+=/\\-_|"\',<>.abc123'],
-            [new Alnum("[]?+=/\\-_|\"',<>. \t\n"), "abc[]?+=/\\-_|\"',<>. \t\n123"],
-            [new Alnum('-', '*'), 'a-1*d'],
+            [new Alnum(null, '!@#$%^&*(){}'), '!@#$%^&*(){}abc123'],
+            [new Alnum(null, '[]?+=/\\-_|"\',<>.'), '[]?+=/\\-_|"\',<>.abc123'],
+            [new Alnum(null, "[]?+=/\\-_|\"',<>. \t\n"), "abc[]?+=/\\-_|\"',<>. \t\n123"],
+            [new Alnum(null, '-', '*'), 'a-1*d'],
         ];
     }
 
@@ -62,7 +62,7 @@ final class AlnumTest extends RuleTestCase
         return [
             [new Alnum(), ''],
             [new Alnum(), 'number 100%'],
-            [new Alnum('%'), 'number 100%'],
+            [new Alnum(null, '%'), 'number 100%'],
             [new Alnum(), '@#$'],
             [new Alnum(), '_'],
             [new Alnum(), 'dgç'],
@@ -70,7 +70,7 @@ final class AlnumTest extends RuleTestCase
             [new Alnum(), null],
             [new Alnum(), new stdClass()],
             [new Alnum(), []],
-            [new Alnum('%'), 'number 100%'],
+            [new Alnum(null, '%'), 'number 100%'],
             [new Alnum(), "\t"],
             [new Alnum(), "\n"],
             [new Alnum(), "\nabc"],

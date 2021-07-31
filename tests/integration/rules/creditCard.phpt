@@ -13,21 +13,21 @@ use Respect\Validation\Validator as v;
 
 try {
     $input_0 = 3566002020360505;
-    v::creditCard('Discover')->check($input_0);
+    v::creditCard(null, 'Discover')->check($input_0);
 } catch (CreditCardException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
     $input_0 = 4024007153361885;
-    v::not(v::creditCard('Visa'))->check($input_0);
+    v::not(v::creditCard(null, 'Visa'))->check($input_0);
 } catch (CreditCardException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 try {
     $input_0 = 3566002020360505;
-    v::creditCard('MasterCard')->assert($input_0);
+    v::creditCard(null, 'MasterCard')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

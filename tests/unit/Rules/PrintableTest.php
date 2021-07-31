@@ -43,8 +43,8 @@ final class PrintableTest extends RuleTestCase
             [$rule, '123'],
             [$rule, 'foo bar'],
             [$rule, '#$%&*_'],
-            [new Printable("\t\n"), "\t\n "],
-            [new Printable("\v\r"), "\v\r "],
+            [new Printable(null, "\t\n"), "\t\n "],
+            [new Printable(null, "\v\r"), "\v\r "],
         ];
     }
 

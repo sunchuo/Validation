@@ -38,7 +38,7 @@ final class CountryCodeTest extends RuleTestCase
             '"whatever" is not a valid set for ISO 3166-1 (Available: alpha-2, alpha-3, numeric)'
         );
 
-        new CountryCode('whatever');
+        new CountryCode(null, 'whatever');
     }
 
     /**
@@ -47,15 +47,15 @@ final class CountryCodeTest extends RuleTestCase
     public function providerForValidInput(): array
     {
         return [
-            [new CountryCode(CountryCode::ALPHA2),  'BR'],
-            [new CountryCode(CountryCode::ALPHA3),  'BRA'],
-            [new CountryCode(CountryCode::NUMERIC), '076'],
-            [new CountryCode(CountryCode::ALPHA2),  'DE'],
-            [new CountryCode(CountryCode::ALPHA3),  'DEU'],
-            [new CountryCode(CountryCode::NUMERIC), '276'],
-            [new CountryCode(CountryCode::ALPHA2),  'US'],
-            [new CountryCode(CountryCode::ALPHA3),  'USA'],
-            [new CountryCode(CountryCode::NUMERIC), '840'],
+            [new CountryCode(null, CountryCode::ALPHA2),  'BR'],
+            [new CountryCode(null, CountryCode::ALPHA3),  'BRA'],
+            [new CountryCode(null, CountryCode::NUMERIC), '076'],
+            [new CountryCode(null, CountryCode::ALPHA2),  'DE'],
+            [new CountryCode(null, CountryCode::ALPHA3),  'DEU'],
+            [new CountryCode(null, CountryCode::NUMERIC), '276'],
+            [new CountryCode(null, CountryCode::ALPHA2),  'US'],
+            [new CountryCode(null, CountryCode::ALPHA3),  'USA'],
+            [new CountryCode(null, CountryCode::NUMERIC), '840'],
         ];
     }
 
@@ -65,9 +65,9 @@ final class CountryCodeTest extends RuleTestCase
     public function providerForInvalidInput(): array
     {
         return [
-            [new CountryCode(CountryCode::ALPHA2),  'USA'],
-            [new CountryCode(CountryCode::ALPHA3),  'US'],
-            [new CountryCode(CountryCode::NUMERIC), '000'],
+            [new CountryCode(null, CountryCode::ALPHA2),  'USA'],
+            [new CountryCode(null, CountryCode::ALPHA3),  'US'],
+            [new CountryCode(null, CountryCode::NUMERIC), '000'],
         ];
     }
 }

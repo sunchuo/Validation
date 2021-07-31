@@ -20,7 +20,7 @@ try {
 
 try {
     $input_0 = 'd';
-    v::vowel('c')->check($input_0);
+    v::vowel(null, 'c')->check($input_0);
 } catch (VowelException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -34,7 +34,7 @@ try {
 
 try {
     $input_0 = 'e';
-    v::not(v::vowel('f'))->check($input_0);
+    v::not(v::vowel(null, 'f'))->check($input_0);
 } catch (VowelException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -48,7 +48,7 @@ try {
 
 try {
     $input_0 = 'j';
-    v::vowel('h')->assert($input_0);
+    v::vowel(null, 'h')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
@@ -62,7 +62,7 @@ try {
 
 try {
     $input_0 = 'o';
-    v::not(v::vowel('k'))->assert($input_0);
+    v::not(v::vowel(null, 'k'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

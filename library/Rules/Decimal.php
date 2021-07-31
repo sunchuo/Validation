@@ -31,9 +31,12 @@ final class Decimal extends AbstractRule
      */
     private $decimals;
 
-    public function __construct(int $decimals)
+    private $default;
+
+    public function __construct(int $decimals, $default = null)
     {
         $this->decimals = $decimals;
+        $this->default = $default;
     }
 
     /**
@@ -41,6 +44,10 @@ final class Decimal extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if (!is_numeric($input)) {
             return false;
         }

@@ -28,12 +28,6 @@ try {
     echo $exception->getMessage() . PHP_EOL;
 }
 
-try {
-    $input_0 = ['foo' => 42, 'bar' => 43];
-    v::keyValue('foo', 'json', 'bar')->check($input_0);
-} catch (ValidationException $exception) {
-    echo $exception->getMessage() . PHP_EOL;
-}
 
 try {
     $input_0 = ['foo' => 1, 'bar' => 2];
@@ -64,13 +58,6 @@ try {
 }
 
 try {
-    $input_0 = ['foo' => 42, 'bar' => 43];
-    v::keyValue('foo', 'json', 'bar')->assert($input_0);
-} catch (NestedValidationException $exception) {
-    echo $exception->getFullMessage() . PHP_EOL;
-}
-
-try {
     $input_0 = ['foo' => 1, 'bar' => 2];
     v::keyValue('foo', 'equals', 'bar')->assert($input_0);
 } catch (NestedValidationException $exception) {
@@ -87,11 +74,9 @@ try {
 --EXPECT--
 Key "foo" must be present
 Key "bar" must be present
-"bar" must be valid to validate "foo"
 foo must equal "bar"
 foo must not equal "bar"
 - Key "foo" must be present
 - Key "bar" must be present
-- "bar" must be valid to validate "foo"
 - foo must equal "bar"
 - foo must not equal "bar"

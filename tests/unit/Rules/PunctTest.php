@@ -42,8 +42,8 @@ final class PunctTest extends RuleTestCase
             [$sut, ',;:'],
             [$sut, '-@#$*'],
             [$sut, '()[]{}'],
-            [new Punct('abc123 '), '!@#$%^&*(){} abc 123'],
-            [new Punct("abc123 \t\n"), "[]?+=/\\-_|\"',<>. \t \n abc 123"],
+            [new Punct(null, 'abc123 '), '!@#$%^&*(){} abc 123'],
+            [new Punct(null, "abc123 \t\n"), "[]?+=/\\-_|\"',<>. \t \n abc 123"],
         ];
     }
 

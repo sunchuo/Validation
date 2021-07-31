@@ -20,7 +20,7 @@ try {
 
 try {
     $input_0 = 'bbb%b';
-    v::alpha(' ')->check($input_0);
+    v::alpha(null, ' ')->check($input_0);
 } catch (AlphaException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -34,7 +34,7 @@ try {
 
 try {
     $input_0 = 'ddd%d';
-    v::not(v::alpha('% '))->check($input_0);
+    v::not(v::alpha(null, '% '))->check($input_0);
 } catch (AlphaException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -55,14 +55,14 @@ try {
 
 try {
     $input_0 = 'ggg^g';
-    v::alpha('* &%')->assert($input_0);
+    v::alpha(null, '* &%')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
     $input_0 = 'hhh^h';
-    v::not(v::alpha('^'))->assert($input_0);
+    v::not(v::alpha(null, '^'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

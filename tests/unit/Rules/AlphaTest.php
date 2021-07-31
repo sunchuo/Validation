@@ -37,10 +37,10 @@ final class AlphaTest extends RuleTestCase
     {
         return [
             'alphabetic' => [new Alpha(), 'alganet'],
-            'alphabetic with one exception' => [new Alpha('.'), 'google.com'],
-            'alphabetic with multiple exceptions' => [new Alpha('0-9'), '0alg-anet9'],
-            'non-alphabetic with only exceptions' => [new Alpha('!@#$%^&*(){}'), '!@#$%^&*(){}'],
-            'multiple characters to ignore' => [new Alpha('-', ' '), 'a-b c'],
+            'alphabetic with one exception' => [new Alpha(null, '.'), 'google.com'],
+            'alphabetic with multiple exceptions' => [new Alpha(null, '0-9'), '0alg-anet9'],
+            'non-alphabetic with only exceptions' => [new Alpha(null, '!@#$%^&*(){}'), '!@#$%^&*(){}'],
+            'multiple characters to ignore' => [new Alpha(null, '-', ' '), 'a-b c'],
         ];
     }
 

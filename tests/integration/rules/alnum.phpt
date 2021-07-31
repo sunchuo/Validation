@@ -20,7 +20,7 @@ try {
 
 try {
     $input_0 = 'abc%2';
-    v::alnum(' ')->check($input_0);
+    v::alnum(null, ' ')->check($input_0);
 } catch (AlnumException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -34,7 +34,7 @@ try {
 
 try {
     $input_0 = 'abc%4';
-    v::not(v::alnum('% '))->check($input_0);
+    v::not(v::alnum(null, '% '))->check($input_0);
 } catch (AlnumException $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }
@@ -55,14 +55,14 @@ try {
 
 try {
     $input_0 = 'abc^3';
-    v::alnum('* &%')->assert($input_0);
+    v::alnum(null, '* &%')->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }
 
 try {
     $input_0 = 'abc^4';
-    v::not(v::alnum('^'))->assert($input_0);
+    v::not(v::alnum(null, '^'))->assert($input_0);
 } catch (NestedValidationException $exception) {
     echo $exception->getFullMessage() . PHP_EOL;
 }

@@ -32,11 +32,22 @@ use function str_split;
  */
 final class NfeAccessKey extends AbstractRule
 {
+    private $default;
+
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
+
         if (mb_strlen($input) !== 44) {
             return false;
         }
