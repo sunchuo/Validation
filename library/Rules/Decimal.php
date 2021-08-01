@@ -31,22 +31,20 @@ final class Decimal extends AbstractRule
      */
     private $decimals;
 
-    private $default;
 
     public function __construct(int $decimals, $default = null)
     {
+        parent::__construct($default);
         $this->decimals = $decimals;
-        $this->default = $default;
     }
+
 
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
 
         if (!is_numeric($input)) {
             return false;

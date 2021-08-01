@@ -194,7 +194,7 @@ final class PostalCode extends AbstractEnvelope
         // phpcs:enable Generic.Files.LineLength.TooLong
     ];
 
-    private $default;
+
 
     public function __construct(string $countryCode, $default = null)
     {
@@ -203,18 +203,16 @@ final class PostalCode extends AbstractEnvelope
             throw new ComponentException(sprintf('Cannot validate postal code from "%s" country', $countryCode));
         }
 
-        $this->default = $default;
         parent::__construct(
             new Regex(self::POSTAL_CODES[$countryCode] ?? self::DEFAULT_PATTERN),
-            ['countryCode' => $countryCode]
+            ['countryCode' => $countryCode],
+            $default
         );
     }
 
+
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
 
         return parent::validate($input);
     }

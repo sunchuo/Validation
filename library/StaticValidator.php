@@ -27,9 +27,9 @@ interface StaticValidator
 
     public static function alpha($default = null, string ...$additionalChars): ChainedValidator;
 
-    public static function alwaysInvalid(): ChainedValidator;
+    public static function alwaysInvalid($default = null): ChainedValidator;
 
-    public static function alwaysValid(): ChainedValidator;
+    public static function alwaysValid($default = null): ChainedValidator;
 
     public static function anyOf(Validatable ...$rule): ChainedValidator;
 
@@ -53,8 +53,6 @@ interface StaticValidator
      */
     public static function between($minimum, $maximum): ChainedValidator;
 
-    public static function bic(string $countryCode, $default = null): ChainedValidator;
-
     public static function boolType($default = null): ChainedValidator;
 
     public static function boolVal($default = null): ChainedValidator;
@@ -63,11 +61,11 @@ interface StaticValidator
 
     public static function call(callable $callable, Validatable $rule): ChainedValidator;
 
-    public static function callableType(): ChainedValidator;
+    public static function callableType($default = null): ChainedValidator;
 
     public static function callback(callable $callback): ChainedValidator;
 
-    public static function charset(string ...$charset): ChainedValidator;
+    public static function charset($default = null, string ...$charset): ChainedValidator;
 
     public static function cnh($default = null): ChainedValidator;
 
@@ -80,7 +78,7 @@ interface StaticValidator
     /**
      * @param mixed $containsValue
      */
-    public static function contains($containsValue, bool $identical = false): ChainedValidator;
+    public static function contains($containsValue, bool $identical = false, $default = null): ChainedValidator;
 
     /**
      * @param mixed[] $needles
@@ -128,28 +126,28 @@ interface StaticValidator
      */
     public static function equivalent($compareTo): ChainedValidator;
 
-    public static function even(): ChainedValidator;
+    public static function even($default = null): ChainedValidator;
 
-    public static function executable(): ChainedValidator;
+    public static function executable($default = null): ChainedValidator;
 
-    public static function exists(): ChainedValidator;
+    public static function exists($default = null): ChainedValidator;
 
-    public static function extension(string $extension): ChainedValidator;
+    public static function extension(string $extension, $default = null): ChainedValidator;
 
-    public static function factor(int $dividend): ChainedValidator;
+    public static function factor(int $dividend, $default = null): ChainedValidator;
 
-    public static function falseVal(): ChainedValidator;
+    public static function falseVal($default = null): ChainedValidator;
 
-    public static function fibonacci(): ChainedValidator;
+    public static function fibonacci($default = null): ChainedValidator;
 
-    public static function file(): ChainedValidator;
+    public static function file($default = null): ChainedValidator;
 
     /**
      * @param mixed[]|int $options
      */
     public static function filterVar(int $filter, $options = null): ChainedValidator;
 
-    public static function finite(): ChainedValidator;
+    public static function finite($default = null): ChainedValidator;
 
     public static function floatVal($default = null): ChainedValidator;
 
@@ -162,7 +160,7 @@ interface StaticValidator
      */
     public static function greaterThan($compareTo): ChainedValidator;
 
-    public static function hexRgbColor(): ChainedValidator;
+    public static function hexRgbColor($default = null): ChainedValidator;
 
     public static function iban($default = null): ChainedValidator;
 
@@ -182,7 +180,7 @@ interface StaticValidator
 
     public static function infinite($default = null): ChainedValidator;
 
-    public static function instance(string $instanceName, $default = null): ChainedValidator;
+    public static function instance(string $instanceName): ChainedValidator;
 
     public static function intVal($default = null): ChainedValidator;
 
@@ -263,19 +261,19 @@ interface StaticValidator
 
     public static function not(Validatable $rule): ChainedValidator;
 
-    public static function notBlank(): ChainedValidator;
+    public static function notBlank($default = null): ChainedValidator;
 
-    public static function notEmoji(): ChainedValidator;
+    public static function notEmoji($default = null): ChainedValidator;
 
-    public static function notEmpty(): ChainedValidator;
+    public static function notEmpty($default = null): ChainedValidator;
 
-    public static function notOptional(): ChainedValidator;
+    public static function notOptional($default = null): ChainedValidator;
 
-    public static function noWhitespace(): ChainedValidator;
+    public static function noWhitespace($default = null): ChainedValidator;
 
     public static function nullable(Validatable $rule): ChainedValidator;
 
-    public static function nullType(): ChainedValidator;
+    public static function nullType($default = null): ChainedValidator;
 
     public static function number($default = null): ChainedValidator;
 
@@ -347,19 +345,19 @@ interface StaticValidator
      */
     public static function subset(array $superset): ChainedValidator;
 
-    public static function symbolicLink(): ChainedValidator;
+    public static function symbolicLink($default = null): ChainedValidator;
 
     public static function time(string $format = 'H:i:s', $default = null): ChainedValidator;
 
     public static function tld($default = null): ChainedValidator;
 
-    public static function trueVal(): ChainedValidator;
+    public static function trueVal($default = null): ChainedValidator;
 
     public static function type(string $type): ChainedValidator;
 
-    public static function unique(): ChainedValidator;
+    public static function unique($default = null): ChainedValidator;
 
-    public static function uploaded(): ChainedValidator;
+    public static function uploaded($default = null): ChainedValidator;
 
     public static function uppercase($default = null): ChainedValidator;
 
@@ -375,7 +373,7 @@ interface StaticValidator
 
     public static function when(Validatable $if, Validatable $then, ?Validatable $else = null): ChainedValidator;
 
-    public static function writable(): ChainedValidator;
+    public static function writable($default = null): ChainedValidator;
 
     public static function xdigit($default = null, string ...$additionalChars): ChainedValidator;
 

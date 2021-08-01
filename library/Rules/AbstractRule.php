@@ -36,6 +36,21 @@ abstract class AbstractRule implements Validatable
     protected $template;
 
     /**
+     * @var mixed|null
+     */
+    protected $default;
+
+    /**
+     * AbstractRule constructor.
+     * @param null $default
+     */
+    public function __construct($default = null)
+    {
+        $this->default = $default;
+    }
+
+
+    /**
      * {@inheritDoc}
      */
     public function assert(&$input): void
@@ -61,6 +76,21 @@ abstract class AbstractRule implements Validatable
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function getDefault()
+    {
+        return $this->default;
+    }
+
+    /**
+     * @param mixed $input
+     */
+    public function setDefault(&$input): void
+    {
+        if ($input === null && $this->default !== null) {
+            $input = $this->default;
+        }
     }
 
     /**

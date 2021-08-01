@@ -35,21 +35,14 @@ final class Isbn extends AbstractRule
         '(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$',
     ];
 
-    private $default;
 
-    public function __construct($default = null)
-    {
-        $this->default = $default;
-    }
 
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
 
         if (!is_scalar($input)) {
             return false;

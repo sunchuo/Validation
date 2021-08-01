@@ -59,6 +59,7 @@ final class Size extends AbstractRule
      */
     public function __construct($minSize = null, $maxSize = null)
     {
+        parent::__construct(null);
         $this->minSize = $minSize;
         $this->minValue = $minSize ? $this->toBytes($minSize) : null;
         $this->maxSize = $maxSize;

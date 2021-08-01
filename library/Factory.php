@@ -149,7 +149,7 @@ final class Factory
      *
      * @throws ComponentException
      */
-    public function exception(Validatable $validatable, $input, array $extraParams = []): ValidationException
+    public function exception(Validatable $validatable, &$input, array $extraParams = []): ValidationException
     {
         $formatter = new Formatter($this->translator, $this->parameterStringifier);
         $reflection = new ReflectionObject($validatable);

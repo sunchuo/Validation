@@ -41,6 +41,7 @@ final class Image extends AbstractRule
      */
     public function __construct(?finfo $fileInfo = null)
     {
+        parent::__construct(null);
         $this->fileInfo = $fileInfo ?: new finfo(FILEINFO_MIME_TYPE);
     }
 

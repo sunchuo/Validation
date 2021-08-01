@@ -28,6 +28,7 @@ final class NullType extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
         return is_null($input);
     }
 }

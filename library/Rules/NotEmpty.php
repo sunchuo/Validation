@@ -30,6 +30,8 @@ final class NotEmpty extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
+
         if (is_string($input)) {
             $input = trim($input);
         }

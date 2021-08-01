@@ -24,7 +24,7 @@ use const FILTER_VALIDATE_URL;
  */
 final class Url extends AbstractEnvelope
 {
-    private $default;
+
 
     /**
      * Initializes the rule.
@@ -33,16 +33,12 @@ final class Url extends AbstractEnvelope
      */
     public function __construct($default = null)
     {
-        $this->default = $default;
-        parent::__construct(new FilterVar(FILTER_VALIDATE_URL));
+        parent::__construct(new FilterVar(FILTER_VALIDATE_URL), [], $default);
     }
+
 
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
-
         return parent::validate($input);
     }
 }

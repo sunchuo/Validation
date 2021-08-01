@@ -23,22 +23,13 @@ use function is_object;
  */
 final class ObjectType extends AbstractRule
 {
-    private $default;
-
-    public function __construct($default = null)
-    {
-        $this->default = $default;
-    }
 
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
-
+        $this->setDefault($input);
         return is_object($input);
     }
 }

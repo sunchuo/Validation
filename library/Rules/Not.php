@@ -34,6 +34,7 @@ final class Not extends AbstractRule
 
     public function __construct(Validatable $rule)
     {
+        parent::__construct(null);
         $this->rule = $this->extractNegatedRule($rule);
     }
 

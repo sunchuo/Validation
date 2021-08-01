@@ -40,11 +40,10 @@ final class SubdivisionCode extends AbstractSearcher
 
     public function __construct(string $countryCode, $default = null)
     {
+        parent::__construct($default);
         $subdivisions = new Subdivisions($countryCode);
-
         $this->countryName = $subdivisions->getCountry();
         $this->subdivisions = array_keys($subdivisions->getSubdivisions());
-        $this->default = $default;
     }
 
     /**

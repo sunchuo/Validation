@@ -49,6 +49,7 @@ final class Sf extends AbstractRule
      */
     public function __construct(Constraint $constraint, ?ValidatorInterface $validator = null)
     {
+        parent::__construct(null);
         $this->constraint = $constraint;
         $this->validator = $validator ?: Validation::createValidator();
     }

@@ -31,6 +31,8 @@ final class Executable extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
+
         if ($input instanceof SplFileInfo) {
             return $input->isExecutable();
         }

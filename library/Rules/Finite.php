@@ -29,6 +29,7 @@ final class Finite extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
         return is_numeric($input) && is_finite((float) $input);
     }
 }

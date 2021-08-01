@@ -42,8 +42,6 @@ final class Date extends AbstractRule
      */
     private $sample;
 
-    private $default;
-
     /**
      * Initializes the rule.
      *
@@ -51,13 +49,14 @@ final class Date extends AbstractRule
      */
     public function __construct(string $format = 'Y-m-d', $default = null)
     {
+        parent::__construct($default);
+
         if (!preg_match('/^[djSFmMnYy\W]+$/', $format)) {
             throw new ComponentException(sprintf('"%s" is not a valid date format', $format));
         }
 
         $this->format = $format;
         $this->sample = date($format, strtotime('2005-12-30'));
-        $this->default = $default;
     }
 
     /**
@@ -65,9 +64,7 @@ final class Date extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
 
         if (!is_scalar($input)) {
             return false;

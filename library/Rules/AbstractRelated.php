@@ -59,6 +59,8 @@ abstract class AbstractRelated extends AbstractRule
      */
     public function __construct($reference, ?Validatable $rule = null, bool $mandatory = true)
     {
+        parent::__construct(null);
+
         $this->reference = $reference;
         $this->rule = $rule;
         $this->mandatory = $mandatory;
@@ -115,7 +117,6 @@ abstract class AbstractRelated extends AbstractRule
         try {
             $value = $this->getReferenceValue($input);
             $this->rule->assert($value);
-            $input[$this->getReference()] = $value;
 
         } catch (ValidationException $validationException) {
             /** @var NestedValidationException $nestedValidationException */

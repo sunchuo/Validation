@@ -39,8 +39,9 @@ final class Charset extends AbstractRule
      *
      * @throws ComponentException
      */
-    public function __construct(string ...$charset)
+    public function __construct($default = null, string ...$charset)
     {
+        parent::__construct($default);
         $available = mb_list_encodings();
         if (!empty(array_diff($charset, $available))) {
             throw new ComponentException('Invalid charset');
@@ -54,6 +55,7 @@ final class Charset extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
         return in_array(mb_detect_encoding($input, $this->charset, true), $this->charset, true);
     }
 }

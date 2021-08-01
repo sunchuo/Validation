@@ -44,6 +44,7 @@ final class EndsWith extends AbstractRule
      */
     public function __construct($endValue, bool $identical = false)
     {
+        parent::__construct(null);
         $this->endValue = $endValue;
         $this->identical = $identical;
     }

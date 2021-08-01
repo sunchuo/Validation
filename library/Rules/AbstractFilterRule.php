@@ -29,7 +29,6 @@ abstract class AbstractFilterRule extends AbstractRule
      */
     private $additionalChars;
 
-    private $default;
 
     abstract protected function validateFilteredInput(string $input): bool;
 
@@ -38,8 +37,8 @@ abstract class AbstractFilterRule extends AbstractRule
      */
     public function __construct($default = null, string ...$additionalChars)
     {
+        parent::__construct($default);
         $this->additionalChars = implode($additionalChars);
-        $this->default = $default;
     }
 
     /**
@@ -47,9 +46,7 @@ abstract class AbstractFilterRule extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
 
         if (!is_scalar($input)) {
             return false;

@@ -40,6 +40,7 @@ final class Each extends AbstractRule
      */
     public function __construct(Validatable $rule)
     {
+        parent::__construct(null);
         $this->rule = $rule;
     }
 

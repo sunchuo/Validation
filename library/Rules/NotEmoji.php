@@ -201,6 +201,8 @@ final class NotEmoji extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
+
         if (!is_string($input)) {
             return false;
         }

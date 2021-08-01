@@ -36,8 +36,9 @@ final class Extension extends AbstractRule
     /**
      * Initializes the rule.
      */
-    public function __construct(string $extension)
+    public function __construct(string $extension, $default = null)
     {
+        parent::__construct($default);
         $this->extension = $extension;
     }
 
@@ -46,6 +47,7 @@ final class Extension extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
         if ($input instanceof SplFileInfo) {
             return $this->extension === $input->getExtension();
         }

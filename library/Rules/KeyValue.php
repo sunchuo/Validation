@@ -47,6 +47,7 @@ final class KeyValue extends AbstractRule
      */
     public function __construct($comparedKey, string $ruleName, $baseKey)
     {
+        parent::__construct(null);
         $this->comparedKey = $comparedKey;
         $this->ruleName = $ruleName;
         $this->baseKey = $baseKey;

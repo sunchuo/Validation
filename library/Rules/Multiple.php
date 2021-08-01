@@ -27,6 +27,7 @@ final class Multiple extends AbstractRule
 
     public function __construct(int $multipleOf)
     {
+        parent::__construct(null);
         $this->multipleOf = $multipleOf;
     }
 

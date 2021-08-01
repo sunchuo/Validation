@@ -45,6 +45,7 @@ final class Call extends AbstractRule
      */
     public function __construct(callable $callable, Validatable $rule)
     {
+        parent::__construct(null);
         $this->callable = $callable;
         $this->rule = $rule;
     }

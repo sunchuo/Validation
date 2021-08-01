@@ -29,6 +29,8 @@ final class Exists extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
+        
         if ($input instanceof SplFileInfo) {
             $input = $input->getPathname();
         }

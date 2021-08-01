@@ -32,6 +32,8 @@ final class NoWhitespace extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
+
         if (is_null($input)) {
             return true;
         }

@@ -41,8 +41,6 @@ final class Time extends AbstractRule
      */
     private $sample;
 
-    private $default;
-
     /**
      * Initializes the rule.
      *
@@ -50,24 +48,22 @@ final class Time extends AbstractRule
      */
     public function __construct(string $format = 'H:i:s', $default = null)
     {
+        parent::__construct($default);
         if (!preg_match('/^[gGhHisuvaA\W]+$/', $format)) {
             throw new ComponentException(sprintf('"%s" is not a valid date format', $format));
         }
 
         $this->format = $format;
         $this->sample = date($format, strtotime('23:59:59'));
-        $this->default = $default;
     }
+
 
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
-
+        $this->setDefault($input);
         if (!is_scalar($input)) {
             return false;
         }

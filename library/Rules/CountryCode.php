@@ -354,6 +354,7 @@ final class CountryCode extends AbstractSearcher
      */
     public function __construct($default = null, string $set = self::ALPHA2)
     {
+        parent::__construct($default);
         if (!isset(self::SET_INDEXES[$set])) {
             throw new ComponentException(
                 sprintf(
@@ -365,7 +366,6 @@ final class CountryCode extends AbstractSearcher
         }
 
         $this->set = $set;
-        $this->default = $default;
     }
 
     /**

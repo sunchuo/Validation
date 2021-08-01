@@ -63,7 +63,6 @@ final class CreditCard extends AbstractRule
      */
     private $brand;
 
-    private $default;
 
     /**
      * Initializes the rule.
@@ -72,6 +71,7 @@ final class CreditCard extends AbstractRule
      */
     public function __construct($default = null, string $brand = self::ANY)
     {
+        parent::__construct($default);
         if (!isset(self::BRAND_REGEX_LIST[$brand])) {
             throw new ComponentException(
                 sprintf(
@@ -91,9 +91,7 @@ final class CreditCard extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
 
         if (!is_scalar($input)) {
             return false;

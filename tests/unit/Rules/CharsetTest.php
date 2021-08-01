@@ -47,14 +47,14 @@ final class CharsetTest extends RuleTestCase
     public function providerForValidInput(): array
     {
         return [
-            [new Charset('UTF-8'), ''],
-            [new Charset('ISO-8859-1'), mb_convert_encoding('açaí', 'ISO-8859-1')],
-            [new Charset('UTF-8', 'ASCII'), 'strawberry'],
-            [new Charset('ASCII'), mb_convert_encoding('strawberry', 'ASCII')],
-            [new Charset('UTF-8'), '日本国'],
-            [new Charset('ISO-8859-1', 'EUC-JP'), '日本国'],
-            [new Charset('UTF-8'), 'açaí'],
-            [new Charset('ISO-8859-1'), 'açaí'],
+            [new Charset(null, 'UTF-8'), ''],
+            [new Charset(null, 'ISO-8859-1'), mb_convert_encoding('açaí', 'ISO-8859-1')],
+            [new Charset(null, 'UTF-8', 'ASCII'), 'strawberry'],
+            [new Charset(null, 'ASCII'), mb_convert_encoding('strawberry', 'ASCII')],
+            [new Charset(null, 'UTF-8'), '日本国'],
+            [new Charset(null, 'ISO-8859-1', 'EUC-JP'), '日本国'],
+            [new Charset(null, 'UTF-8'), 'açaí'],
+            [new Charset(null, 'ISO-8859-1'), 'açaí'],
         ];
     }
 
@@ -63,7 +63,7 @@ final class CharsetTest extends RuleTestCase
      */
     public function providerForInvalidInput(): array
     {
-        $rule = new Charset('ASCII');
+        $rule = new Charset(null, 'ASCII');
 
         return [
             [$rule, '日本国'],

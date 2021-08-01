@@ -25,22 +25,13 @@ use function is_numeric;
  */
 final class Number extends AbstractRule
 {
-    private $default;
-
-    public function __construct($default = null)
-    {
-        $this->default = $default;
-    }
 
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
-
+        $this->setDefault($input);
         if (!is_numeric($input)) {
             return false;
         }

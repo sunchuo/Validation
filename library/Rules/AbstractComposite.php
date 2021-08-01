@@ -39,6 +39,7 @@ abstract class AbstractComposite extends AbstractRule
      */
     public function __construct(Validatable ...$rules)
     {
+        parent::__construct(null);
         $this->rules = $rules;
     }
 
@@ -99,10 +100,6 @@ abstract class AbstractComposite extends AbstractRule
             array_map(
                 function (Validatable $rule) use (&$input): ?ValidationException {
                     try {
-                        echo "\n";
-                        echo get_class($rule)."\n";
-                        print_r($input);
-
                         $rule->assert($input);
                     } catch (ValidationException $exception) {
                         $this->updateExceptionTemplate($exception);
@@ -116,6 +113,7 @@ abstract class AbstractComposite extends AbstractRule
             )
         );
     }
+
 
     private function shouldHaveNameOverwritten(Validatable $rule): bool
     {

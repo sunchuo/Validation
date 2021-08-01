@@ -44,7 +44,7 @@ final class Zend extends AbstractRule
      */
     private $zendValidator;
 
-    private $default;
+
 
     /**
      * @param string|ValidatorInterface $validator
@@ -52,21 +52,18 @@ final class Zend extends AbstractRule
      *
      * @throws ComponentException
      */
-    public function __construct($validator, array $params = [], $default = null)
+    public function __construct($validator, array $params = [])
     {
+        parent::__construct(null);
         $this->zendValidator = $this->zendValidator($validator, $params);
-        $this->default = $default;
     }
+
 
     /**
      * {@inheritDoc}
      */
     public function assert(&$input): void
     {
-
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
 
         $validator = clone $this->zendValidator;
         if ($validator->isValid($input)) {
@@ -95,10 +92,6 @@ final class Zend extends AbstractRule
      */
     public function check(&$input): void
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
-
         $validator = clone $this->zendValidator;
         if ($validator->isValid($input)) {
             return;
@@ -116,9 +109,6 @@ final class Zend extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
 
         return (clone $this->zendValidator)->isValid($input);
     }

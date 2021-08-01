@@ -29,12 +29,7 @@ final class Imei extends AbstractRule
 {
     private const IMEI_SIZE = 15;
 
-    private $default;
 
-    public function __construct($default = null)
-    {
-        $this->default = $default;
-    }
 
     /**
      * @see https://en.wikipedia.org/wiki/International_Mobile_Station_Equipment_Identity
@@ -43,9 +38,7 @@ final class Imei extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
 
         if (!is_scalar($input)) {
             return false;

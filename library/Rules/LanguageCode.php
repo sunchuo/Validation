@@ -528,7 +528,6 @@ final class LanguageCode extends AbstractEnvelope
         // phpcs:enable Squiz.PHP.CommentedOutCode.Found
     ];
 
-    private $default;
 
     /**
      * Initializes the rule defining the ISO 639 set.
@@ -541,16 +540,14 @@ final class LanguageCode extends AbstractEnvelope
         if ($index === false) {
             throw new ComponentException(sprintf('"%s" is not a valid language set for ISO 639', $set));
         }
-        $this->default = $default;
-        parent::__construct(new In($this->getHaystack($index), true), ['set' => $set]);
+
+        parent::__construct(new In($this->getHaystack($index), true), ['set' => $set], $default);
     }
+
+
 
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
-
         return parent::validate($input);
     }
 

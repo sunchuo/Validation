@@ -31,6 +31,7 @@ final class FalseVal extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
         return filter_var($input, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) === false;
     }
 }

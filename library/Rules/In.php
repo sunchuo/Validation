@@ -44,6 +44,7 @@ final class In extends AbstractRule
      */
     public function __construct($haystack, bool $compareIdentical = false)
     {
+        parent::__construct(null);
         $this->haystack = $haystack;
         $this->compareIdentical = $compareIdentical;
     }

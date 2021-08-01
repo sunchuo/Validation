@@ -40,13 +40,13 @@ final class Base extends AbstractRule
      */
     private $base;
 
-    private $default;
-
     /**
      * Initializes the Base rule.
      */
-    public function __construct(int $base, ?string $default = null, ?string $chars = null)
+    public function __construct(int $base, $default = null, ?string $chars = null)
     {
+        parent::__construct($default);
+
         if (!is_null($chars)) {
             $this->chars = $chars;
         }
@@ -56,7 +56,6 @@ final class Base extends AbstractRule
             throw new ComponentException(sprintf('a base between 1 and %s is required', $max));
         }
         $this->base = $base;
-        $this->default = $default;
     }
 
     /**
@@ -64,9 +63,7 @@ final class Base extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
 
         $valid = mb_substr($this->chars, 0, $this->base);
 

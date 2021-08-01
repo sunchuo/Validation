@@ -35,7 +35,6 @@ final class Key extends AbstractRelated
         if (!is_scalar($reference) || $reference === '') {
             throw new ComponentException('Invalid array key name');
         }
-
         parent::__construct($reference, $rule, $mandatory);
     }
 

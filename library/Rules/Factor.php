@@ -34,8 +34,9 @@ final class Factor extends AbstractRule
     /**
      * Initializes the rule.
      */
-    public function __construct(int $dividend)
+    public function __construct(int $dividend, $default = null)
     {
+        parent::__construct($default);
         $this->dividend = $dividend;
     }
 
@@ -44,6 +45,7 @@ final class Factor extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
         // Every integer is a factor of zero, and zero is the only integer that
         // has zero for a factor.
         if ($this->dividend === 0) {

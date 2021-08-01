@@ -44,6 +44,7 @@ abstract class AbstractComparison extends AbstractRule
      */
     public function __construct($maxValue)
     {
+        parent::__construct(null);
         $this->compareTo = $maxValue;
     }
 

@@ -27,15 +27,13 @@ final class Instance extends AbstractRule
      */
     private $instanceName;
 
-    private $default;
-
     /**
      * Initializes the rule with the expected instance name.
      */
-    public function __construct(string $instanceName, $default = null)
+    public function __construct(string $instanceName)
     {
+        parent::__construct(null);
         $this->instanceName = $instanceName;
-        $this->default = $default;
     }
 
     /**
@@ -43,10 +41,6 @@ final class Instance extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
-
         return $input instanceof $this->instanceName;
     }
 }

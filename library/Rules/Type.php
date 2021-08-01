@@ -63,6 +63,8 @@ final class Type extends AbstractRule
      */
     public function __construct(string $type)
     {
+        parent::__construct(null);
+
         if (!isset(self::AVAILABLE_TYPES[$type])) {
             throw new ComponentException(
                 sprintf(

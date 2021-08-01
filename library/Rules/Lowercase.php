@@ -26,21 +26,14 @@ use function mb_strtolower;
  */
 final class Lowercase extends AbstractRule
 {
-    private $default;
-
-    public function __construct($default = null)
-    {
-        $this->default = $default;
-    }
 
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+
+        $this->setDefault($input);
 
         if (!is_string($input)) {
             return false;

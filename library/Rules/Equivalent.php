@@ -35,6 +35,7 @@ final class Equivalent extends AbstractRule
      */
     public function __construct($compareTo)
     {
+        parent::__construct(null);
         $this->compareTo = $compareTo;
     }
 

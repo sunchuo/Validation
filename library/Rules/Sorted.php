@@ -40,6 +40,8 @@ final class Sorted extends AbstractRule
 
     public function __construct(string $direction)
     {
+        parent::__construct(null);
+
         if ($direction !== self::ASCENDING && $direction !== self::DESCENDING) {
             throw new ComponentException(
                 sprintf('Direction should be either "%s" or "%s"', self::ASCENDING, self::DESCENDING)

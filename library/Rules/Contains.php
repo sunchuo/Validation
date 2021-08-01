@@ -45,8 +45,9 @@ final class Contains extends AbstractRule
      * @param mixed $containsValue Value that will be sought
      * @param bool $identical Defines whether the value is identical, default is false
      */
-    public function __construct($containsValue, bool $identical = false)
+    public function __construct($containsValue, bool $identical = false, $default = null)
     {
+        parent::__construct($default);
         $this->containsValue = $containsValue;
         $this->identical = $identical;
     }
@@ -56,6 +57,8 @@ final class Contains extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
+
         if (is_array($input)) {
             return in_array($this->containsValue, $input, $this->identical);
         }

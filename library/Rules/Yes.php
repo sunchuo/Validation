@@ -37,6 +37,7 @@ final class Yes extends AbstractRule
      */
     public function __construct(bool $useLocale = false)
     {
+        parent::__construct(null);
         $this->useLocale = $useLocale;
     }
 

@@ -42,7 +42,6 @@ final class Uuid extends AbstractRule
      */
     private $version;
 
-    private $default;
 
     /**
      * Initializes the rule with the desired version.
@@ -59,14 +58,12 @@ final class Uuid extends AbstractRule
         $this->default = $default;
     }
 
+
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
 
         if (!is_string($input)) {
             return false;

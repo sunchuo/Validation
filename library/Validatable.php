@@ -34,6 +34,11 @@ interface Validatable
 
     public function getName(): ?string;
 
+
+    public function getDefault();
+
+    public function setDefault(&$input): void;
+
     /**
      * @param mixed $input
      * @param mixed[] $extraParameters

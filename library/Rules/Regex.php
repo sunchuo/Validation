@@ -30,25 +30,24 @@ final class Regex extends AbstractRule
      */
     private $regex;
 
-    private $default;
 
     /**
      * Initializes the rule.
      */
     public function __construct(string $regex, $default = null)
     {
+        parent::__construct($default);
         $this->regex = $regex;
-        $this->default = $default;
     }
+
 
     /**
      * {@inheritDoc}
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
+
         if (!is_scalar($input)) {
             return false;
         }

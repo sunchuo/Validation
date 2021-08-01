@@ -36,6 +36,7 @@ final class Subset extends AbstractRule
      */
     public function __construct(array $superset)
     {
+        parent::__construct(null);
         $this->superset = $superset;
     }
 

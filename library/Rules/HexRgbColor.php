@@ -21,8 +21,8 @@ namespace Respect\Validation\Rules;
  */
 final class HexRgbColor extends AbstractEnvelope
 {
-    public function __construct()
+    public function __construct($default = null)
     {
-        parent::__construct(new Regex('/^#?([0-9A-F]{3}|[0-9A-F]{6})$/i'));
+        parent::__construct(new Regex('/^#?([0-9A-F]{3}|[0-9A-F]{6})$/i'), [], $default);
     }
 }

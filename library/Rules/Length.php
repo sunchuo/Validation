@@ -60,6 +60,8 @@ final class Length extends AbstractRule
      */
     public function __construct(?int $min = null, ?int $max = null, bool $inclusive = true)
     {
+        parent::__construct(null);
+
         $this->minValue = $min;
         $this->maxValue = $max;
         $this->inclusive = $inclusive;

@@ -51,14 +51,14 @@ final class Domain extends AbstractRule
      */
     private $partsRule;
 
-    private $default;
 
     public function __construct($default = null, bool $tldCheck = true)
     {
+        parent::__construct($default);
+
         $this->genericRule = $this->createGenericRule();
         $this->tldRule = $this->createTldRule($tldCheck);
         $this->partsRule = $this->createPartsRule();
-        $this->default = $default;
     }
 
     /**
@@ -66,9 +66,7 @@ final class Domain extends AbstractRule
      */
     public function assert(&$input): void
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
 
         $exceptions = [];
 

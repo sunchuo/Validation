@@ -57,6 +57,7 @@ abstract class AbstractAge extends AbstractRule
      */
     public function __construct(int $age, ?string $format = null)
     {
+        parent::__construct(null);
         $this->age = $age;
         $this->format = $format;
         $this->baseDate = (int) date('Ymd') - $this->age * 10000;

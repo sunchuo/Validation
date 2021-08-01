@@ -33,6 +33,7 @@ abstract class AbstractWrapper extends AbstractRule
      */
     public function __construct(Validatable $validatable)
     {
+        parent::__construct(null);
         $this->validatable = $validatable;
     }
 

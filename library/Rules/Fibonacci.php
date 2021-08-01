@@ -29,6 +29,8 @@ final class Fibonacci extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
+
         if (!is_numeric($input)) {
             return false;
         }

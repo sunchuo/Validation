@@ -37,7 +37,6 @@ final class Email extends AbstractRule
      */
     private $validator;
 
-    private $default;
 
     /**
      * Initializes the rule assigning the EmailValidator instance.
@@ -46,8 +45,8 @@ final class Email extends AbstractRule
      */
     public function __construct($default = null, ?EmailValidator $validator = null)
     {
+        parent::__construct($default);
         $this->validator = $validator ?: $this->createEmailValidator();
-        $this->default = $default;
     }
 
     /**
@@ -55,9 +54,7 @@ final class Email extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        if ($input === null && $this->default !== null) {
-            $input = $this->default;
-        }
+        $this->setDefault($input);
 
         if (!is_string($input)) {
             return false;

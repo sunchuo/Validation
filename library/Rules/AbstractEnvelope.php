@@ -41,8 +41,9 @@ abstract class AbstractEnvelope extends AbstractRule
      *
      * @param mixed[] $parameters
      */
-    public function __construct(Validatable $validatable, array $parameters = [])
+    public function __construct(Validatable $validatable, array $parameters = [], $default = null)
     {
+        parent::__construct($default);
         $this->validatable = $validatable;
         $this->parameters = $parameters;
     }
@@ -52,6 +53,7 @@ abstract class AbstractEnvelope extends AbstractRule
      */
     public function validate(&$input): bool
     {
+        $this->setDefault($input);
         return $this->validatable->validate($input);
     }
 
