@@ -103,6 +103,7 @@ abstract class AbstractRelated extends AbstractRule
     public function assert(&$input): void
     {
         $hasReference = $this->hasReference($input);
+
         if ($this->mandatory && !$hasReference) {
             throw $this->reportError($input, ['hasReference' => false]);
         }
@@ -112,8 +113,10 @@ abstract class AbstractRelated extends AbstractRule
         }
 
         try {
-            $params = $this->getReferenceValue($input);
-            $this->rule->assert($params);
+            $value = $this->getReferenceValue($input);
+            $this->rule->assert($value);
+            $input[$this->getReference()] = $value;
+
         } catch (ValidationException $validationException) {
             /** @var NestedValidationException $nestedValidationException */
             $nestedValidationException = $this->reportError($this->reference, ['hasReference' => true]);

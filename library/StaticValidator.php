@@ -91,7 +91,7 @@ interface StaticValidator
 
     public static function countryCode($default = null, ?string $set = null): ChainedValidator;
 
-    public static function currencyCode($default = null,): ChainedValidator;
+    public static function currencyCode($default = null): ChainedValidator;
 
     public static function cpf($default = null): ChainedValidator;
 
@@ -151,11 +151,11 @@ interface StaticValidator
 
     public static function finite(): ChainedValidator;
 
-    public static function floatVal(): ChainedValidator;
+    public static function floatVal($default = null): ChainedValidator;
 
-    public static function floatType(): ChainedValidator;
+    public static function floatType($default = null): ChainedValidator;
 
-    public static function graph(string ...$additionalChars): ChainedValidator;
+    public static function graph($default = null, string ...$additionalChars): ChainedValidator;
 
     /**
      * @param mixed $compareTo
@@ -164,7 +164,7 @@ interface StaticValidator
 
     public static function hexRgbColor(): ChainedValidator;
 
-    public static function iban(): ChainedValidator;
+    public static function iban($default = null): ChainedValidator;
 
     /**
      * @param mixed $compareTo
@@ -173,28 +173,28 @@ interface StaticValidator
 
     public static function image(?finfo $fileInfo = null): ChainedValidator;
 
-    public static function imei(): ChainedValidator;
+    public static function imei($default = null): ChainedValidator;
 
     /**
      * @param mixed[]|mixed $haystack
      */
     public static function in($haystack, bool $compareIdentical = false): ChainedValidator;
 
-    public static function infinite(): ChainedValidator;
+    public static function infinite($default = null): ChainedValidator;
 
-    public static function instance(string $instanceName): ChainedValidator;
+    public static function instance(string $instanceName, $default = null): ChainedValidator;
 
     public static function intVal($default = null): ChainedValidator;
 
     public static function intType($default = null): ChainedValidator;
 
-    public static function ip($default = null, string $range = '*', ?int $options = null): ChainedValidator;
+    public static function ip(string $range = '*', $default = null, ?int $options = null): ChainedValidator;
 
     public static function isbn($default = null): ChainedValidator;
 
-    public static function iterableType(): ChainedValidator;
+    public static function iterableType($default = null): ChainedValidator;
 
-    public static function json(): ChainedValidator;
+    public static function json($default = null): ChainedValidator;
 
     public static function key(
         string $reference,
@@ -212,24 +212,24 @@ interface StaticValidator
 
     public static function keyValue(string $comparedKey, string $ruleName, string $baseKey): ChainedValidator;
 
-    public static function languageCode(?string $set = null): ChainedValidator;
+    public static function languageCode($default = null, ?string $set = null): ChainedValidator;
 
-    public static function leapDate(string $format): ChainedValidator;
+    public static function leapDate(string $format, $default = null): ChainedValidator;
 
-    public static function leapYear(): ChainedValidator;
+    public static function leapYear($default = null): ChainedValidator;
 
     public static function length(?int $min = null, ?int $max = null, bool $inclusive = true): ChainedValidator;
 
-    public static function lowercase(): ChainedValidator;
+    public static function lowercase($default = null): ChainedValidator;
 
     /**
      * @param mixed $compareTo
      */
     public static function lessThan($compareTo): ChainedValidator;
 
-    public static function luhn(): ChainedValidator;
+    public static function luhn($default = null): ChainedValidator;
 
-    public static function macAddress(): ChainedValidator;
+    public static function macAddress($default = null): ChainedValidator;
 
     /**
      * @param mixed $compareTo
@@ -249,13 +249,13 @@ interface StaticValidator
 
     public static function multiple(int $multipleOf): ChainedValidator;
 
-    public static function negative(): ChainedValidator;
+    public static function negative($default = null): ChainedValidator;
 
-    public static function nfeAccessKey(): ChainedValidator;
+    public static function nfeAccessKey($default = null): ChainedValidator;
 
-    public static function nif(): ChainedValidator;
+    public static function nif($default = null): ChainedValidator;
 
-    public static function nip(): ChainedValidator;
+    public static function nip($default = null): ChainedValidator;
 
     public static function no(bool $useLocale = false): ChainedValidator;
 
@@ -277,70 +277,70 @@ interface StaticValidator
 
     public static function nullType(): ChainedValidator;
 
-    public static function number(): ChainedValidator;
+    public static function number($default = null): ChainedValidator;
 
-    public static function numericVal(): ChainedValidator;
+    public static function numericVal($default = null): ChainedValidator;
 
-    public static function objectType(): ChainedValidator;
+    public static function objectType($default = null): ChainedValidator;
 
-    public static function odd(): ChainedValidator;
+    public static function odd($default = null): ChainedValidator;
 
     public static function oneOf(Validatable ...$rule): ChainedValidator;
 
     public static function optional(Validatable $rule): ChainedValidator;
 
-    public static function perfectSquare(): ChainedValidator;
+    public static function perfectSquare($default = null): ChainedValidator;
 
-    public static function pesel(): ChainedValidator;
+    public static function pesel($default = null): ChainedValidator;
 
-    public static function phone(): ChainedValidator;
+    public static function phone($default = null): ChainedValidator;
 
-    public static function phpLabel(): ChainedValidator;
+    public static function phpLabel($default = null): ChainedValidator;
 
-    public static function pis(): ChainedValidator;
+    public static function pis($default = null): ChainedValidator;
 
-    public static function polishIdCard(): ChainedValidator;
+    public static function polishIdCard($default = null): ChainedValidator;
 
-    public static function positive(): ChainedValidator;
+    public static function positive($default = null): ChainedValidator;
 
-    public static function postalCode(string $countryCode): ChainedValidator;
+    public static function postalCode(string $countryCode, $default = null): ChainedValidator;
 
-    public static function primeNumber(): ChainedValidator;
+    public static function primeNumber($default = null): ChainedValidator;
 
-    public static function printable(string ...$additionalChars): ChainedValidator;
+    public static function printable($default = null, string ...$additionalChars): ChainedValidator;
 
-    public static function punct(string ...$additionalChars): ChainedValidator;
+    public static function punct($default = null, string ...$additionalChars): ChainedValidator;
 
-    public static function readable(): ChainedValidator;
+    public static function readable($default = null): ChainedValidator;
 
-    public static function regex(string $regex): ChainedValidator;
+    public static function regex(string $regex, $default = null): ChainedValidator;
 
-    public static function resourceType(): ChainedValidator;
+    public static function resourceType($default = null): ChainedValidator;
 
-    public static function roman(): ChainedValidator;
+    public static function roman($default = null): ChainedValidator;
 
-    public static function scalarVal(): ChainedValidator;
+    public static function scalarVal($default = null): ChainedValidator;
 
     public static function sf(Constraint $constraint, ?SymfonyValidator $validator = null): ChainedValidator;
 
     public static function size(?string $minSize = null, ?string $maxSize = null): ChainedValidator;
 
-    public static function slug(): ChainedValidator;
+    public static function slug($default = null): ChainedValidator;
 
     public static function sorted(string $direction): ChainedValidator;
 
-    public static function space(string ...$additionalChars): ChainedValidator;
+    public static function space($default = null, string ...$additionalChars): ChainedValidator;
 
     /**
      * @param mixed $startValue
      */
     public static function startsWith($startValue, bool $identical = false): ChainedValidator;
 
-    public static function stringType(): ChainedValidator;
+    public static function stringType($default = null): ChainedValidator;
 
-    public static function stringVal(): ChainedValidator;
+    public static function stringVal($default = null): ChainedValidator;
 
-    public static function subdivisionCode(string $countryCode): ChainedValidator;
+    public static function subdivisionCode(string $countryCode, $default = null): ChainedValidator;
 
     /**
      * @param mixed[] $superset
@@ -349,9 +349,9 @@ interface StaticValidator
 
     public static function symbolicLink(): ChainedValidator;
 
-    public static function time(string $format = 'H:i:s'): ChainedValidator;
+    public static function time(string $format = 'H:i:s', $default = null): ChainedValidator;
 
-    public static function tld(): ChainedValidator;
+    public static function tld($default = null): ChainedValidator;
 
     public static function trueVal(): ChainedValidator;
 
@@ -361,23 +361,23 @@ interface StaticValidator
 
     public static function uploaded(): ChainedValidator;
 
-    public static function uppercase(): ChainedValidator;
+    public static function uppercase($default = null): ChainedValidator;
 
-    public static function url(): ChainedValidator;
+    public static function url($default = null): ChainedValidator;
 
-    public static function uuid(?int $version = null): ChainedValidator;
+    public static function uuid($default = null, ?int $version = null): ChainedValidator;
 
-    public static function version(): ChainedValidator;
+    public static function version($default = null): ChainedValidator;
 
     public static function videoUrl(?string $service = null): ChainedValidator;
 
-    public static function vowel(string ...$additionalChars): ChainedValidator;
+    public static function vowel($default = null, string ...$additionalChars): ChainedValidator;
 
     public static function when(Validatable $if, Validatable $then, ?Validatable $else = null): ChainedValidator;
 
     public static function writable(): ChainedValidator;
 
-    public static function xdigit(string ...$additionalChars): ChainedValidator;
+    public static function xdigit($default = null, string ...$additionalChars): ChainedValidator;
 
     public static function yes(bool $useLocale = false): ChainedValidator;
 
@@ -385,5 +385,5 @@ interface StaticValidator
      * @param string|ZendValidator $validator
      * @param mixed[] $params
      */
-    public static function zend($validator, ?array $params = null): ChainedValidator;
+    public static function zend($validator, ?array $params = null, $default = null): ChainedValidator;
 }

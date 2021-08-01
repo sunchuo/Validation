@@ -99,6 +99,10 @@ abstract class AbstractComposite extends AbstractRule
             array_map(
                 function (Validatable $rule) use (&$input): ?ValidationException {
                     try {
+                        echo "\n";
+                        echo get_class($rule)."\n";
+                        print_r($input);
+
                         $rule->assert($input);
                     } catch (ValidationException $exception) {
                         $this->updateExceptionTemplate($exception);
