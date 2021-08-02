@@ -53,6 +53,15 @@ final class KeySet extends AbstractWrapper
         parent::__construct(new AllOf(...$this->keyRules));
     }
 
+    public function getDefault()
+    {
+        $default = [];
+        foreach ($this->keyRules as $keyRule) {
+            $default[$keyRule->getReference()] = $keyRule->getDefault();
+        }
+        return $default;
+    }
+
     /**
      * {@inheritDoc}
      */

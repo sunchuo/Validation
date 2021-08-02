@@ -38,6 +38,7 @@ final class Key extends AbstractRelated
         parent::__construct($reference, $rule, $mandatory);
     }
 
+
     /**
      * {@inheritDoc}
      */
