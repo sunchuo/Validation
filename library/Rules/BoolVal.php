@@ -33,7 +33,7 @@ final class BoolVal extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         return is_bool(filter_var($input, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE));
     }
 }

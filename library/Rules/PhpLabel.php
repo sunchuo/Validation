@@ -30,7 +30,7 @@ final class PhpLabel extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         return is_string($input) && preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $input);
     }
 }

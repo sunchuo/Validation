@@ -33,7 +33,7 @@ final class PrimeNumber extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         if (!is_numeric($input) || $input <= 1) {
             return false;

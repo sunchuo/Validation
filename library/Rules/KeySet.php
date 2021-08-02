@@ -123,11 +123,13 @@ final class KeySet extends AbstractWrapper
         }
 
         foreach ($this->keyRules as $keyRule) {
-            if (!array_key_exists($keyRule->getReference(), $input) && $keyRule->isMandatory()) {
+            if (!array_key_exists($keyRule->getReference(), $input) && $keyRule->isMandatory() && is_null($keyRule->getDefault())) {
                 return false;
             }
 
-            unset($input[$keyRule->getReference()]);
+            if (array_key_exists($keyRule->getReference(), $input)) {
+                unset($input[$keyRule->getReference()]);
+            }
         }
 
         return count($input) == 0;

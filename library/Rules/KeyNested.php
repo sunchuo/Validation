@@ -68,6 +68,11 @@ final class KeyNested extends AbstractRelated
         return $value;
     }
 
+
+    public function setReferenceValue(&$input, &$value)
+    {
+    }
+
     /**
      * @return string[]
      */

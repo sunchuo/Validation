@@ -39,7 +39,7 @@ final class Nif extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         if (!is_string($input)) {
             return false;

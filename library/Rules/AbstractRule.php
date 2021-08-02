@@ -86,7 +86,7 @@ abstract class AbstractRule implements Validatable
     /**
      * @param mixed $input
      */
-    public function setDefault(&$input): void
+    public function setInputDefaultValue(&$input): void
     {
         if ($input === null && $this->default !== null) {
             $input = $this->default;

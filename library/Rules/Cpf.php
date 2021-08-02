@@ -35,7 +35,7 @@ final class Cpf extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         // Code ported from jsfromhell.com
         $c = preg_replace('/\D/', '', $input);

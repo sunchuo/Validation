@@ -53,7 +53,7 @@ abstract class AbstractEnvelope extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         return $this->validatable->validate($input);
     }
 

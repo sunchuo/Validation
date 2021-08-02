@@ -33,7 +33,7 @@ final class Bsn extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         if (!ctype_digit($input)) {
             return false;

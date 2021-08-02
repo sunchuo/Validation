@@ -35,7 +35,7 @@ final class ArrayVal extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         return is_array($input) || $input instanceof ArrayAccess || $input instanceof SimpleXMLElement;
     }
 }

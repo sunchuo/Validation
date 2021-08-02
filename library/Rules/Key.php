@@ -43,7 +43,12 @@ final class Key extends AbstractRelated
      */
     public function getReferenceValue($input)
     {
-        return $input[$this->getReference()];
+        return $input[$this->getReference()] ?? $this->getDefault();
+    }
+
+    public function setReferenceValue(&$input, &$value)
+    {
+        $input[$this->getReference()] = $value;
     }
 
     /**
@@ -51,6 +56,6 @@ final class Key extends AbstractRelated
      */
     public function hasReference($input): bool
     {
-        return is_array($input) && array_key_exists($this->getReference(), $input);
+        return is_array($input) && array_key_exists($this->getReference(), $input) || $this->getDefault() !== null;
     }
 }

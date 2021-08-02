@@ -37,6 +37,11 @@ abstract class AbstractWrapper extends AbstractRule
         $this->validatable = $validatable;
     }
 
+    public function getDefault()
+    {
+        return $this->validatable->getDefault();
+    }
+
     /**
      * {@inheritDoc}
      */

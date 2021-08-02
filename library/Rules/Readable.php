@@ -33,7 +33,7 @@ final class Readable extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         if ($input instanceof SplFileInfo) {
             return $input->isReadable();

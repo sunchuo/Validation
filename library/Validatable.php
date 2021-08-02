@@ -37,7 +37,7 @@ interface Validatable
 
     public function getDefault();
 
-    public function setDefault(&$input): void;
+    public function setInputDefaultValue(&$input): void;
 
     /**
      * @param mixed $input

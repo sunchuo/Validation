@@ -61,6 +61,17 @@ abstract class AbstractComposite extends AbstractRule
         return parent::setName($name);
     }
 
+    public function getDefault()
+    {
+        foreach ($this->rules as $rule) {
+            $default = $rule->getDefault();
+            if ($default !== null) {
+                return $default;
+            }
+        }
+        return null;
+    }
+
     /**
      * Append a rule into the stack of rules.
      *

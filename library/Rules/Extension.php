@@ -47,7 +47,7 @@ final class Extension extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         if ($input instanceof SplFileInfo) {
             return $this->extension === $input->getExtension();
         }

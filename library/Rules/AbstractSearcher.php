@@ -37,7 +37,7 @@ abstract class AbstractSearcher extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         $dataSource = $this->getDataSource();
         if ($this->isUndefined($input) && empty($dataSource)) {
             return true;

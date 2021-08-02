@@ -66,7 +66,7 @@ final class Domain extends AbstractRule
      */
     public function assert(&$input): void
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         $exceptions = [];
 

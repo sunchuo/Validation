@@ -39,7 +39,7 @@ final class NfeAccessKey extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         if (mb_strlen($input) !== 44) {
             return false;

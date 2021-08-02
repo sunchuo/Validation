@@ -39,7 +39,7 @@ final class LeapYear extends AbstractRule
     public function validate(&$input): bool
     {
 
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         if (is_numeric($input)) {
             $date = strtotime(sprintf('%d-02-29', (int) $input));

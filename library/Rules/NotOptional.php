@@ -32,7 +32,7 @@ final class NotOptional extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         return $this->isUndefined($input) === false;
     }
 }

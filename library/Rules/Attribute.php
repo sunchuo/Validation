@@ -47,6 +47,11 @@ final class Attribute extends AbstractRelated
         return $propertyMirror->getValue($input);
     }
 
+
+    public function setReferenceValue(&$input, &$value)
+    {
+    }
+
     /**
      * {@inheritDoc}
      */

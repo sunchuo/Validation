@@ -34,7 +34,7 @@ final class FloatVal extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         return is_float(filter_var($input, FILTER_VALIDATE_FLOAT));
     }
 }

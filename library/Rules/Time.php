@@ -63,7 +63,7 @@ final class Time extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         if (!is_scalar($input)) {
             return false;
         }

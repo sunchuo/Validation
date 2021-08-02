@@ -30,7 +30,7 @@ final class StringVal extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         return is_scalar($input) || (is_object($input) && method_exists($input, '__toString'));
     }
 }

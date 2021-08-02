@@ -32,7 +32,7 @@ final class Slug extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         if (!is_string($input) || mb_strstr($input, '--')) {
             return false;

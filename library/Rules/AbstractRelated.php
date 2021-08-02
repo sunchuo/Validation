@@ -18,6 +18,7 @@ use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validatable;
 
 use function is_scalar;
+use function PHPStan\dumpType;
 
 /**
  * @author Alexandre Gomes Gaigalas <alexandre@gaigalas.net>
@@ -85,6 +86,14 @@ abstract class AbstractRelated extends AbstractRule
         return $this->mandatory;
     }
 
+    public function getDefault()
+    {
+        if ($this->rule instanceof Validatable) {
+            return $this->rule->getDefault();
+        }
+        return null;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -117,6 +126,7 @@ abstract class AbstractRelated extends AbstractRule
         try {
             $value = $this->getReferenceValue($input);
             $this->rule->assert($value);
+            $this->setReferenceValue($input, $value);
 
         } catch (ValidationException $validationException) {
             /** @var NestedValidationException $nestedValidationException */
@@ -133,6 +143,7 @@ abstract class AbstractRelated extends AbstractRule
     public function check(&$input): void
     {
         $hasReference = $this->hasReference($input);
+
         if ($this->mandatory && !$hasReference) {
             throw $this->reportError($input, ['hasReference' => false]);
         }
@@ -141,8 +152,9 @@ abstract class AbstractRelated extends AbstractRule
             return;
         }
 
-        $params = $this->getReferenceValue($input);
-        $this->rule->check($params);
+        $value = $this->getReferenceValue($input);
+        $this->rule->check($value);
+        $this->setReferenceValue($input, $value);
     }
 
     /**
@@ -159,8 +171,10 @@ abstract class AbstractRelated extends AbstractRule
             return true;
         }
 
-        $params = $this->getReferenceValue($input);
+        $value = $this->getReferenceValue($input);
+        $result =  $this->rule->validate($value);
+        $this->setReferenceValue($input, $value);
 
-        return $this->rule->validate($params);
+        return $result;
     }
 }

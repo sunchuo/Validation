@@ -45,7 +45,7 @@ final class Factor extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         // Every integer is a factor of zero, and zero is the only integer that
         // has zero for a factor.
         if ($this->dividend === 0) {

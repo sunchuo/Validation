@@ -57,7 +57,7 @@ final class Contains extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         if (is_array($input)) {
             return in_array($this->containsValue, $input, $this->identical);

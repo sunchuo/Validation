@@ -27,7 +27,7 @@ final class ResourceType extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
 
         return is_resource($input);
     }

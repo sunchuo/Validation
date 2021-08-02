@@ -31,7 +31,7 @@ final class IterableType extends AbstractRule
      */
     public function validate(&$input): bool
     {
-        $this->setDefault($input);
+        $this->setInputDefaultValue($input);
         return $this->isIterable($input);
     }
 }
