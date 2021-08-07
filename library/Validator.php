@@ -95,7 +95,7 @@ use function count;
  * @method Validator json($default = null)
  * @method Validator key(string $reference, ?Validatable $referenceValidator = null, bool $mandatory = true)
  * @method Validator keyNested(string $reference, ?Validatable $referenceValidator = null, bool $mandatory = true)
- * @method Validator keySet(Key ...$rule)
+ * @method Validator keySet(Validatable ...$rule)
  * @method Validator keyValue(string $comparedKey, string $ruleName, string $baseKey)
  * @method Validator languageCode($default = null, ?string $set = null)
  * @method Validator leapDate(string $format, $default = null)
